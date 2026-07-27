@@ -114,7 +114,6 @@
             display: block;
         }
 
-        /* ---------- Main content (title at top) ---------- */
         .content {
             position: relative;
             z-index: 2;
@@ -156,7 +155,7 @@
             text-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
         }
 
-        /* ---------- Menu button (top right) - icon only ---------- */
+        /* ---------- Menu button (top right) - icon only, no box-shadow ---------- */
         .menu-btn {
             position: fixed;
             top: 20px;
@@ -167,7 +166,7 @@
             backdrop-filter: blur(4px);
             border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 40px;
-            padding: 0.6rem 0.9rem;   /* reduced horizontal padding */
+            padding: 0.6rem 0.9rem;
             font-family: 'Burbank Big Condensed', sans-serif;
             font-weight: 700;
             font-size: 1.1rem;
@@ -175,7 +174,7 @@
             color: #fff;
             cursor: pointer;
             transition: all 0.25s ease;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            /* box-shadow removed */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -427,7 +426,7 @@
         <canvas id="three-canvas"></canvas>
     </div>
 
-    <!-- Menu button (top right) – icon only -->
+    <!-- Menu button (top right) – icon only, no shadow -->
     <button class="menu-btn" id="menuBtn" aria-label="Menu">
         <i class="fas fa-bars"></i>
     </button>
