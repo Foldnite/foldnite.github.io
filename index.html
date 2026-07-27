@@ -53,7 +53,7 @@
             display: none;
         }
 
-        /* ---------- Animated digital grid (background) ---------- */
+        /* ---------- Animated digital grid (background - grayscale) ---------- */
         #grid-bg {
             position: fixed;
             top: 0;
@@ -61,10 +61,8 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            background:
-                radial-gradient(ellipse at 20% 50%, rgba(0, 100, 255, 0.12) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 50%, rgba(255, 0, 200, 0.08) 0%, transparent 60%),
-                linear-gradient(135deg, #0b0e1a 0%, #141b2b 50%, #0b0e1a 100%);
+            /* Grayscale gradient from dark gray to almost black */
+            background: linear-gradient(145deg, #1a1a1a 0%, #2a2a2a 50%, #151515 100%);
             overflow: hidden;
             pointer-events: none;
         }
@@ -75,9 +73,10 @@
             left: 0;
             width: 200%;
             height: 200%;
+            /* Light gray grid lines with very low opacity */
             background-image:
-                linear-gradient(rgba(0, 180, 255, 0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 180, 255, 0.04) 1px, transparent 1px);
+                linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
             background-size: 60px 60px;
             animation: gridMove 20s linear infinite;
             transform-origin: center center;
@@ -89,9 +88,10 @@
             left: 0;
             width: 200%;
             height: 200%;
+            /* Slightly different grid for depth */
             background-image:
-                linear-gradient(rgba(0, 255, 200, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(0, 255, 200, 0.02) 1px, transparent 1px);
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
             background-size: 120px 120px;
             animation: gridMove 30s linear infinite reverse;
             transform-origin: center center;
@@ -147,6 +147,7 @@
             font-size: clamp(3rem, 12vw, 7rem);
             letter-spacing: 4px;
             line-height: 0.9;
+            /* Keep the gradient colorful – it's the brand */
             background: linear-gradient(135deg, #00b4ff 0%, #7b2ffc 50%, #ff2d95 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -180,17 +181,17 @@
             text-align: center;
             position: relative;
             padding: 1.2rem 2rem 1.5rem;
-            background: rgba(11, 14, 26, 0.65);
+            background: rgba(20, 20, 20, 0.75); /* darker gray with transparency */
             backdrop-filter: blur(6px);
-            border: 1px solid rgba(0, 180, 255, 0.12);
+            border: 1px solid rgba(255, 255, 255, 0.08); /* subtle white border */
             /* Beveled bottom corners (Fortnite style) */
             clip-path: polygon(0% 0%, 100% 0%, 94% 100%, 6% 100%);
             transition: all 0.25s ease;
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
         }
         .section-group:hover {
-            background: rgba(11, 14, 26, 0.8);
-            border-color: rgba(0, 180, 255, 0.25);
+            background: rgba(30, 30, 30, 0.85);
+            border-color: rgba(255, 255, 255, 0.15);
             transform: scale(1.02);
         }
 
@@ -199,11 +200,11 @@
             font-weight: 700;
             font-size: clamp(1.2rem, 2.5vw, 2rem);
             letter-spacing: 3px;
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.85);
             text-transform: uppercase;
             margin-bottom: 0.8rem;
             display: inline-block;
-            border-bottom: 2px solid rgba(0, 180, 255, 0.25);
+            border-bottom: 2px solid rgba(255, 255, 255, 0.15);
             padding-bottom: 0.2rem;
         }
 
@@ -229,8 +230,8 @@
         }
         .platform-item i {
             font-size: clamp(1.2rem, 2vw, 1.8rem);
-            color: #00b4ff;
-            opacity: 0.6;
+            color: #aaaaaa; /* gray icons */
+            opacity: 0.7;
             transition: opacity 0.2s, color 0.2s;
             width: 1.8rem;
             text-align: center;
@@ -240,7 +241,7 @@
         }
         .platform-item:hover i {
             opacity: 1;
-            color: #ff2d95;
+            color: #ffffff; /* white on hover */
         }
 
         /* ---------- Responsive ---------- */
@@ -292,7 +293,7 @@
 </head>
 <body>
 
-    <!-- Animated grid background -->
+    <!-- Animated grid background (grayscale) -->
     <div id="grid-bg"></div>
 
     <!-- 3D container (no borders) -->
@@ -314,7 +315,7 @@
 
             <!-- PLAY section -->
             <div class="section-group">
-                <div class="label"><i class="fas fa-gamepad" style="margin-right:0.5rem;color:#ff2d95;"></i>ИГРАТЬ</div>
+                <div class="label"><i class="fas fa-gamepad" style="margin-right:0.5rem;color:#aaaaaa;"></i>ИГРАТЬ</div>
                 <div class="platform-list">
                     <span class="platform-item"><i class="fab fa-amazon"></i> Amazon Luna</span>
                     <span class="platform-item"><i class="fab fa-xbox"></i> Xbox Cloud</span>
@@ -324,7 +325,7 @@
 
             <!-- DOWNLOAD ON section -->
             <div class="section-group">
-                <div class="label"><i class="fas fa-download" style="margin-right:0.5rem;color:#00b4ff;"></i>ЗАГРУЗИТЬ НА</div>
+                <div class="label"><i class="fas fa-download" style="margin-right:0.5rem;color:#aaaaaa;"></i>ЗАГРУЗИТЬ НА</div>
                 <div class="platform-list">
                     <span class="platform-item"><i class="fab fa-playstation"></i> PlayStation</span>
                     <span class="platform-item"><i class="fab fa-xbox"></i> Xbox</span>
@@ -369,30 +370,30 @@
             renderer.toneMapping = THREE.ACESFilmicToneMapping;
             renderer.toneMappingExposure = 1.2;
 
-            // --- Lighting ---
+            // --- Lighting (keep colors for the model, but can be neutral) ---
             const ambient = new THREE.AmbientLight(0x404060, 0.6);
             scene.add(ambient);
 
-            const key = new THREE.DirectionalLight(0x00b4ff, 1.8);
+            const key = new THREE.DirectionalLight(0xffffff, 1.8);
             key.position.set(3, 5, 4);
             key.castShadow = true;
             key.shadow.mapSize.width = 1024;
             key.shadow.mapSize.height = 1024;
             scene.add(key);
 
-            const fill = new THREE.DirectionalLight(0xff2d95, 0.8);
+            const fill = new THREE.DirectionalLight(0xcccccc, 0.8);
             fill.position.set(-3, 2, 2);
             scene.add(fill);
 
-            const rim = new THREE.DirectionalLight(0x8af0ff, 0.6);
+            const rim = new THREE.DirectionalLight(0x888888, 0.6);
             rim.position.set(0, -1, -5);
             scene.add(rim);
 
-            const back = new THREE.DirectionalLight(0x7b2ffc, 0.4);
+            const back = new THREE.DirectionalLight(0x666666, 0.4);
             back.position.set(-2, 1, -4);
             scene.add(back);
 
-            const hemi = new THREE.HemisphereLight(0x00b4ff, 0xff2d95, 0.4);
+            const hemi = new THREE.HemisphereLight(0xaaaaaa, 0x444444, 0.4);
             scene.add(hemi);
 
             // --- Invisible ground plane for shadows ---
@@ -419,10 +420,10 @@
 
                 const bodyGeo = new THREE.CylinderGeometry(0.6, 0.7, 1.8, 12);
                 const bodyMat = new THREE.MeshStandardMaterial({
-                    color: 0x00b4ff,
-                    roughness: 0.3,
-                    metalness: 0.6,
-                    emissive: 0x002244,
+                    color: 0x888888,
+                    roughness: 0.4,
+                    metalness: 0.5,
+                    emissive: 0x222222,
                     emissiveIntensity: 0.2,
                 });
                 const body = new THREE.Mesh(bodyGeo, bodyMat);
@@ -433,11 +434,11 @@
 
                 const headGeo = new THREE.SphereGeometry(0.38, 16, 16);
                 const headMat = new THREE.MeshStandardMaterial({
-                    color: 0xff2d95,
-                    roughness: 0.2,
-                    metalness: 0.4,
-                    emissive: 0x440011,
-                    emissiveIntensity: 0.15,
+                    color: 0xaaaaaa,
+                    roughness: 0.3,
+                    metalness: 0.3,
+                    emissive: 0x333333,
+                    emissiveIntensity: 0.1,
                 });
                 const head = new THREE.Mesh(headGeo, headMat);
                 head.position.y = 1.9;
@@ -446,7 +447,7 @@
                 group.add(head);
 
                 const armMat = new THREE.MeshStandardMaterial({
-                    color: 0x7b2ffc,
+                    color: 0x999999,
                     roughness: 0.4,
                     metalness: 0.3,
                 });
@@ -460,7 +461,7 @@
                 }
 
                 const legMat = new THREE.MeshStandardMaterial({
-                    color: 0x2a3a6a,
+                    color: 0x666666,
                     roughness: 0.5,
                     metalness: 0.1,
                 });
@@ -474,9 +475,9 @@
 
                 const ringGeo = new THREE.TorusGeometry(0.7, 0.03, 12, 24);
                 const ringMat = new THREE.MeshStandardMaterial({
-                    color: 0x00b4ff,
-                    emissive: 0x00b4ff,
-                    emissiveIntensity: 0.6,
+                    color: 0xaaaaaa,
+                    emissive: 0x444444,
+                    emissiveIntensity: 0.4,
                     transparent: true,
                     opacity: 0.5,
                 });
@@ -509,6 +510,8 @@
                             if (child.material) {
                                 child.material.roughness = 0.4;
                                 child.material.metalness = 0.1;
+                                // Desaturate colors slightly for grayscale feel?
+                                // But we keep original colors – only background is grayscale.
                             }
                         }
                     });
