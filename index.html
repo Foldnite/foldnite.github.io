@@ -4,18 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fortnite Science</title>
-
-    <!-- Font Awesome 6 (free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
-    <!-- Three.js + extensions -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js">
     </script>
-
     <style>
         @font-face {
             font-family: 'Burbank Big Condensed';
@@ -31,14 +26,11 @@
             font-style: normal;
             font-display: swap;
         }
-
-        /* ---------- Reset ---------- */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         html,
         body {
             width: 100%;
@@ -51,8 +43,6 @@
         body::-webkit-scrollbar {
             display: none;
         }
-
-        /* ---------- Animated digital grid (grayscale background) ---------- */
         #grid-bg {
             position: fixed;
             top: 0;
@@ -71,9 +61,7 @@
             left: 0;
             width: 200%;
             height: 200%;
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+            background-image: linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
             background-size: 60px 60px;
             animation: gridMove 20s linear infinite;
             transform-origin: center center;
@@ -85,9 +73,7 @@
             left: 0;
             width: 200%;
             height: 200%;
-            background-image:
-                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-image: linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
             background-size: 120px 120px;
             animation: gridMove 30s linear infinite reverse;
             transform-origin: center center;
@@ -100,8 +86,6 @@
                 transform: translate(60px, 60px) rotate(0.5deg);
             }
         }
-
-        /* ---------- 3D container (full screen, no borders) ---------- */
         #three-container {
             position: fixed;
             top: 0;
@@ -117,8 +101,6 @@
             height: 100%;
             display: block;
         }
-
-        /* ---------- Main content (title at top) ---------- */
         .content {
             position: relative;
             z-index: 2;
@@ -131,7 +113,6 @@
             padding: 4vh 5vw 0;
             pointer-events: none;
         }
-
         .title-block {
             text-align: center;
             pointer-events: none;
@@ -159,41 +140,30 @@
             margin-top: -0.3em;
             text-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
         }
-
-        /* ---------- Menu button (top right) - icon only, no box-shadow ---------- */
         .menu-btn {
             position: fixed;
             top: 20px;
             right: 25px;
             z-index: 10;
             pointer-events: auto;
-            background: rgba(30, 30, 30, 0.7);
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 40px;
-            padding: 0.6rem 0.9rem;
-            font-family: 'Burbank Big Condensed', sans-serif;
-            font-weight: 700;
-            font-size: 1.1rem;
-            letter-spacing: 2px;
-            color: #fff;
+            background: transparent;
+            border: none;
+            padding: 0;
             cursor: pointer;
-            transition: all 0.25s ease;
+            transition: transform 0.2s ease;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 2rem;
+            color: rgba(255, 255, 255, 0.6);
         }
         .menu-btn:hover {
-            background: rgba(50, 50, 50, 0.85);
-            border-color: rgba(255, 255, 255, 0.3);
-            transform: scale(1.05);
+            transform: scale(1.15);
+            color: #ffffff;
         }
         .menu-btn i {
-            font-size: 1.4rem;
-            color: #aaa;
+            font-size: inherit;
         }
-
-        /* ---------- Modal overlay ---------- */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -211,8 +181,6 @@
         .modal-overlay.active {
             display: flex;
         }
-
-        /* ---------- Modal panel (beveled) ---------- */
         .modal-panel {
             background: rgba(20, 20, 20, 0.85);
             backdrop-filter: blur(12px);
@@ -238,7 +206,6 @@
             background: rgba(255, 255, 255, 0.2);
             border-radius: 10px;
         }
-
         .modal-close {
             position: absolute;
             top: 15px;
@@ -255,8 +222,6 @@
         .modal-close:hover {
             color: #fff;
         }
-
-        /* sections inside modal */
         .modal-panel .bottom-sections {
             display: flex;
             flex-wrap: wrap;
@@ -327,8 +292,6 @@
             opacity: 1;
             color: #ffffff;
         }
-
-        /* ---------- GitHub link (bottom center) ---------- */
         .github-link {
             position: fixed;
             bottom: 25px;
@@ -345,15 +308,12 @@
             color: #ffffff;
             transform: translateX(-50%) scale(1.1);
         }
-
-        /* ---------- Responsive ---------- */
         @media (max-width: 768px) {
-            /* Make title block significantly larger on mobile */
             .title-block {
-                margin-top: 2vh;  /* a bit more space */
+                margin-top: 2vh;
             }
             .title-block h1 {
-                font-size: clamp(4rem, 18vw, 9rem);  /* bigger */
+                font-size: clamp(4rem, 18vw, 9rem);
                 letter-spacing: 6px;
             }
             .title-block .sub {
@@ -364,7 +324,6 @@
             .content {
                 padding-top: 6vh;
             }
-
             .modal-panel {
                 padding: 1.8rem 1.5rem 2rem;
                 clip-path: polygon(0% 0%, 100% 0%, 96% 100%, 4% 100%);
@@ -387,19 +346,15 @@
                 font-size: 0.95rem;
             }
             .menu-btn {
-                padding: 0.4rem 0.7rem;
+                font-size: 1.8rem;
                 right: 15px;
                 top: 15px;
-            }
-            .menu-btn i {
-                font-size: 1.2rem;
             }
             .github-link {
                 font-size: 1.6rem;
                 bottom: 18px;
             }
         }
-
         @media (max-width: 480px) {
             .title-block h1 {
                 font-size: clamp(3.8rem, 20vw, 8rem);
@@ -412,7 +367,6 @@
             .content {
                 padding-top: 5vh;
             }
-
             .modal-panel {
                 padding: 1.2rem 0.8rem 1.5rem;
                 clip-path: polygon(0% 0%, 100% 0%, 97% 100%, 3% 100%);
@@ -430,12 +384,9 @@
                 width: 1.4rem;
             }
             .menu-btn {
-                padding: 0.3rem 0.5rem;
+                font-size: 1.5rem;
                 right: 10px;
                 top: 10px;
-            }
-            .menu-btn i {
-                font-size: 1.1rem;
             }
             .github-link {
                 font-size: 1.4rem;
@@ -445,28 +396,17 @@
     </style>
 </head>
 <body>
-
-    <!-- Animated grid background (grayscale) -->
     <div id="grid-bg"></div>
-
-    <!-- 3D container -->
     <div id="three-container">
         <canvas id="three-canvas"></canvas>
     </div>
-
-    <!-- Menu button (top right) – icon only, no shadow -->
     <button class="menu-btn" id="menuBtn" aria-label="Menu">
         <i class="fas fa-bars"></i>
     </button>
-
-    <!-- Modal overlay -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-panel">
             <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
-
             <div class="bottom-sections">
-
-                <!-- PLAY section -->
                 <div class="section-group">
                     <div class="label"><i class="fas fa-gamepad" style="margin-right:0.5rem;color:#aaaaaa;"></i>PLAY</div>
                     <div class="platform-list">
@@ -475,8 +415,6 @@
                         <span class="platform-item"><i class="fas fa-bolt"></i> GeForce NOW</span>
                     </div>
                 </div>
-
-                <!-- DOWNLOAD ON section -->
                 <div class="section-group">
                     <div class="label"><i class="fas fa-download" style="margin-right:0.5rem;color:#aaaaaa;"></i>DOWNLOAD ON</div>
                     <div class="platform-list">
@@ -489,46 +427,31 @@
                         <span class="platform-item"><i class="fab fa-google-play"></i> Google Play</span>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
-
-    <!-- Main content – title at top -->
     <div class="content">
         <div class="title-block">
             <h1>FORTNITE</h1>
             <div class="sub">SCIENCE</div>
         </div>
     </div>
-
-    <!-- GitHub link (bottom center) -->
     <a href="https://github.com/qfoldit" target="_blank" class="github-link" aria-label="GitHub">
         <i class="fab fa-github"></i>
     </a>
-
-    <!-- ============================================================ -->
-    <!-- Three.js – load and display the mannequin                     -->
-    <!-- ============================================================ -->
     <script>
         (function() {
-            const container = document.getElementById('three-container');
-            const canvas = document.getElementById('three-canvas');
-
-            // --- Scene ---
-            const scene = new THREE.Scene();
-            scene.background = null; // transparent
-
-            // --- Camera ---
-            const camera = new THREE.PerspectiveCamera(30, container.clientWidth / container.clientHeight, 0.1, 1000);
-            camera.position.set(0, 1.8, 4.2);
-            camera.lookAt(0, 1.2, 0);
-
-            // --- Renderer ---
-            const renderer = new THREE.WebGLRenderer({
+            var container = document.getElementById('three-container');
+            var canvas = document.getElementById('three-canvas');
+            var scene = new THREE.Scene();
+            scene.background = null;
+            var camera = new THREE.PerspectiveCamera(30, container.clientWidth / container.clientHeight, 0.1, 1000);
+            camera.position.set(0, 0.5, 5);
+            camera.lookAt(0, 0, 0);
+            var renderer = new THREE.WebGLRenderer({
                 canvas: canvas,
                 alpha: true,
-                antialias: true,
+                antialias: true
             });
             renderer.setSize(container.clientWidth, container.clientHeight);
             renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -536,170 +459,138 @@
             renderer.shadowMap.type = THREE.PCFSoftShadowMap;
             renderer.toneMapping = THREE.ACESFilmicToneMapping;
             renderer.toneMappingExposure = 1.2;
-
-            // --- Lighting ---
-            const ambient = new THREE.AmbientLight(0x404060, 0.6);
+            var ambient = new THREE.AmbientLight(0x404060, 0.6);
             scene.add(ambient);
-
-            const key = new THREE.DirectionalLight(0xffffff, 1.8);
+            var key = new THREE.DirectionalLight(0xffffff, 1.8);
             key.position.set(3, 5, 4);
             key.castShadow = true;
             key.shadow.mapSize.width = 1024;
             key.shadow.mapSize.height = 1024;
             scene.add(key);
-
-            const fill = new THREE.DirectionalLight(0xcccccc, 0.8);
+            var fill = new THREE.DirectionalLight(0xcccccc, 0.8);
             fill.position.set(-3, 2, 2);
             scene.add(fill);
-
-            const rim = new THREE.DirectionalLight(0x888888, 0.6);
+            var rim = new THREE.DirectionalLight(0x888888, 0.6);
             rim.position.set(0, -1, -5);
             scene.add(rim);
-
-            const back = new THREE.DirectionalLight(0x666666, 0.4);
+            var back = new THREE.DirectionalLight(0x666666, 0.4);
             back.position.set(-2, 1, -4);
             scene.add(back);
-
-            const hemi = new THREE.HemisphereLight(0xaaaaaa, 0x444444, 0.4);
+            var hemi = new THREE.HemisphereLight(0xaaaaaa, 0x444444, 0.4);
             scene.add(hemi);
-
-            // --- Invisible ground plane for shadows ---
-            const planeGeo = new THREE.PlaneGeometry(8, 8);
-            const planeMat = new THREE.ShadowMaterial({
+            var planeGeo = new THREE.PlaneGeometry(8, 8);
+            var planeMat = new THREE.ShadowMaterial({
                 opacity: 0.25,
-                color: 0x000000,
+                color: 0x000000
             });
-            const plane = new THREE.Mesh(planeGeo, planeMat);
+            var plane = new THREE.Mesh(planeGeo, planeMat);
             plane.rotation.x = -Math.PI / 2;
-            plane.position.y = -0.1;
+            plane.position.y = -0.8;
             plane.receiveShadow = true;
             scene.add(plane);
+            var mannequin = null;
+            var mixer = null;
+            var clock = new THREE.Clock();
+            var modelLoaded = false;
 
-            // --- Variables ---
-            let mannequin = null;
-            let mixer = null;
-            let clock = new THREE.Clock();
-            let modelLoaded = false;
-
-            // --- Fallback figure ---
             function createFallbackMannequin() {
-                const group = new THREE.Group();
-
-                const bodyGeo = new THREE.CylinderGeometry(0.6, 0.7, 1.8, 12);
-                const bodyMat = new THREE.MeshStandardMaterial({
+                var group = new THREE.Group();
+                var bodyGeo = new THREE.CylinderGeometry(0.6, 0.7, 1.8, 12);
+                var bodyMat = new THREE.MeshStandardMaterial({
                     color: 0x888888,
                     roughness: 0.4,
                     metalness: 0.5,
                     emissive: 0x222222,
-                    emissiveIntensity: 0.2,
+                    emissiveIntensity: 0.2
                 });
-                const body = new THREE.Mesh(bodyGeo, bodyMat);
+                var body = new THREE.Mesh(bodyGeo, bodyMat);
                 body.position.y = 0.9;
                 body.castShadow = true;
                 body.receiveShadow = true;
                 group.add(body);
-
-                const headGeo = new THREE.SphereGeometry(0.38, 16, 16);
-                const headMat = new THREE.MeshStandardMaterial({
+                var headGeo = new THREE.SphereGeometry(0.38, 16, 16);
+                var headMat = new THREE.MeshStandardMaterial({
                     color: 0xaaaaaa,
                     roughness: 0.3,
                     metalness: 0.3,
                     emissive: 0x333333,
-                    emissiveIntensity: 0.1,
+                    emissiveIntensity: 0.1
                 });
-                const head = new THREE.Mesh(headGeo, headMat);
+                var head = new THREE.Mesh(headGeo, headMat);
                 head.position.y = 1.9;
                 head.castShadow = true;
                 head.receiveShadow = true;
                 group.add(head);
-
-                const armMat = new THREE.MeshStandardMaterial({
+                var armMat = new THREE.MeshStandardMaterial({
                     color: 0x999999,
                     roughness: 0.4,
-                    metalness: 0.3,
+                    metalness: 0.3
                 });
-                for (let side = -1; side <= 1; side += 2) {
-                    const arm = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.14, 0.9, 8), armMat);
+                for (var side = -1; side <= 1; side += 2) {
+                    var arm = new THREE.Mesh(new THREE.CylinderGeometry(0.12, 0.14, 0.9, 8), armMat);
                     arm.position.set(side * 0.8, 1.45, 0);
                     arm.rotation.z = side * 0.2;
                     arm.castShadow = true;
                     arm.receiveShadow = true;
                     group.add(arm);
                 }
-
-                const legMat = new THREE.MeshStandardMaterial({
+                var legMat = new THREE.MeshStandardMaterial({
                     color: 0x666666,
                     roughness: 0.5,
-                    metalness: 0.1,
+                    metalness: 0.1
                 });
-                for (let side = -1; side <= 1; side += 2) {
-                    const leg = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.8, 8), legMat);
-                    leg.position.set(side * 0.22, 0.4, 0);
+                for (var side2 = -1; side2 <= 1; side2 += 2) {
+                    var leg = new THREE.Mesh(new THREE.CylinderGeometry(0.16, 0.18, 0.8, 8), legMat);
+                    leg.position.set(side2 * 0.22, 0.4, 0);
                     leg.castShadow = true;
                     leg.receiveShadow = true;
                     group.add(leg);
                 }
-
-                const ringGeo = new THREE.TorusGeometry(0.7, 0.03, 12, 24);
-                const ringMat = new THREE.MeshStandardMaterial({
+                var ringGeo = new THREE.TorusGeometry(0.7, 0.03, 12, 24);
+                var ringMat = new THREE.MeshStandardMaterial({
                     color: 0xaaaaaa,
                     emissive: 0x444444,
                     emissiveIntensity: 0.4,
                     transparent: true,
-                    opacity: 0.5,
+                    opacity: 0.5
                 });
-                const ring = new THREE.Mesh(ringGeo, ringMat);
+                var ring = new THREE.Mesh(ringGeo, ringMat);
                 ring.position.y = 0.05;
                 ring.rotation.x = Math.PI / 2;
                 group.add(ring);
-
                 scene.add(group);
                 mannequin = group;
                 modelLoaded = true;
             }
-
-            // --- Load GLB model ---
-            const loader = new THREE.GLTFLoader();
-            const modelUrl = 'https://foldnite.github.io/assets/3D/creative-mannequin.glb';
-
-            loader.load(
-                modelUrl,
-                function(gltf) {
-                    mannequin = gltf.scene;
-                    mannequin.scale.set(0.9, 0.9, 0.9);
-                    mannequin.position.y = 0.0;
-                    mannequin.rotation.y = 0;
-
-                    mannequin.traverse(function(child) {
-                        if (child.isMesh) {
-                            child.castShadow = true;
-                            child.receiveShadow = true;
-                            if (child.material) {
-                                child.material.roughness = 0.4;
-                                child.material.metalness = 0.1;
-                            }
+            var loader = new THREE.GLTFLoader();
+            var modelUrl = 'https://foldnite.github.io/assets/3D/creative-mannequin.glb';
+            loader.load(modelUrl, function(gltf) {
+                mannequin = gltf.scene;
+                mannequin.scale.set(0.9, 0.9, 0.9);
+                mannequin.position.y = -0.8;
+                mannequin.rotation.y = 0;
+                mannequin.traverse(function(child) {
+                    if (child.isMesh) {
+                        child.castShadow = true;
+                        child.receiveShadow = true;
+                        if (child.material) {
+                            child.material.roughness = 0.4;
+                            child.material.metalness = 0.1;
                         }
-                    });
-
-                    scene.add(mannequin);
-
-                    if (gltf.animations && gltf.animations.length > 0) {
-                        mixer = new THREE.AnimationMixer(mannequin);
-                        const clip = gltf.animations[0];
-                        const action = mixer.clipAction(clip);
-                        action.play();
                     }
-
-                    modelLoaded = true;
-                },
-                undefined,
-                function(error) {
-                    console.warn('GLB failed to load, using fallback figure.', error);
-                    createFallbackMannequin();
+                });
+                scene.add(mannequin);
+                if (gltf.animations && gltf.animations.length > 0) {
+                    mixer = new THREE.AnimationMixer(mannequin);
+                    var clip = gltf.animations[0];
+                    var action = mixer.clipAction(clip);
+                    action.play();
                 }
-            );
-
-            // Timeout fallback
+                modelLoaded = true;
+            }, undefined, function(error) {
+                console.warn('GLB failed to load, using fallback figure.', error);
+                createFallbackMannequin();
+            });
             setTimeout(function() {
                 if (!modelLoaded) {
                     console.warn('GLB loading timeout, switching to fallback.');
@@ -707,10 +598,9 @@
                 }
             }, 5000);
 
-            // --- Resize handler ---
             function resize() {
-                const w = container.clientWidth;
-                const h = container.clientHeight;
+                var w = container.clientWidth;
+                var h = container.clientHeight;
                 camera.aspect = w / h;
                 camera.updateProjectionMatrix();
                 renderer.setSize(w, h);
@@ -721,54 +611,36 @@
             });
             resize();
 
-            // --- Animation loop ---
             function animate() {
                 requestAnimationFrame(animate);
-
-                const delta = clock.getDelta();
-
+                var delta = clock.getDelta();
                 if (mannequin) {
                     mannequin.rotation.y += delta * 0.3;
                 }
-
                 if (mixer) {
                     mixer.update(delta);
                 }
-
                 renderer.render(scene, camera);
             }
             animate();
-
         })();
     </script>
-
-    <!-- ============================================================ -->
-    <!-- Modal logic (vanilla JS)                                      -->
-    <!-- ============================================================ -->
     <script>
         (function() {
-            const menuBtn = document.getElementById('menuBtn');
-            const modalOverlay = document.getElementById('modalOverlay');
-            const modalClose = document.getElementById('modalClose');
-
-            // Open modal
+            var menuBtn = document.getElementById('menuBtn');
+            var modalOverlay = document.getElementById('modalOverlay');
+            var modalClose = document.getElementById('modalClose');
             menuBtn.addEventListener('click', function() {
                 modalOverlay.classList.add('active');
             });
-
-            // Close modal (X button)
             modalClose.addEventListener('click', function() {
                 modalOverlay.classList.remove('active');
             });
-
-            // Close modal on overlay click (outside panel)
             modalOverlay.addEventListener('click', function(e) {
                 if (e.target === modalOverlay) {
                     modalOverlay.classList.remove('active');
                 }
             });
-
-            // Close modal on Escape key
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
                     modalOverlay.classList.remove('active');
@@ -776,6 +648,5 @@
             });
         })();
     </script>
-
 </body>
 </html>
