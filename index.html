@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Fortnite Science</title>
 
+    <!-- Font Awesome 6 (free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
+    <!-- Three.js + extensions -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js">
@@ -50,6 +52,7 @@
             display: none;
         }
 
+        /* ---------- Animated digital grid (grayscale background) ---------- */
         #grid-bg {
             position: fixed;
             top: 0;
@@ -98,6 +101,7 @@
             }
         }
 
+        /* ---------- 3D container (full screen, no borders) ---------- */
         #three-container {
             position: fixed;
             top: 0;
@@ -114,6 +118,7 @@
             display: block;
         }
 
+        /* ---------- Main content (title at top) ---------- */
         .content {
             position: relative;
             z-index: 2;
@@ -174,7 +179,6 @@
             color: #fff;
             cursor: pointer;
             transition: all 0.25s ease;
-            /* box-shadow removed */
             display: flex;
             align-items: center;
             justify-content: center;
@@ -344,6 +348,23 @@
 
         /* ---------- Responsive ---------- */
         @media (max-width: 768px) {
+            /* Make title block significantly larger on mobile */
+            .title-block {
+                margin-top: 2vh;  /* a bit more space */
+            }
+            .title-block h1 {
+                font-size: clamp(4rem, 18vw, 9rem);  /* bigger */
+                letter-spacing: 6px;
+            }
+            .title-block .sub {
+                font-size: clamp(2.5rem, 8vw, 4.5rem);
+                letter-spacing: 8px;
+                margin-top: -0.2em;
+            }
+            .content {
+                padding-top: 6vh;
+            }
+
             .modal-panel {
                 padding: 1.8rem 1.5rem 2rem;
                 clip-path: polygon(0% 0%, 100% 0%, 96% 100%, 4% 100%);
@@ -377,11 +398,21 @@
                 font-size: 1.6rem;
                 bottom: 18px;
             }
-            .content {
-                padding-top: 6vh;
-            }
         }
+
         @media (max-width: 480px) {
+            .title-block h1 {
+                font-size: clamp(3.8rem, 20vw, 8rem);
+                letter-spacing: 4px;
+            }
+            .title-block .sub {
+                font-size: clamp(2.2rem, 9vw, 4rem);
+                letter-spacing: 6px;
+            }
+            .content {
+                padding-top: 5vh;
+            }
+
             .modal-panel {
                 padding: 1.2rem 0.8rem 1.5rem;
                 clip-path: polygon(0% 0%, 100% 0%, 97% 100%, 3% 100%);
@@ -409,9 +440,6 @@
             .github-link {
                 font-size: 1.4rem;
                 bottom: 14px;
-            }
-            .content {
-                padding-top: 5vh;
             }
         }
     </style>
