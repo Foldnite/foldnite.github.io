@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>qFoldIT — B2B заказы (INDUSTRIAL‑CAMEO)</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --bg: #0b0f14;
+      --bg-panel: #11161d;
+      --bg-panel-2: #151b23;
+      --line: #232b36;
+      --ink: #e7ecf2;
+      --ink-dim: #8c98a8;
+      --ink-faint: #5c6b7d;
+      --accent: #5ee6c9;
+      --accent-soft: rgba(94,230,201,.12);
+      --amber: #e8a83c;
+      --amber-soft: rgba(232,168,60,.12);
+      --rose: #e8637a;
+      --rose-soft: rgba(232,99,122,.12);
+      --violet: #9d8cf0;
+      --violet-soft: rgba(157,140,240,.12);
+      --mono: ui-monospace, "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+      --serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+      --sans: -apple-system, "Segoe UI", Inter, system-ui, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { margin: 0; padding: 0; }
+    ::-webkit-scrollbar { width: 0; }
+    body {
+      background:
+        radial-gradient(1200px 600px at 15% -10%, rgba(94,230,201,.07), transparent 60%),
+        radial-gradient(900px 500px at 100% 0%, rgba(157,140,240,.06), transparent 55%),
+        var(--bg);
+      color: var(--ink);
+      font-family: var(--sans);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    main { max-width: 1180px; margin: 0 auto; padding: 56px 28px 90px; }
+
+    /* Hero */
+    .eyebrow {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+    }
+    .eyebrow i { color: var(--accent); font-size: 10px; flex: none; }
+    h1 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(34px, 5vw, 54px);
+      line-height: 1.06;
+      margin: 0 0 14px;
+      letter-spacing: -.01em;
+    }
+    h1 em { font-style: italic; color: var(--accent); }
+    .hero-sub {
+      color: var(--ink-dim);
+      max-width: 640px;
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+    .hero-meta {
+      font-family: var(--mono);
+      font-size: 12.5px;
+      color: var(--ink-faint);
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 22px;
+    }
+    .hero-meta a { color: var(--ink-dim); text-decoration: none; border-bottom: 1px dotted var(--line); }
+    .hero-meta a:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* Sections */
+    section { margin-top: 64px; }
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    h2 {
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 22px;
+      margin: 0;
+      letter-spacing: -.01em;
+    }
+    .section-note {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: var(--ink-faint);
+      text-align: right;
+    }
+
+    /* Metrics */
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1px;
+      background: var(--line);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    .metric {
+      background: var(--bg-panel);
+      padding: 22px 18px;
+    }
+    .metric .n {
+      font-family: var(--mono);
+      font-size: 30px;
+      font-weight: 600;
+      color: var(--accent);
+      letter-spacing: -.02em;
+    }
+    .metric .n .sub { color: var(--ink-faint); font-size: 18px; }
+    .metric .l { font-size: 12.5px; color: var(--ink-dim); margin-top: 6px; }
+
+    /* Table wrapper – no visible scrollbar */
+    .table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 0 -4px;
+      padding: 0 4px;
+    }
+    .table-wrap::-webkit-scrollbar { width: 0; height: 0; background: transparent; }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      line-height: 1.5;
+      min-width: 600px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+    thead th {
+      text-align: left;
+      font-weight: 600;
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ink-dim);
+      padding: 12px 16px;
+      background: var(--bg-panel-2);
+      border-bottom: 1px solid var(--line);
+    }
+    tbody tr {
+      border-bottom: 1px solid var(--line);
+      transition: background 0.15s ease;
+    }
+    tbody tr:last-child { border-bottom: none; }
+    tbody tr:hover { background: var(--bg-panel-2); }
+    tbody td {
+      padding: 14px 16px;
+      vertical-align: middle;
+    }
+
+    .col-industry {
+      font-weight: 600;
+      color: var(--ink);
+      white-space: nowrap;
+    }
+    .col-industry i {
+      width: 24px;
+      text-align: center;
+      color: var(--accent);
+      margin-right: 8px;
+    }
+
+    .col-orders ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .col-orders li {
+      position: relative;
+      padding-left: 18px;
+      margin-bottom: 2px;
+      color: var(--ink-dim);
+    }
+    .col-orders li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .col-orders li:last-child { margin-bottom: 0; }
+
+    .col-complexity {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .complexity-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 12px;
+      border-radius: 100px;
+      letter-spacing: 0.01em;
+      background: var(--bg-panel-2);
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+    .complexity-tag.low { background: var(--accent-soft); color: var(--accent); border-color: var(--accent-soft); }
+    .complexity-tag.medium { background: var(--amber-soft); color: var(--amber); border-color: var(--amber-soft); }
+    .complexity-tag.high { background: var(--rose-soft); color: var(--rose); border-color: var(--rose-soft); }
+    .complexity-tag.very-high { background: var(--violet-soft); color: var(--violet); border-color: var(--violet-soft); }
+
+    /* Footer */
+    footer {
+      margin-top: 70px;
+      padding-top: 22px;
+      border-top: 1px solid var(--line);
+      font-family: var(--mono);
+      font-size: 11.5px;
+      color: var(--ink-faint);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+    }
+    footer a:hover { color: #4bc5ab; }
+    footer a i { font-size: 18px; }
+
+    .badge-cta {
+      background: var(--accent);
+      color: #0b0f14;
+      padding: 8px 20px;
+      border-radius: 40px;
+      font-size: 13px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .badge-cta:hover { background: #4bc5ab; }
+
+    @media (max-width: 640px) {
+      main { padding: 40px 18px 70px; }
+      .hero-meta { flex-direction: column; gap: 4px; }
+      .col-industry { width: 22%; }
+      .col-orders { width: 55%; }
+      .col-complexity { width: 23%; }
+      table { font-size: 13px; min-width: 480px; }
+      tbody td { padding: 12px 10px; }
+    }
+  </style>
+</head>
+<body>
+<main>
+
+  <div class="eyebrow">
+    <i class="fas fa-circle"></i>
+    qFoldIT · B2B заказы (INDUSTRIAL‑CAMEO)
+  </div>
+  <h1>Сводная таблица <em>B2B-заказов</em></h1>
+  <p class="hero-sub">Каждый заказ превращается в игровую миссию на Fortnite / UEFN, Unity, UNIGINE, Web или Standalone — с последующей слепой валидацией через <strong>OPENSTRUCTURE</strong>.</p>
+  <div class="hero-meta">
+    <span>Актуализация: 2026‑08‑16</span>
+    <span><a href="https://github.com/qfoldit/INDUSTRIAL-CAMEO" target="_blank">github.com/qfoldit/INDUSTRIAL-CAMEO</a></span>
+    <span style="color:var(--accent)">9 отраслей · 34+ типов заказов</span>
+  </div>
+
+  <!-- Метрики (опционально) -->
+  <section>
+    <div class="metric-grid">
+      <div class="metric"><div class="n">9</div><div class="l">Отраслей</div></div>
+      <div class="metric"><div class="n">34+</div><div class="l">Ключевых заказов</div></div>
+      <div class="metric"><div class="n">5</div><div class="l">Движков / рантаймов</div></div>
+      <div class="metric"><div class="n">4</div><div class="l">Уровня сложности</div></div>
+    </div>
+  </section>
+
+  <!-- Таблица заказов -->
+  <section>
+    <div class="section-head">
+      <h2>Индустриальные вертикали</h2>
+      <div class="section-note">сложность: <span class="complexity-tag low">Низкая</span> <span class="complexity-tag medium">Средняя</span> <span class="complexity-tag high">Высокая</span> <span class="complexity-tag very-high">Очень высокая</span></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th class="col-industry"><i class="fas fa-industry"></i> Отрасль</th>
+            <th class="col-orders">Ключевые заказы</th>
+            <th class="col-complexity">Сложность</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="col-industry"><i class="fas fa-mountain"></i> Добыча</td>
+            <td class="col-orders">
+              <ul>
+                <li>Биовыщелачивание металлов (кинетика)</li>
+                <li>Моделирование коррозии трубопроводов</li>
+                <li>Дизайн белков-связующих для РЗЭ</li>
+                <li>Оптимизация гидрометаллургии</li>
+              </ul>
+            </td>
+            <td class="col-complexity"><span class="complexity-tag medium">Средняя</span></td>
+          </tr>
+          <tr>
+            <td class="col-industry"><i class="fas fa-oil-can"></i> Нефть и газ</td>
+            <td class="col-orders">
+              <ul>
+                <li>Коррозия нефтепроводов и бурового оборудования</li>
+                <li>Дизайн катализаторов крекинга / гидроочистки</li>
+                <li>Моделирование пиролиза пластика → синтез-газ</li>
+                <li>Цифровые двойники НПЗ и платформ</li>
+              </ul>
+            </td>
+            <td class="col-complexity"><span class="complexity-tag high">Высокая</span></td>
+          </tr>
+          <tr>
+            <td class="col-industry"><i class="fas fa-bolt"></i> Аккумуляторы</td>
+            <td class="col-orders">
+              <ul>
+                <li>Поиск твёрдых электролитов (ионная проводимость)</li>
+                <li>Моделирование ионного транспорта</li>
+                <li>Дизайн ферментов для био-топливных элементов</li>
+                <li>Оптимизация анодных/катодных материалов</li>
+              </ul>
+            </td>
+            <td class="col-complexity"><span class="complexity-tag high">Высокая</span></td>
+          </tr>
+          <tr>
+            <td class="col-industry"><i class="fas fa-tv"></i> Дисплеи</td>
+            <td class="col-orders">
+              <ul>
+                <li>Моделирование квантовых точек для дисплеев</li>
+                <li>Дизайн органических полупроводников (гибкие экраны)</li>
+                <li>Оптимизация OLED-материалов</li>
+              </ul>
+            </td>
+            <td class="col-complexity"><span class="complexity-tag high">Высокая</span></td>
+          </tr>
+          <tr>
+            <td class="col-industry"><i class="fas fa-microchip"></i> Чипы и процессоры</td>
+            <td class="col-orders">
+              <ul>
+                <li>Топологическая оптимизация трассировки чипов</li>
+                <li>Моделирование тепловых профилей</li>
+                <li>Дизайн новых полупроводниковых материалов</li>
+                <li>Оптимизация фотошаблонов для литографии</li>
+              </ul>
+            </td>
+            <td class="col-complexity"><span class="complexity-tag very-high">Очень высокая</span></td>
+          </tr>
+          <tr>
+            <td class="col-industry"><i class="fas fa-flask"></i> Химия</td>
+            <td class="col-orders">
+              <ul>
+                <li>Дизайн ферментов для зелёного синтеза</li>
+                <li>Моделирование пиролиза пластика</li>
+                <li>QSAR-прогнозирование свойств новых соединений</li>
+              </ul>
+            </td>
+            <td class="col-complexity"><span class="complexity-tag medium">Средняя</span></td>
+          </tr>
+          <tr>
+            <td class="col-industry"><i class="fas fa-seedling"></i> Сельское хозяйство</td>
+            <td class="col-orders">
+              <ul>
+                <li>Моделирование роста растений (урожайность)</li>
+                <li>Дизайн белков для фиксации азота</li>
+                <li>Оптимизация NPK-удобрений</li>
+              </ul>
+            </td>
+            <td class="col-complexity"><span class="complexity-tag medium">Средняя</span></td>
+          </tr>
+          <tr>
+            <td class="col-industry"><i class="fas fa-pills"></i> Фармацевтика</td>
+            <td class="col-orders">
+              <ul>
+                <li>Открытие лекарств (молекулярный докинг)</li>
+                <li>Дизайн антител и нанободи</li>
+                <li>Предсказание структуры белков</li>
+                <li>Ретросинтетическое планирование</li>
+              </ul>
+            </td>
+            <td class="col-complexity"><span class="complexity-tag very-high">Очень высокая</span></td>
+          </tr>
+          <tr>
+            <td class="col-industry"><i class="fas fa-cubes"></i> Цифровые двойники</td>
+            <td class="col-orders">
+              <ul>
+                <li>Виртуальные копии заводов и производств</li>
+                <li>Тренировка ИИ-систем управления</li>
+                <li>Проектирование оборудования (тепловые, гидродинамика)</li>
+              </ul>
+            </td>
+            <td class="col-complexity"><span class="complexity-tag high">Высокая</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Как это работает (блок аналогично pipeline из dashboard) -->
+  <section>
+    <div class="section-head">
+      <h2>Единый конвейер</h2>
+      <div class="section-note">от заказа до валидации</div>
+    </div>
+    <div style="background:var(--bg-panel); border:1px solid var(--line); border-radius:16px; padding:24px 28px; font-family:var(--mono); font-size:13px; color:var(--ink-dim);">
+      <div style="color:var(--ink); padding:3px 0;">1. Заказчик (B2B) определяет задачу и загружает данные <span style="color:var(--accent); padding-left:6px;">↓</span></div>
+      <div style="color:var(--ink); padding:3px 0;">2. INDUSTRIAL‑CAMEO компилирует задачу в UAG <span style="color:var(--accent); padding-left:6px;">↓</span></div>
+      <div style="color:var(--ink); padding:3px 0;">3. Адаптеры генерируют игровые миссии (UEFN, Unity, UNIGINE, Web, Standalone) <span style="color:var(--accent); padding-left:6px;">↓</span></div>
+      <div style="color:var(--ink); padding:3px 0;">4. Игроки решают задачу через игровой процесс <span style="color:var(--accent); padding-left:6px;">↓</span></div>
+      <div style="color:var(--ink); padding:3px 0;">5. OPENSTRUCTURE (AlphaFold, VQE, ZairaChem и др.) валидирует решения <span style="color:var(--accent); padding-left:6px;">↓</span></div>
+      <div style="color:var(--accent); padding:3px 0;">6. Заказчик получает научно обоснованный результат и оплачивает валидное решение.</div>
+      <div style="margin-top:12px; font-size:12px; color:var(--ink-faint);">
+        <i class="fas fa-arrow-right" style="color:var(--accent); margin-right:6px;"></i>
+        <strong>Результат:</strong> ускорение R&amp;D в 3–10 раз, доступ к тысячам игроков-решателей, полная прозрачность и воспроизводимость.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>
+      <a href="https://github.com/qfoldit" target="_blank">
+        <i class="fab fa-github"></i> github.com/qfoldit
+      </a>
+    </span>
+    <span><i class="fas fa-check-circle" style="color:var(--accent);"></i> Готовы к интеграции</span>
+  </footer>
+
+</main>
+</body>
+</html>
