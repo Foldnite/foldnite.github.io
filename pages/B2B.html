@@ -132,7 +132,80 @@
     .metric .n .sub { color: var(--ink-faint); font-size: 18px; }
     .metric .l { font-size: 12.5px; color: var(--ink-dim); margin-top: 6px; }
 
-    /* Tables */
+    /* Cards */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 16px;
+    }
+    .card {
+      background: var(--bg-panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px 20px;
+      border-top: 3px solid var(--accent);
+      transition: background 0.2s;
+    }
+    .card:hover { background: var(--bg-panel-2); }
+    .card .card-title {
+      font-family: var(--mono);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card .card-title i { font-size: 16px; color: var(--accent); }
+    .card .card-body {
+      margin-top: 8px;
+      font-size: 12.5px;
+      color: var(--ink-dim);
+    }
+    .card .card-body .tag {
+      display: inline-block;
+      background: var(--bg-panel-2);
+      padding: 1px 8px;
+      border-radius: 10px;
+      font-family: var(--mono);
+      font-size: 9.5px;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      margin: 2px 3px 2px 0;
+    }
+    .card .card-body .tag strong { color: var(--accent); font-weight: 600; }
+    .card .card-body .tag.blue { border-color: var(--accent-soft); }
+    .card .card-body .tag.violet { border-color: var(--violet-soft); }
+    .card .card-body .tag.amber { border-color: var(--amber-soft); }
+    .card .card-body .tag.rose { border-color: var(--rose-soft); }
+
+    /* Lifecycle */
+    .lifecycle {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 10px;
+      background: var(--bg-panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px 22px;
+      justify-content: center;
+      align-items: center;
+    }
+    .lifecycle .step {
+      font-family: var(--mono);
+      font-size: 10.5px;
+      padding: 4px 8px;
+      border-radius: 20px;
+      background: var(--bg-panel-2);
+      color: var(--ink-dim);
+      border: 1px solid var(--line);
+      white-space: nowrap;
+    }
+    .lifecycle .step.active { background: var(--accent-soft); color: var(--accent); border-color: var(--accent); }
+    .lifecycle .step.done { background: var(--green-soft); color: var(--green); border-color: var(--green-soft); }
+    .lifecycle .arrow { color: var(--ink-faint); font-size: 12px; flex: none; }
+
+    /* Tables (already defined) — reuse */
     .table-wrap {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
@@ -140,7 +213,6 @@
       padding: 0 4px;
     }
     .table-wrap::-webkit-scrollbar { width: 0; height: 0; background: transparent; }
-
     table {
       width: 100%;
       border-collapse: collapse;
@@ -174,10 +246,54 @@
       vertical-align: middle;
       color: var(--ink-dim);
     }
-    tbody td .highlight { color: var(--ink); }
+    .col-industry { font-weight: 600; color: var(--ink); white-space: nowrap; width: 12%; }
+    .col-industry i { margin-right: 6px; color: var(--accent); }
+    .col-orders { width: 30%; }
+    .col-orders ul { list-style: none; padding: 0; margin: 0; }
+    .col-orders li { position: relative; padding-left: 18px; margin-bottom: 2px; color: var(--ink-dim); }
+    .col-orders li::before { content: "•"; position: absolute; left: 0; color: var(--accent); font-weight: 700; }
+    .col-orders li:last-child { margin-bottom: 0; }
+    .col-standards { width: 30%; font-size: 12px; color: var(--ink-dim); }
+    .col-modes { width: 15%; text-align: center; font-size: 11px; color: var(--ink-dim); }
+    .col-complexity { text-align: right; white-space: nowrap; width: 10%; }
 
-    .col-domain { font-weight: 600; color: var(--ink); white-space: nowrap; width: 11%; }
-    .col-domain i { margin-right: 6px; color: var(--accent); }
+    .std-tag, .std-tag-sm, .std-item {
+      display: inline-block;
+      background: var(--bg-panel-2);
+      padding: 2px 10px;
+      border-radius: 12px;
+      margin: 2px 4px 2px 0;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .std-tag strong, .std-tag-sm strong, .std-item strong { color: var(--accent); font-weight: 600; }
+    .std-tag:hover, .std-tag-sm:hover, .std-item:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      transform: scale(1.02);
+    }
+
+    .complexity-tag {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 500;
+      padding: 3px 12px;
+      border-radius: 100px;
+      letter-spacing: 0.01em;
+      background: var(--bg-panel-2);
+      color: var(--ink);
+      border: 1px solid var(--line);
+    }
+    .complexity-tag.low { background: var(--accent-soft); color: var(--accent); border-color: var(--accent-soft); }
+    .complexity-tag.medium { background: var(--amber-soft); color: var(--amber); border-color: var(--amber-soft); }
+    .complexity-tag.high { background: var(--rose-soft); color: var(--rose); border-color: var(--rose-soft); }
+    .complexity-tag.very-high { background: var(--violet-soft); color: var(--violet); border-color: var(--violet-soft); }
 
     .status-pill {
       display: inline-block;
@@ -196,35 +312,8 @@
     .status-pill.not-authored { background: var(--rose-soft); color: var(--rose); border-color: var(--rose-soft); }
     .status-pill.blocked { background: var(--violet-soft); color: var(--violet); border-color: var(--violet-soft); }
     .status-pill.specced { background: var(--amber-soft); color: var(--amber); border-color: var(--amber-soft); }
-    .status-pill.partial { background: var(--amber-soft); color: var(--amber); border-color: var(--amber-soft); }
     .status-pill.none { background: transparent; color: var(--ink-faint); border-color: var(--line); }
     .status-pill.pending { background: var(--violet-soft); color: var(--violet); border-color: var(--violet-soft); }
-
-    /* ===== Стандартные теги (единый стиль для всех) ===== */
-    .std-tag, .std-tag-sm, .std-item {
-      display: inline-block;
-      background: var(--bg-panel-2);
-      padding: 2px 10px;
-      border-radius: 12px;
-      margin: 2px 4px 2px 0;
-      font-family: var(--mono);
-      font-size: 10.5px;
-      color: var(--ink);
-      border: 1px solid var(--line);
-      white-space: nowrap;
-      transition: all 0.2s ease;
-      cursor: pointer;
-      text-decoration: none;
-    }
-    .std-tag strong, .std-tag-sm strong, .std-item strong {
-      color: var(--accent);
-      font-weight: 600;
-    }
-    .std-tag:hover, .std-tag-sm:hover, .std-item:hover {
-      border-color: var(--accent);
-      background: var(--accent-soft);
-      transform: scale(1.02);
-    }
 
     /* Legend */
     .legend {
@@ -239,12 +328,7 @@
       color: var(--ink-dim);
     }
     .legend-item { display: flex; align-items: center; gap: 6px; }
-    .legend-item .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      flex: none;
-    }
+    .legend-item .dot { width: 10px; height: 10px; border-radius: 50%; flex: none; }
     .legend-item .dot.green { background: var(--green); }
     .legend-item .dot.teal { background: var(--accent); }
     .legend-item .dot.amber { background: var(--amber); }
@@ -252,7 +336,21 @@
     .legend-item .dot.violet { background: var(--violet); }
     .legend-item .dot.gray { background: var(--ink-faint); }
 
-    /* Standards cards */
+    /* Pipeline */
+    .pipeline-block {
+      background: var(--bg-panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 24px 28px;
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--ink-dim);
+    }
+    .pipeline-block .step { color: var(--ink); padding: 3px 0; }
+    .pipeline-block .arrow { color: var(--accent); padding-left: 6px; }
+    .pipeline-block .highlight { color: var(--accent); }
+
+    /* Cross-cutting standards cards */
     .standards-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -274,14 +372,7 @@
       align-items: center;
       gap: 8px;
     }
-    .standards-card .card-body {
-      margin-top: 6px;
-      font-size: 11.5px;
-      color: var(--ink-dim);
-    }
-    .standards-card .card-body .std-item {
-      /* наследует общие стили */;
-    }
+    .standards-card .card-body { margin-top: 6px; font-size: 11.5px; color: var(--ink-dim); }
     .standards-card .card-body .std-desc {
       display: block;
       font-size: 10.5px;
@@ -289,20 +380,6 @@
       margin-top: 3px;
       padding-left: 2px;
     }
-
-    /* Pipeline */
-    .pipeline-block {
-      background: var(--bg-panel);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 24px 28px;
-      font-family: var(--mono);
-      font-size: 13px;
-      color: var(--ink-dim);
-    }
-    .pipeline-block .step { color: var(--ink); padding: 3px 0; }
-    .pipeline-block .arrow { color: var(--accent); padding-left: 6px; }
-    .pipeline-block .highlight { color: var(--accent); }
 
     /* Footer */
     footer {
@@ -317,102 +394,20 @@
       flex-wrap: wrap;
       gap: 8px;
     }
-    footer a {
-      color: var(--accent);
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: color 0.2s;
-    }
+    footer a { color: var(--accent); display: inline-flex; align-items: center; gap: 8px; transition: color 0.2s; }
     footer a:hover { color: #4bc5ab; }
     footer a i { font-size: 18px; }
-
-    .badge-cta {
-      background: var(--accent);
-      color: #0b0f14;
-      padding: 8px 20px;
-      border-radius: 40px;
-      font-size: 13px;
-      font-weight: 500;
-      transition: background 0.2s;
-      white-space: nowrap;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .badge-cta:hover { background: #4bc5ab; }
-
-    /* Complexity tags (используются в таблице вертикалей) */
-    .complexity-tag {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 500;
-      padding: 3px 12px;
-      border-radius: 100px;
-      letter-spacing: 0.01em;
-      background: var(--bg-panel-2);
-      color: var(--ink);
-      border: 1px solid var(--line);
-    }
-    .complexity-tag.low { background: var(--accent-soft); color: var(--accent); border-color: var(--accent-soft); }
-    .complexity-tag.medium { background: var(--amber-soft); color: var(--amber); border-color: var(--amber-soft); }
-    .complexity-tag.high { background: var(--rose-soft); color: var(--rose); border-color: var(--rose-soft); }
-    .complexity-tag.very-high { background: var(--violet-soft); color: var(--violet); border-color: var(--violet-soft); }
-
-    /* Column styles for verticals table */
-    .col-industry {
-      font-weight: 600;
-      color: var(--ink);
-      white-space: nowrap;
-      width: 13%;
-    }
-    .col-industry i {
-      width: 24px;
-      text-align: center;
-      color: var(--accent);
-      margin-right: 8px;
-    }
-    .col-orders {
-      width: 32%;
-    }
-    .col-orders ul {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-    .col-orders li {
-      position: relative;
-      padding-left: 18px;
-      margin-bottom: 2px;
-      color: var(--ink-dim);
-    }
-    .col-orders li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: 700;
-    }
-    .col-orders li:last-child { margin-bottom: 0; }
-    .col-standards {
-      width: 35%;
-      font-size: 12px;
-      color: var(--ink-dim);
-    }
-    .col-complexity {
-      text-align: right;
-      white-space: nowrap;
-      width: 12%;
-    }
 
     @media (max-width: 640px) {
       main { padding: 40px 18px 70px; }
       .hero-meta { flex-direction: column; gap: 4px; }
+      .card-grid { grid-template-columns: 1fr; }
       table { font-size: 11px; min-width: 700px; }
       tbody td { padding: 8px 6px; }
-      .col-domain { font-size: 11px; }
-      .status-pill { font-size: 8px; padding: 1px 5px; }
+      .col-modes { font-size: 9px; }
       .std-tag, .std-tag-sm, .std-item { font-size: 9px; padding: 1px 6px; }
+      .lifecycle { gap: 4px 6px; }
+      .lifecycle .step { font-size: 9px; padding: 2px 6px; }
     }
   </style>
 </head>
@@ -436,9 +431,9 @@
   <section>
     <div class="metric-grid">
       <div class="metric"><div class="n">11</div><div class="l">Научных доменов</div></div>
+      <div class="metric"><div class="n">5</div><div class="l">Игровых режимов</div></div>
       <div class="metric"><div class="n">5</div><div class="l">Игровых паттернов unlocked</div></div>
       <div class="metric"><div class="n">6</div><div class="l">Доменов с бэкендом verified</div></div>
-      <div class="metric"><div class="n">4</div><div class="l">Уровня сложности</div></div>
     </div>
   </section>
 
@@ -448,7 +443,6 @@
       <h2>Матрица готовности B2B-заказов</h2>
       <div class="section-note">научный бэкенд × игровой паттерн × UEFN-реализация</div>
     </div>
-
     <div class="legend">
       <span class="legend-item"><span class="dot green"></span> verified / unlocked</span>
       <span class="legend-item"><span class="dot teal"></span> connected / specced</span>
@@ -457,7 +451,6 @@
       <span class="legend-item"><span class="dot violet"></span> blocked / pending</span>
       <span class="legend-item"><span class="dot gray"></span> отсутствует</span>
     </div>
-
     <div class="table-wrap">
       <table>
         <thead>
@@ -472,7 +465,6 @@
           </tr>
         </thead>
         <tbody>
-          <!-- 1. fold_marathon -->
           <tr>
             <td class="col-domain"><i class="fas fa-dna"></i> fold_marathon</td>
             <td style="font-size:11px;color:var(--ink-dim);">Metropolis walk, torsion angles</td>
@@ -482,7 +474,6 @@
             <td style="color:var(--ink);">Pharma / Chemistry</td>
             <td><span class="std-tag-sm"><strong>OpenStructure</strong> lDDT/QS</span></td>
           </tr>
-          <!-- 2. quantum_boss -->
           <tr>
             <td class="col-domain"><i class="fas fa-atom"></i> quantum_boss</td>
             <td style="font-size:11px;color:var(--ink-dim);">VQE, CVaR-ansatz, 2-4 qubit</td>
@@ -492,7 +483,6 @@
             <td style="color:var(--ink);">Materials / Energy</td>
             <td><span class="std-tag-sm">OECD‑style transparency</span></td>
           </tr>
-          <!-- 3. hp_lattice_challenge -->
           <tr>
             <td class="col-domain"><i class="fas fa-th"></i> hp_lattice_challenge</td>
             <td style="font-size:11px;color:var(--ink-dim);">QAOA, Braket LocalSimulator</td>
@@ -502,7 +492,6 @@
             <td style="color:var(--ink);">Chemistry</td>
             <td><span class="std-tag-sm"><strong>OECD (Q)SAR</strong></span></td>
           </tr>
-          <!-- 4. safety_gauntlet -->
           <tr>
             <td class="col-domain"><i class="fas fa-shield-alt"></i> safety_gauntlet</td>
             <td style="font-size:11px;color:var(--ink-dim);">ADMET / Boltz‑2 scoring</td>
@@ -512,7 +501,6 @@
             <td style="color:var(--ink);">Pharma / Chemistry</td>
             <td><span class="std-tag-sm"><strong>OECD (Q)SAR</strong></span> <span class="std-tag-sm">ICH</span></td>
           </tr>
-          <!-- 5. plant_growth_garden -->
           <tr>
             <td class="col-domain"><i class="fas fa-seedling"></i> plant_growth_garden</td>
             <td style="font-size:11px;color:var(--ink-dim);">L‑systems + NPK/light</td>
@@ -522,7 +510,6 @@
             <td style="color:var(--ink);">Agriculture</td>
             <td><span class="std-tag-sm">ISO 11074</span> <span class="std-tag-sm">GLOBALG.A.P.</span></td>
           </tr>
-          <!-- 6. oilgas_corrosion_watch -->
           <tr>
             <td class="col-domain"><i class="fas fa-oil-can"></i> oilgas_corrosion_watch</td>
             <td style="font-size:11px;color:var(--ink-dim);">Rate model, mm/year</td>
@@ -532,7 +519,6 @@
             <td style="color:var(--ink);">Oil &amp; Gas</td>
             <td><span class="std-tag-sm"><strong>NACE SP0169</strong></span> <span class="std-tag-sm">API 570</span></td>
           </tr>
-          <!-- 7. meor_recovery_run -->
           <tr>
             <td class="col-domain"><i class="fas fa-biohazard"></i> meor_recovery_run</td>
             <td style="font-size:11px;color:var(--ink-dim);">Biosurfactant, IFT reduction</td>
@@ -542,7 +528,6 @@
             <td style="color:var(--ink);">Oil &amp; Gas</td>
             <td><span class="std-tag-sm">NACE/API</span></td>
           </tr>
-          <!-- 8. mining_bioleach_challenge -->
           <tr>
             <td class="col-domain"><i class="fas fa-mountain"></i> mining_bioleach_challenge</td>
             <td style="font-size:11px;color:var(--ink-dim);">Bio‑oxidation, cyanide degradation</td>
@@ -552,7 +537,6 @@
             <td style="color:var(--ink);">Mining</td>
             <td><span class="std-tag-sm"><strong>ICMC</strong></span> <span class="std-tag-sm">ISO 14001</span></td>
           </tr>
-          <!-- 9. prospecting_survey -->
           <tr>
             <td class="col-domain"><i class="fas fa-chart-line"></i> prospecting_survey</td>
             <td style="font-size:11px;color:var(--ink-dim);">Permutation p‑value &lt; 0.05</td>
@@ -562,7 +546,6 @@
             <td style="color:var(--ink);">Mining</td>
             <td><span class="std-tag-sm"><strong>JORC / NI 43‑101</strong></span></td>
           </tr>
-          <!-- 10. arena_showdown -->
           <tr>
             <td class="col-domain"><i class="fas fa-trophy"></i> arena_showdown</td>
             <td style="font-size:11px;color:var(--ink-dim);">Race to reconstruct baked run</td>
@@ -572,7 +555,6 @@
             <td style="color:var(--ink);">Cross‑cutting</td>
             <td><span class="std-tag-sm">N/A</span></td>
           </tr>
-          <!-- 11. dna_rna_sequence_mining (proposed) -->
           <tr>
             <td class="col-domain"><i class="fas fa-helix"></i> dna_rna_sequence_mining</td>
             <td style="font-size:11px;color:var(--ink-faint);">Not implemented</td>
@@ -587,11 +569,76 @@
     </div>
   </section>
 
-  <!-- ===== ИНДУСТРИАЛЬНЫЕ ВЕРТИКАЛИ (таблица заказов) ===== -->
+  <!-- ===== ИГРОВЫЕ РЕЖИМЫ ===== -->
+  <section>
+    <div class="section-head">
+      <h2>Игровые режимы qFoldIT</h2>
+      <div class="section-note">5 режимов для разных научных задач</div>
+    </div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-title"><i class="fas fa-flask"></i> Research Campaign</div>
+        <div class="card-body">
+          <p>Нарративный, многоэтапный режим для долгосрочных исследований — дизайн белков, новые материалы, батареи, промышленная оптимизация.</p>
+          <div style="margin-top:8px;">
+            <span class="tag blue"><strong>MCP:</strong> OpenStructure, QSAR/ADMET, Materials, Digital Twin</span>
+            <span class="tag violet"><strong>Алгоритмы:</strong> lDDT, QSAR, ADMET, геометрия</span>
+            <span class="tag amber"><strong>Стандарты:</strong> ISO/IEC 17025, OECD GLP, FAIR</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title"><i class="fas fa-trophy"></i> Arena Challenge</div>
+        <div class="card-body">
+          <p>Таймированный соревновательный режим для оптимизации под давлением — лидерборды, конкурсы, рекорды.</p>
+          <div style="margin-top:8px;">
+            <span class="tag blue"><strong>MCP:</strong> OpenStructure, Quantum Optimization, Mission Registry</span>
+            <span class="tag violet"><strong>Алгоритмы:</strong> QAOA, VQE, CVaR, поиск</span>
+            <span class="tag amber"><strong>Стандарты:</strong> ISO/IEC 25010, 21 CFR Part 11</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title"><i class="fas fa-users"></i> Co‑op Lab</div>
+        <div class="card-body">
+          <p>Командная работа над научной задачей — совместный ревью, уточнение, валидация.</p>
+          <div style="margin-top:8px;">
+            <span class="tag blue"><strong>MCP:</strong> Mission Registry, RBAC, OpenStructure</span>
+            <span class="tag violet"><strong>Алгоритмы:</strong> консенсус, конфликт-резолюция, многокритериальная оптимизация</span>
+            <span class="tag amber"><strong>Стандарты:</strong> ISO/IEC 27001, ISO 23247, ISO 19650</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title"><i class="fas fa-cubes"></i> Sandbox Lab</div>
+        <div class="card-body">
+          <p>Свободное исследование для прототипирования, обучения и демонстраций.</p>
+          <div style="margin-top:8px;">
+            <span class="tag blue"><strong>MCP:</strong> Sandbox, OpenStructure, Domain Adapters</span>
+            <span class="tag violet"><strong>Алгоритмы:</strong> L‑systems, Монте‑Карло, генеративные правила</span>
+            <span class="tag amber"><strong>Стандарты:</strong> FAIR, ISO/IEC 25010</span>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-title"><i class="fas fa-swords"></i> Validation Duel</div>
+        <div class="card-body">
+          <p>Прямое соревнование с невидимым эталоном — слепое тестирование, челленджи.</p>
+          <div style="margin-top:8px;">
+            <span class="tag blue"><strong>MCP:</strong> CAMEO Validation Gateway, OpenStructure, Reward Policy</span>
+            <span class="tag violet"><strong>Алгоритмы:</strong> слепая проверка, пороговые значения, ранжирование</span>
+            <span class="tag amber"><strong>Стандарты:</strong> 21 CFR Part 11, аудитируемость</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ИНДУСТРИАЛЬНЫЕ ВЕРТИКАЛИ (с указанием игровых режимов) ===== -->
   <section>
     <div class="section-head">
       <h2>Индустриальные вертикали</h2>
-      <div class="section-note">сложность: <span class="complexity-tag low">Низкая</span> <span class="complexity-tag medium">Средняя</span> <span class="complexity-tag high">Высокая</span> <span class="complexity-tag very-high">Очень высокая</span></div>
+      <div class="section-note">сложность и рекомендуемые игровые режимы</div>
     </div>
     <div class="table-wrap">
       <table>
@@ -599,6 +646,7 @@
           <tr>
             <th class="col-industry"><i class="fas fa-industry"></i> Отрасль</th>
             <th class="col-orders">Ключевые заказы</th>
+            <th class="col-modes">Режимы</th>
             <th class="col-standards">Индустриальные стандарты</th>
             <th class="col-complexity">Сложность</th>
           </tr>
@@ -614,6 +662,7 @@
                 <li>Оптимизация гидрометаллургии</li>
               </ul>
             </td>
+            <td class="col-modes"><span class="tag blue">Research Campaign</span><br><span class="tag">Validation Duel</span></td>
             <td class="col-standards">
               <a href="https://www.iso.org/standard/14001" target="_blank" rel="noopener" class="std-tag"><strong>ISO 14001</strong></a>
               <a href="https://www.cyanidecode.org" target="_blank" rel="noopener" class="std-tag"><strong>ICMC</strong></a>
@@ -633,6 +682,7 @@
                 <li>Цифровые двойники НПЗ и платформ</li>
               </ul>
             </td>
+            <td class="col-modes"><span class="tag blue">Research Campaign</span><br><span class="tag">Co‑op Lab</span></td>
             <td class="col-standards">
               <a href="https://webstore.ansi.org/standards/nace/nacesp01692024" target="_blank" rel="noopener" class="std-tag"><strong>NACE SP0169</strong></a>
               <a href="https://www.iso.org/iso15156maintenance" target="_blank" rel="noopener" class="std-tag"><strong>ISO 15156</strong></a>
@@ -652,6 +702,7 @@
                 <li>Оптимизация анодных/катодных материалов</li>
               </ul>
             </td>
+            <td class="col-modes"><span class="tag blue">Research Campaign</span><br><span class="tag">Arena Challenge</span></td>
             <td class="col-standards">
               <a href="https://webstore.iec.ch/publication/32796" target="_blank" rel="noopener" class="std-tag"><strong>IEC 62660</strong></a>
               <a href="https://webstore.iec.ch/publication/32350" target="_blank" rel="noopener" class="std-tag"><strong>IEC 61960</strong></a>
@@ -669,6 +720,7 @@
                 <li>Оптимизация OLED-материалов</li>
               </ul>
             </td>
+            <td class="col-modes"><span class="tag blue">Sandbox Lab</span><br><span class="tag">Validation Duel</span></td>
             <td class="col-standards">
               <a href="https://webstore.iec.ch/publication/32469" target="_blank" rel="noopener" class="std-tag"><strong>IEC 62341</strong></a>
               <a href="https://webstore.iec.ch/publication/6168" target="_blank" rel="noopener" class="std-tag"><strong>IEC 61966</strong></a>
@@ -687,6 +739,7 @@
                 <li>Оптимизация фотошаблонов для литографии</li>
               </ul>
             </td>
+            <td class="col-modes"><span class="tag blue">Arena Challenge</span><br><span class="tag">Co‑op Lab</span></td>
             <td class="col-standards">
               <a href="https://www.semi.org/en/standards" target="_blank" rel="noopener" class="std-tag"><strong>SEMI</strong></a>
               <a href="https://www.jedec.org" target="_blank" rel="noopener" class="std-tag"><strong>JEDEC</strong></a>
@@ -705,6 +758,7 @@
                 <li>QSAR-прогнозирование свойств новых соединений</li>
               </ul>
             </td>
+            <td class="col-modes"><span class="tag blue">Research Campaign</span><br><span class="tag">Sandbox Lab</span></td>
             <td class="col-standards">
               <a href="https://www.oecd.org/chemicalsafety/risk-assessment/37849783.pdf" target="_blank" rel="noopener" class="std-tag"><strong>OECD (Q)SAR</strong></a>
               <a href="https://echa.europa.eu/regulations/reach/understanding-reach" target="_blank" rel="noopener" class="std-tag"><strong>REACH</strong></a>
@@ -722,6 +776,7 @@
                 <li>Оптимизация NPK-удобрений</li>
               </ul>
             </td>
+            <td class="col-modes"><span class="tag blue">Sandbox Lab</span><br><span class="tag">Co‑op Lab</span></td>
             <td class="col-standards">
               <a href="https://www.globalgap.org" target="_blank" rel="noopener" class="std-tag"><strong>GLOBALG.A.P.</strong></a>
               <a href="https://www.iso.org/standard/69704.html" target="_blank" rel="noopener" class="std-tag"><strong>ISO 11074</strong></a>
@@ -741,6 +796,7 @@
                 <li>Ретросинтетическое планирование</li>
               </ul>
             </td>
+            <td class="col-modes"><span class="tag blue">Research Campaign</span><br><span class="tag">Validation Duel</span></td>
             <td class="col-standards">
               <a href="https://www.ich.org/page/ich-guidelines" target="_blank" rel="noopener" class="std-tag"><strong>ICH guidelines</strong></a>
               <a href="https://www.fda.gov" target="_blank" rel="noopener" class="std-tag"><strong>GxP</strong></a>
@@ -758,6 +814,7 @@
                 <li>Проектирование оборудования (тепловые, гидродинамика)</li>
               </ul>
             </td>
+            <td class="col-modes"><span class="tag blue">Co‑op Lab</span><br><span class="tag">Sandbox Lab</span></td>
             <td class="col-standards">
               <a href="https://www.iso.org/standard/75066.html" target="_blank" rel="noopener" class="std-tag"><strong>ISO 23247</strong></a>
               <a href="https://www.iso.org/standard/78957.html" target="_blank" rel="noopener" class="std-tag"><strong>ISO/IEC 30141</strong></a>
@@ -771,6 +828,39 @@
     </div>
   </section>
 
+  <!-- ===== ЖИЗНЕННЫЙ ЦИКЛ МИССИИ ===== -->
+  <section>
+    <div class="section-head">
+      <h2>Жизненный цикл миссии</h2>
+      <div class="section-note">10 состояний от черновика до архива</div>
+    </div>
+    <div class="lifecycle">
+      <span class="step done">DRAFT</span>
+      <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+      <span class="step done">REVIEW</span>
+      <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+      <span class="step done">COMPILED</span>
+      <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+      <span class="step active">PUBLISHED</span>
+      <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+      <span class="step">ACTIVE</span>
+      <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+      <span class="step">VALIDATING</span>
+      <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+      <span class="step">SCORED</span>
+      <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+      <span class="step">ELIGIBLE</span>
+      <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+      <span class="step">REWARDED</span>
+      <span class="arrow"><i class="fas fa-arrow-right"></i></span>
+      <span class="step">ARCHIVED</span>
+    </div>
+    <div style="margin-top:12px; font-size:12px; color:var(--ink-dim); background:var(--bg-panel-2); padding:12px 18px; border-radius:12px; border:1px solid var(--line);">
+      <i class="fas fa-info-circle" style="color:var(--accent); margin-right:6px;"></i>
+      <strong>Правила:</strong> черновики редактируемы; опубликованные миссии версионны и неизменяемы; все активные сабмишены ссылаются на конкретную версию миссии.
+    </div>
+  </section>
+
   <!-- ===== СТАНДАРТЫ: сквозные ===== -->
   <section>
     <div class="section-head">
@@ -781,7 +871,7 @@
       <div class="standards-card">
         <div class="card-title"><i class="fas fa-shield-alt"></i> Информационная безопасность</div>
         <div class="card-body">
-          <a href="https://www.iso.org/obp/ui/#iso:std:iso-iec:27001:ed-2:v1:en" target="_blank" rel="noopener" class="std-item"><strong>ISO/IEC 27001</strong></a>
+          <a href="https://www.iso.org/obp/ui/#iso:std:iso-iec:27001:ed-2:v1:en" target="_blank" rel="noopener" class="std-item"><strong>ISO/IEC 27001:2022 + Amd 1:2024</strong></a>
           <a href="https://us.aicpa.org/forthepublic" target="_blank" rel="noopener" class="std-item"><strong>SOC 2 Type II</strong></a>
           <span class="std-desc">Управление информационной безопасностью, изоляция арендаторов, RBAC, шифрование, аудит.</span>
         </div>
@@ -789,7 +879,7 @@
       <div class="standards-card">
         <div class="card-title"><i class="fas fa-check-double"></i> Качество ПО &amp; надёжность</div>
         <div class="card-body">
-          <a href="https://www.iso.org/standard/83073.html" target="_blank" rel="noopener" class="std-item"><strong>ISO/IEC 25010</strong></a>
+          <a href="https://www.iso.org/standard/83073.html" target="_blank" rel="noopener" class="std-item"><strong>ISO/IEC 25010:2023</strong></a>
           <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf" target="_blank" rel="noopener" class="std-item"><strong>NIST FIPS 180-4</strong></a>
           <span class="std-desc">Модель качества ПО (функциональная пригодность, надёжность, сопровождаемость) и SHA-256-дайджесты артефактов.</span>
         </div>
