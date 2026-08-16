@@ -41,6 +41,9 @@
     }
     main { max-width: 1180px; margin: 0 auto; padding: 56px 28px 90px; }
 
+    /* Убираем подчёркивание у всех ссылок */
+    a { text-decoration: none; }
+
     /* Hero */
     .eyebrow {
       font-family: var(--mono);
@@ -78,7 +81,7 @@
       flex-wrap: wrap;
       gap: 6px 22px;
     }
-    .hero-meta a { color: var(--ink-dim); text-decoration: none; border-bottom: 1px dotted var(--line); }
+    .hero-meta a { color: var(--ink-dim); border-bottom: 1px dotted var(--line); }
     .hero-meta a:hover { color: var(--accent); border-color: var(--accent); }
 
     /* Sections */
@@ -143,7 +146,7 @@
       border-collapse: collapse;
       font-size: 14px;
       line-height: 1.5;
-      min-width: 600px;
+      min-width: 800px;
       border: 1px solid var(--line);
       border-radius: 16px;
       overflow: hidden;
@@ -174,6 +177,7 @@
       font-weight: 600;
       color: var(--ink);
       white-space: nowrap;
+      width: 13%;
     }
     .col-industry i {
       width: 24px;
@@ -182,6 +186,9 @@
       margin-right: 8px;
     }
 
+    .col-orders {
+      width: 32%;
+    }
     .col-orders ul {
       list-style: none;
       padding: 0;
@@ -202,9 +209,40 @@
     }
     .col-orders li:last-child { margin-bottom: 0; }
 
+    .col-standards {
+      width: 35%;
+      font-size: 12px;
+      color: var(--ink-dim);
+    }
+    .col-standards .std-tag {
+      display: inline-block;
+      background: var(--bg-panel-2);
+      padding: 2px 10px;
+      border-radius: 12px;
+      margin: 2px 4px 2px 0;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      white-space: nowrap;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .col-standards .std-tag strong {
+      color: var(--accent);
+      font-weight: 600;
+    }
+    .col-standards .std-tag:hover {
+      border-color: var(--accent);
+      background: var(--accent-soft);
+      transform: scale(1.02);
+    }
+
     .col-complexity {
       text-align: right;
       white-space: nowrap;
+      width: 12%;
     }
 
     .complexity-tag {
@@ -223,6 +261,81 @@
     .complexity-tag.high { background: var(--rose-soft); color: var(--rose); border-color: var(--rose-soft); }
     .complexity-tag.very-high { background: var(--violet-soft); color: var(--violet); border-color: var(--violet-soft); }
 
+    /* Cross-cutting standards cards */
+    .standards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+    }
+    .standards-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px 20px;
+      border-top: 3px solid var(--violet);
+    }
+    .standards-card .card-title {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--violet);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .standards-card .card-title i {
+      font-size: 14px;
+      color: var(--violet);
+    }
+    .standards-card .card-body {
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--ink-dim);
+    }
+    .standards-card .card-body .std-item {
+      display: inline-block;
+      background: var(--bg-panel-2);
+      padding: 1px 8px;
+      border-radius: 10px;
+      margin: 2px 4px 2px 0;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .standards-card .card-body .std-item strong {
+      color: var(--violet);
+      font-weight: 600;
+    }
+    .standards-card .card-body .std-item:hover {
+      border-color: var(--violet);
+      background: var(--violet-soft);
+      transform: scale(1.02);
+    }
+    .standards-card .card-body .std-desc {
+      display: block;
+      font-size: 11px;
+      color: var(--ink-faint);
+      margin-top: 4px;
+      padding-left: 2px;
+    }
+
+    /* Pipeline block */
+    .pipeline-block {
+      background: var(--bg-panel);
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 24px 28px;
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--ink-dim);
+    }
+    .pipeline-block .step { color: var(--ink); padding: 3px 0; }
+    .pipeline-block .arrow { color: var(--accent); padding-left: 6px; }
+    .pipeline-block .highlight { color: var(--accent); }
+
     /* Footer */
     footer {
       margin-top: 70px;
@@ -238,7 +351,6 @@
     }
     footer a {
       color: var(--accent);
-      text-decoration: none;
       display: inline-flex;
       align-items: center;
       gap: 8px;
@@ -254,7 +366,6 @@
       border-radius: 40px;
       font-size: 13px;
       font-weight: 500;
-      text-decoration: none;
       transition: background 0.2s;
       white-space: nowrap;
       display: inline-flex;
@@ -266,11 +377,13 @@
     @media (max-width: 640px) {
       main { padding: 40px 18px 70px; }
       .hero-meta { flex-direction: column; gap: 4px; }
-      .col-industry { width: 22%; }
-      .col-orders { width: 55%; }
-      .col-complexity { width: 23%; }
-      table { font-size: 13px; min-width: 480px; }
-      tbody td { padding: 12px 10px; }
+      table { font-size: 12px; min-width: 600px; }
+      .col-industry { width: 15%; }
+      .col-orders { width: 30%; }
+      .col-standards { width: 35%; }
+      .col-complexity { width: 12%; }
+      tbody td { padding: 10px 8px; }
+      .col-standards .std-tag { font-size: 9px; padding: 1px 6px; }
     }
   </style>
 </head>
@@ -289,7 +402,7 @@
     <span style="color:var(--accent)">9 отраслей · 34+ типов заказов</span>
   </div>
 
-  <!-- Метрики (опционально) -->
+  <!-- Метрики -->
   <section>
     <div class="metric-grid">
       <div class="metric"><div class="n">9</div><div class="l">Отраслей</div></div>
@@ -299,7 +412,49 @@
     </div>
   </section>
 
-  <!-- Таблица заказов -->
+  <!-- ===== СТАНДАРТЫ: сквозные (cross-cutting) ===== -->
+  <section>
+    <div class="section-head">
+      <h2>Общие стандарты (все отрасли)</h2>
+      <div class="section-note">информационная безопасность, качество, лицензии</div>
+    </div>
+
+    <div class="standards-grid">
+      <div class="standards-card">
+        <div class="card-title"><i class="fas fa-shield-alt"></i> Информационная безопасность</div>
+        <div class="card-body">
+          <a href="https://www.iso.org/obp/ui/#iso:std:iso-iec:27001:ed-2:v1:en" target="_blank" rel="noopener" class="std-item"><strong>ISO/IEC 27001</strong></a>
+          <a href="https://us.aicpa.org/forthepublic" target="_blank" rel="noopener" class="std-item"><strong>SOC 2 Type II</strong></a>
+          <span class="std-desc">Управление информационной безопасностью, изоляция арендаторов, RBAC, шифрование, аудит.</span>
+        </div>
+      </div>
+      <div class="standards-card">
+        <div class="card-title"><i class="fas fa-check-double"></i> Качество ПО &amp; надёжность</div>
+        <div class="card-body">
+          <a href="https://www.iso.org/standard/83073.html" target="_blank" rel="noopener" class="std-item"><strong>ISO/IEC 25010</strong></a>
+          <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf" target="_blank" rel="noopener" class="std-item"><strong>NIST FIPS 180-4</strong></a>
+          <span class="std-desc">Модель качества ПО (функциональная пригодность, надёжность, сопровождаемость) и SHA-256-дайджесты артефактов.</span>
+        </div>
+      </div>
+      <div class="standards-card">
+        <div class="card-title"><i class="fas fa-sync-alt"></i> FAIR &amp; прослеживаемость</div>
+        <div class="card-body">
+          <a href="https://www.go-fair.org/fair-principles/" target="_blank" rel="noopener" class="std-item"><strong>FAIR principles</strong></a>
+          <span class="std-desc">Findable, Accessible, Interoperable, Reusable — реализовано через цепочку <code>research_order_id → mission_id → validation_id</code>.</span>
+        </div>
+      </div>
+      <div class="standards-card">
+        <div class="card-title"><i class="fas fa-copyright"></i> Лицензионная чистота</div>
+        <div class="card-body">
+          <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener" class="std-item"><strong>AGPL-3.0</strong></a>
+          <a href="https://www.gnu.org/licenses/lgpl-3.0.html" target="_blank" rel="noopener" class="std-item"><strong>LGPL-3.0</strong></a>
+          <span class="std-desc">Собственный слой qFoldIT — AGPL-3.0; ядро OPENSTRUCTURE — LGPL-3.0 (с обязательным цитированием Mariani et al. 2013 / Bertoni et al. 2017).</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ТАБЛИЦА с отраслевыми стандартами ===== -->
   <section>
     <div class="section-head">
       <h2>Индустриальные вертикали</h2>
@@ -311,10 +466,12 @@
           <tr>
             <th class="col-industry"><i class="fas fa-industry"></i> Отрасль</th>
             <th class="col-orders">Ключевые заказы</th>
+            <th class="col-standards">Индустриальные стандарты</th>
             <th class="col-complexity">Сложность</th>
           </tr>
         </thead>
         <tbody>
+          <!-- 1. Добыча -->
           <tr>
             <td class="col-industry"><i class="fas fa-mountain"></i> Добыча</td>
             <td class="col-orders">
@@ -325,8 +482,16 @@
                 <li>Оптимизация гидрометаллургии</li>
               </ul>
             </td>
+            <td class="col-standards">
+              <a href="https://www.iso.org/standard/60857.html" target="_blank" rel="noopener" class="std-tag"><strong>ISO 14001</strong></a>
+              <a href="https://www.cyanidecode.org" target="_blank" rel="noopener" class="std-tag"><strong>ICMC</strong></a>
+              <a href="https://www.iso.org/iso-45001-occupational-health-and-safety.html" target="_blank" rel="noopener" class="std-tag"><strong>ISO 45001</strong></a>
+              <a href="https://www.jorc.org" target="_blank" rel="noopener" class="std-tag"><strong>JORC</strong></a>
+              <a href="https://www.iso.org/standard/56112.html" target="_blank" rel="noopener" class="std-tag"><strong>ISO/IEC 17025</strong></a>
+            </td>
             <td class="col-complexity"><span class="complexity-tag medium">Средняя</span></td>
           </tr>
+          <!-- 2. Нефть и газ -->
           <tr>
             <td class="col-industry"><i class="fas fa-oil-can"></i> Нефть и газ</td>
             <td class="col-orders">
@@ -337,8 +502,16 @@
                 <li>Цифровые двойники НПЗ и платформ</li>
               </ul>
             </td>
+            <td class="col-standards">
+              <a href="https://webstore.ansi.org/standards/nace/nacesp01692024" target="_blank" rel="noopener" class="std-tag"><strong>NACE SP0169</strong></a>
+              <a href="https://www.iso.org/iso15156maintenance" target="_blank" rel="noopener" class="std-tag"><strong>ISO 15156</strong></a>
+              <a href="https://www.api.org/products-and-services/individual-certification-programs" target="_blank" rel="noopener" class="std-tag"><strong>API 570/579</strong></a>
+              <a href="https://www.iso.org/standard/71721.html" target="_blank" rel="noopener" class="std-tag"><strong>ISO 13623</strong></a>
+              <a href="https://www.iso.org/standard/63507.html" target="_blank" rel="noopener" class="std-tag"><strong>ISO 14224</strong></a>
+            </td>
             <td class="col-complexity"><span class="complexity-tag high">Высокая</span></td>
           </tr>
+          <!-- 3. Аккумуляторы -->
           <tr>
             <td class="col-industry"><i class="fas fa-bolt"></i> Аккумуляторы</td>
             <td class="col-orders">
@@ -349,8 +522,15 @@
                 <li>Оптимизация анодных/катодных материалов</li>
               </ul>
             </td>
+            <td class="col-standards">
+              <a href="https://webstore.iec.ch/publication/32796" target="_blank" rel="noopener" class="std-tag"><strong>IEC 62660</strong></a>
+              <a href="https://webstore.iec.ch/publication/32350" target="_blank" rel="noopener" class="std-tag"><strong>IEC 61960</strong></a>
+              <a href="https://www.unece.org/trans/danger/publi/manual/manual_e.html" target="_blank" rel="noopener" class="std-tag"><strong>UN 38.3</strong></a>
+              <a href="https://www.iso.org/standard/71070.html" target="_blank" rel="noopener" class="std-tag"><strong>ISO 12405</strong></a>
+            </td>
             <td class="col-complexity"><span class="complexity-tag high">Высокая</span></td>
           </tr>
+          <!-- 4. Дисплеи -->
           <tr>
             <td class="col-industry"><i class="fas fa-tv"></i> Дисплеи</td>
             <td class="col-orders">
@@ -360,8 +540,15 @@
                 <li>Оптимизация OLED-материалов</li>
               </ul>
             </td>
+            <td class="col-standards">
+              <a href="https://webstore.iec.ch/publication/32469" target="_blank" rel="noopener" class="std-tag"><strong>IEC 62341</strong></a>
+              <a href="https://webstore.iec.ch/publication/6168" target="_blank" rel="noopener" class="std-tag"><strong>IEC 61966</strong></a>
+              <a href="https://displayhdr.org" target="_blank" rel="noopener" class="std-tag"><strong>VESA DisplayHDR</strong></a>
+              <a href="https://www.semi.org/en/standards" target="_blank" rel="noopener" class="std-tag"><strong>SEMI D-series</strong></a>
+            </td>
             <td class="col-complexity"><span class="complexity-tag high">Высокая</span></td>
           </tr>
+          <!-- 5. Чипы и процессоры -->
           <tr>
             <td class="col-industry"><i class="fas fa-microchip"></i> Чипы и процессоры</td>
             <td class="col-orders">
@@ -372,8 +559,16 @@
                 <li>Оптимизация фотошаблонов для литографии</li>
               </ul>
             </td>
+            <td class="col-standards">
+              <a href="https://www.semi.org/en/standards" target="_blank" rel="noopener" class="std-tag"><strong>SEMI</strong></a>
+              <a href="https://www.jedec.org" target="_blank" rel="noopener" class="std-tag"><strong>JEDEC</strong></a>
+              <a href="https://webstore.iec.ch/publication/29639" target="_blank" rel="noopener" class="std-tag"><strong>IEC 60747</strong></a>
+              <a href="https://shop.ipc.org/IPC-6012" target="_blank" rel="noopener" class="std-tag"><strong>IPC-6012</strong></a>
+              <a href="https://shop.ipc.org/IPC-A-600" target="_blank" rel="noopener" class="std-tag"><strong>IPC-A-600</strong></a>
+            </td>
             <td class="col-complexity"><span class="complexity-tag very-high">Очень высокая</span></td>
           </tr>
+          <!-- 6. Химия -->
           <tr>
             <td class="col-industry"><i class="fas fa-flask"></i> Химия</td>
             <td class="col-orders">
@@ -383,8 +578,15 @@
                 <li>QSAR-прогнозирование свойств новых соединений</li>
               </ul>
             </td>
+            <td class="col-standards">
+              <a href="https://www.oecd.org/chemicalsafety/risk-assessment/37849783.pdf" target="_blank" rel="noopener" class="std-tag"><strong>OECD (Q)SAR</strong></a>
+              <a href="https://echa.europa.eu/regulations/reach/understanding-reach" target="_blank" rel="noopener" class="std-tag"><strong>REACH</strong></a>
+              <a href="https://unece.org/ghs" target="_blank" rel="noopener" class="std-tag"><strong>GHS</strong></a>
+              <a href="https://www.oecd.org/chemicalsafety/testing/good-laboratory-practice-glp/" target="_blank" rel="noopener" class="std-tag"><strong>OECD GLP</strong></a>
+            </td>
             <td class="col-complexity"><span class="complexity-tag medium">Средняя</span></td>
           </tr>
+          <!-- 7. Сельское хозяйство -->
           <tr>
             <td class="col-industry"><i class="fas fa-seedling"></i> Сельское хозяйство</td>
             <td class="col-orders">
@@ -394,8 +596,16 @@
                 <li>Оптимизация NPK-удобрений</li>
               </ul>
             </td>
+            <td class="col-standards">
+              <a href="https://www.globalgap.org" target="_blank" rel="noopener" class="std-tag"><strong>GLOBALG.A.P.</strong></a>
+              <a href="https://www.iso.org/standard/69704.html" target="_blank" rel="noopener" class="std-tag"><strong>ISO 11074</strong></a>
+              <a href="https://www.iso.org/standard/40709.html" target="_blank" rel="noopener" class="std-tag"><strong>ISO 11464</strong></a>
+              <a href="https://www.fao.org/fao-who-codexalimentarius/en/" target="_blank" rel="noopener" class="std-tag"><strong>Codex Alimentarius</strong></a>
+              <a href="https://www.oecd.org/en/topics/sub-issues/pesticides.html" target="_blank" rel="noopener" class="std-tag"><strong>OECD pesticide</strong></a>
+            </td>
             <td class="col-complexity"><span class="complexity-tag medium">Средняя</span></td>
           </tr>
+          <!-- 8. Фармацевтика -->
           <tr>
             <td class="col-industry"><i class="fas fa-pills"></i> Фармацевтика</td>
             <td class="col-orders">
@@ -406,8 +616,15 @@
                 <li>Ретросинтетическое планирование</li>
               </ul>
             </td>
+            <td class="col-standards">
+              <a href="https://www.ich.org/page/ich-guidelines" target="_blank" rel="noopener" class="std-tag"><strong>ICH guidelines</strong></a>
+              <a href="https://www.fda.gov" target="_blank" rel="noopener" class="std-tag"><strong>GxP</strong></a>
+              <a href="https://www.ecfr.gov/current/title-21/chapter-I/part-11" target="_blank" rel="noopener" class="std-tag"><strong>21 CFR Part 11</strong></a>
+              <a href="https://www.fda.gov/medical-devices/software-medical-device-samd/good-machine-learning-practice-medical-device-development-guiding-principles" target="_blank" rel="noopener" class="std-tag"><strong>FDA GMLP</strong></a>
+            </td>
             <td class="col-complexity"><span class="complexity-tag very-high">Очень высокая</span></td>
           </tr>
+          <!-- 9. Цифровые двойники -->
           <tr>
             <td class="col-industry"><i class="fas fa-cubes"></i> Цифровые двойники</td>
             <td class="col-orders">
@@ -417,6 +634,12 @@
                 <li>Проектирование оборудования (тепловые, гидродинамика)</li>
               </ul>
             </td>
+            <td class="col-standards">
+              <a href="https://www.iso.org/standard/75066.html" target="_blank" rel="noopener" class="std-tag"><strong>ISO 23247</strong></a>
+              <a href="https://www.iso.org/standard/78957.html" target="_blank" rel="noopener" class="std-tag"><strong>ISO/IEC 30141</strong></a>
+              <a href="https://www.isa.org/standards-and-publications/isa-standards/isa-standards-committees/isa99" target="_blank" rel="noopener" class="std-tag"><strong>IEC 62443</strong></a>
+              <a href="https://www.iso.org/standard/68078.html" target="_blank" rel="noopener" class="std-tag"><strong>ISO 19650</strong></a>
+            </td>
             <td class="col-complexity"><span class="complexity-tag high">Высокая</span></td>
           </tr>
         </tbody>
@@ -424,19 +647,19 @@
     </div>
   </section>
 
-  <!-- Как это работает (блок аналогично pipeline из dashboard) -->
+  <!-- ===== Единый конвейер ===== -->
   <section>
     <div class="section-head">
       <h2>Единый конвейер</h2>
       <div class="section-note">от заказа до валидации</div>
     </div>
-    <div style="background:var(--bg-panel); border:1px solid var(--line); border-radius:16px; padding:24px 28px; font-family:var(--mono); font-size:13px; color:var(--ink-dim);">
-      <div style="color:var(--ink); padding:3px 0;">1. Заказчик (B2B) определяет задачу и загружает данные <span style="color:var(--accent); padding-left:6px;">↓</span></div>
-      <div style="color:var(--ink); padding:3px 0;">2. INDUSTRIAL‑CAMEO компилирует задачу в UAG <span style="color:var(--accent); padding-left:6px;">↓</span></div>
-      <div style="color:var(--ink); padding:3px 0;">3. Адаптеры генерируют игровые миссии (UEFN, Unity, UNIGINE, Web, Standalone) <span style="color:var(--accent); padding-left:6px;">↓</span></div>
-      <div style="color:var(--ink); padding:3px 0;">4. Игроки решают задачу через игровой процесс <span style="color:var(--accent); padding-left:6px;">↓</span></div>
-      <div style="color:var(--ink); padding:3px 0;">5. OPENSTRUCTURE (AlphaFold, VQE, ZairaChem и др.) валидирует решения <span style="color:var(--accent); padding-left:6px;">↓</span></div>
-      <div style="color:var(--accent); padding:3px 0;">6. Заказчик получает научно обоснованный результат и оплачивает валидное решение.</div>
+    <div class="pipeline-block">
+      <div class="step">1. Заказчик (B2B) определяет задачу и загружает данные <span class="arrow">↓</span></div>
+      <div class="step">2. INDUSTRIAL‑CAMEO компилирует задачу в UAG <span class="arrow">↓</span></div>
+      <div class="step">3. Адаптеры генерируют игровые миссии (UEFN, Unity, UNIGINE, Web, Standalone) <span class="arrow">↓</span></div>
+      <div class="step">4. Игроки решают задачу через игровой процесс <span class="arrow">↓</span></div>
+      <div class="step">5. OPENSTRUCTURE (AlphaFold, VQE, ZairaChem и др.) валидирует решения <span class="arrow">↓</span></div>
+      <div class="step highlight">6. Заказчик получает научно обоснованный результат и оплачивает валидное решение.</div>
       <div style="margin-top:12px; font-size:12px; color:var(--ink-faint);">
         <i class="fas fa-arrow-right" style="color:var(--accent); margin-right:6px;"></i>
         <strong>Результат:</strong> ускорение R&amp;D в 3–10 раз, доступ к тысячам игроков-решателей, полная прозрачность и воспроизводимость.
