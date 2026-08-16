@@ -205,7 +205,7 @@
     .lifecycle .step.done { background: var(--green-soft); color: var(--green); border-color: var(--green-soft); }
     .lifecycle .arrow { color: var(--ink-faint); font-size: 12px; flex: none; }
 
-    /* Tables (already defined) — reuse */
+    /* Tables */
     .table-wrap {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
@@ -336,6 +336,67 @@
     .legend-item .dot.violet { background: var(--violet); }
     .legend-item .dot.gray { background: var(--ink-faint); }
 
+    /* Standards cards (new) */
+    .standards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+    }
+    .standards-card {
+      background: var(--bg-panel);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 18px 20px;
+      border-top: 3px solid var(--violet);
+      transition: background 0.2s;
+    }
+    .standards-card:hover { background: var(--bg-panel-2); }
+    .standards-card .card-title {
+      font-family: var(--mono);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--violet);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .standards-card .card-title i { font-size: 14px; color: var(--violet); }
+    .standards-card .card-body {
+      margin-top: 6px;
+      font-size: 11.5px;
+      color: var(--ink-dim);
+    }
+    .standards-card .card-body .std-ref {
+      display: inline-block;
+      background: var(--bg-panel-2);
+      padding: 1px 8px;
+      border-radius: 10px;
+      margin: 2px 4px 2px 0;
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--ink);
+      border: 1px solid var(--line);
+      transition: all 0.2s ease;
+    }
+    .standards-card .card-body .std-ref strong { color: var(--violet); font-weight: 600; }
+    .standards-card .card-body .std-ref:hover { border-color: var(--violet); background: var(--violet-soft); }
+    .standards-card .card-body .std-desc {
+      display: block;
+      font-size: 10.5px;
+      color: var(--ink-faint);
+      margin-top: 4px;
+      padding-left: 2px;
+    }
+    .standards-card .card-body .control {
+      display: block;
+      font-size: 10.5px;
+      color: var(--accent);
+      margin-top: 6px;
+      border-top: 1px solid var(--line);
+      padding-top: 6px;
+    }
+    .standards-card .card-body .control strong { color: var(--ink); }
+
     /* Pipeline */
     .pipeline-block {
       background: var(--bg-panel);
@@ -350,35 +411,32 @@
     .pipeline-block .arrow { color: var(--accent); padding-left: 6px; }
     .pipeline-block .highlight { color: var(--accent); }
 
-    /* Cross-cutting standards cards */
-    .standards-grid {
+    /* Trust zones */
+    .trust-zones {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-    }
-    .standards-card {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
       background: var(--bg-panel);
       border: 1px solid var(--line);
       border-radius: 14px;
-      padding: 16px 18px;
-      border-top: 3px solid var(--violet);
+      padding: 18px 20px;
     }
-    .standards-card .card-title {
+    .trust-zone {
+      background: var(--bg-panel-2);
+      border-radius: 10px;
+      padding: 12px 14px;
+      border-left: 3px solid var(--accent);
+    }
+    .trust-zone .zone-title {
       font-family: var(--mono);
       font-size: 12px;
       font-weight: 600;
-      color: var(--violet);
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      color: var(--accent);
     }
-    .standards-card .card-body { margin-top: 6px; font-size: 11.5px; color: var(--ink-dim); }
-    .standards-card .card-body .std-desc {
-      display: block;
-      font-size: 10.5px;
-      color: var(--ink-faint);
-      margin-top: 3px;
-      padding-left: 2px;
+    .trust-zone .zone-desc {
+      font-size: 11px;
+      color: var(--ink-dim);
+      margin-top: 4px;
     }
 
     /* Footer */
@@ -402,6 +460,8 @@
       main { padding: 40px 18px 70px; }
       .hero-meta { flex-direction: column; gap: 4px; }
       .card-grid { grid-template-columns: 1fr; }
+      .standards-grid { grid-template-columns: 1fr; }
+      .trust-zones { grid-template-columns: 1fr; }
       table { font-size: 11px; min-width: 700px; }
       tbody td { padding: 8px 6px; }
       .col-modes { font-size: 9px; }
@@ -434,6 +494,7 @@
       <div class="metric"><div class="n">5</div><div class="l">Игровых режимов</div></div>
       <div class="metric"><div class="n">5</div><div class="l">Игровых паттернов unlocked</div></div>
       <div class="metric"><div class="n">6</div><div class="l">Доменов с бэкендом verified</div></div>
+      <div class="metric"><div class="n">16</div><div class="l">Поддерживаемых стандартов</div></div>
     </div>
   </section>
 
@@ -634,7 +695,7 @@
     </div>
   </section>
 
-  <!-- ===== ИНДУСТРИАЛЬНЫЕ ВЕРТИКАЛИ (с указанием игровых режимов) ===== -->
+  <!-- ===== ИНДУСТРИАЛЬНЫЕ ВЕРТИКАЛИ ===== -->
   <section>
     <div class="section-head">
       <h2>Индустриальные вертикали</h2>
@@ -861,42 +922,123 @@
     </div>
   </section>
 
-  <!-- ===== СТАНДАРТЫ: сквозные ===== -->
+  <!-- ===== АРХИТЕКТУРНАЯ СХЕМА ===== -->
+  <section>
+    <div class="section-head">
+      <h2>Архитектура безопасности — зоны доверия</h2>
+      <div class="section-note">разделение ответственности</div>
+    </div>
+    <div class="trust-zones">
+      <div class="trust-zone">
+        <div class="zone-title">1. Публичная зона</div>
+        <div class="zone-desc">Игровые клиенты, веб-интерфейсы — не содержат секретных данных.</div>
+      </div>
+      <div class="trust-zone">
+        <div class="zone-title">2. Шлюз</div>
+        <div class="zone-desc">Аутентифицированные вызовы, валидация схем, контроль скорости, подписи запросов.</div>
+      </div>
+      <div class="trust-zone">
+        <div class="zone-title">3. Корпоративная зона</div>
+        <div class="zone-desc">Управление арендаторами, оркестрация миссий, политики, аудит.</div>
+      </div>
+      <div class="trust-zone">
+        <div class="zone-title">4. Научная зона</div>
+        <div class="zone-desc">Закрытые OPENSTRUCTURE-сервисы, защищённые эталонные данные.</div>
+      </div>
+      <div class="trust-zone">
+        <div class="zone-title">5. Коммерческая зона</div>
+        <div class="zone-desc">Сервисы выплат и вознаграждений — отделены от науки.</div>
+      </div>
+    </div>
+    <div style="margin-top:12px; font-size:12px; color:var(--ink-faint);">
+      <i class="fas fa-lock" style="color:var(--accent); margin-right:6px;"></i>
+      <strong>Принцип:</strong> ни один игровой клиент не может получить эталонную структуру; научный сервис не принимает коммерческих решений; публичный STATE не содержит приватных данных.
+    </div>
+  </section>
+
+  <!-- ===== СТАНДАРТЫ: сквозные (расширенные) ===== -->
   <section>
     <div class="section-head">
       <h2>Общие стандарты (все отрасли)</h2>
-      <div class="section-note">информационная безопасность, качество, лицензии</div>
+      <div class="section-note">информационная безопасность, ИИ, качество, лабораторная практика, регулируемые записи</div>
     </div>
     <div class="standards-grid">
+      <!-- Информационная безопасность и приватность -->
       <div class="standards-card">
-        <div class="card-title"><i class="fas fa-shield-alt"></i> Информационная безопасность</div>
+        <div class="card-title"><i class="fas fa-shield-alt"></i> Information Security &amp; Privacy</div>
         <div class="card-body">
-          <a href="https://www.iso.org/obp/ui/#iso:std:iso-iec:27001:ed-2:v1:en" target="_blank" rel="noopener" class="std-item"><strong>ISO/IEC 27001:2022 + Amd 1:2024</strong></a>
-          <a href="https://us.aicpa.org/forthepublic" target="_blank" rel="noopener" class="std-item"><strong>SOC 2 Type II</strong></a>
-          <span class="std-desc">Управление информационной безопасностью, изоляция арендаторов, RBAC, шифрование, аудит.</span>
+          <a href="https://www.iso.org/obp/ui/#iso:std:iso-iec:27001:ed-2:v1:en" target="_blank" rel="noopener" class="std-ref"><strong>ISO/IEC 27001:2022 + Amd 1:2024</strong></a>
+          <a href="https://www.iso.org/standard/27701" target="_blank" rel="noopener" class="std-ref"><strong>ISO/IEC 27701:2025</strong></a>
+          <span class="std-desc">Управление информационной безопасностью, изоляция арендаторов, RBAC, шифрование, аудит; управление приватностью PII.</span>
+          <span class="control"><strong>QFOLDIT CONTROL:</strong> Identity, RBAC, tenant boundaries, audit trail, privacy controls, retention policies.</span>
         </div>
       </div>
+      <!-- AI Governance -->
       <div class="standards-card">
-        <div class="card-title"><i class="fas fa-check-double"></i> Качество ПО &amp; надёжность</div>
+        <div class="card-title"><i class="fas fa-robot"></i> AI Governance</div>
         <div class="card-body">
-          <a href="https://www.iso.org/standard/83073.html" target="_blank" rel="noopener" class="std-item"><strong>ISO/IEC 25010:2023</strong></a>
-          <a href="https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf" target="_blank" rel="noopener" class="std-item"><strong>NIST FIPS 180-4</strong></a>
-          <span class="std-desc">Модель качества ПО (функциональная пригодность, надёжность, сопровождаемость) и SHA-256-дайджесты артефактов.</span>
+          <a href="https://www.iso.org/standard/81204.html" target="_blank" rel="noopener" class="std-ref"><strong>ISO/IEC 42001:2023</strong></a>
+          <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener" class="std-ref"><strong>EU AI Act (2024/1689)</strong></a>
+          <span class="std-desc">Управление ИИ-системами, классификация рисков, прозрачность, человеческий надзор, логирование, техническая документация.</span>
+          <span class="control"><strong>QFOLDIT CONTROL:</strong> AI inventory, risk classification, model provenance, human oversight, traceability, lifecycle governance.</span>
         </div>
       </div>
+      <!-- Software Quality -->
       <div class="standards-card">
-        <div class="card-title"><i class="fas fa-sync-alt"></i> FAIR &amp; прослеживаемость</div>
+        <div class="card-title"><i class="fas fa-check-double"></i> Software Quality</div>
         <div class="card-body">
-          <a href="https://www.go-fair.org/fair-principles/" target="_blank" rel="noopener" class="std-item"><strong>FAIR principles</strong></a>
-          <span class="std-desc">Findable, Accessible, Interoperable, Reusable — реализовано через цепочку <code>research_order_id → mission_id → validation_id</code>.</span>
+          <a href="https://www.iso.org/standard/83073.html" target="_blank" rel="noopener" class="std-ref"><strong>ISO/IEC 25010:2023</strong></a>
+          <span class="std-desc">Модель качества ПО: функциональная пригодность, надёжность, сопровождаемость, безопасность, совместимость.</span>
+          <span class="control"><strong>QFOLDIT CONTROL:</strong> Reliability, security, maintainability, compatibility, usability quality gates.</span>
         </div>
       </div>
+      <!-- Laboratory Quality -->
       <div class="standards-card">
-        <div class="card-title"><i class="fas fa-copyright"></i> Лицензионная чистота</div>
+        <div class="card-title"><i class="fas fa-flask"></i> Laboratory Quality</div>
         <div class="card-body">
-          <a href="https://www.gnu.org/licenses/agpl-3.0.html" target="_blank" rel="noopener" class="std-item"><strong>AGPL-3.0</strong></a>
-          <a href="https://www.gnu.org/licenses/lgpl-3.0.html" target="_blank" rel="noopener" class="std-item"><strong>LGPL-3.0</strong></a>
-          <span class="std-desc">Собственный слой qFoldIT — AGPL-3.0; ядро OPENSTRUCTURE — LGPL-3.0 (с обязательным цитированием Mariani et al. 2013 / Bertoni et al. 2017).</span>
+          <a href="https://www.iso.org/standard/56112.html" target="_blank" rel="noopener" class="std-ref"><strong>ISO/IEC 17025:2017</strong></a>
+          <a href="https://www.oecd.org/chemicalsafety/testing/good-laboratory-practice-glp/" target="_blank" rel="noopener" class="std-ref"><strong>OECD GLP</strong></a>
+          <span class="std-desc">Компетентность испытательных лабораторий, GLP для доклинических исследований, целостность данных.</span>
+          <span class="control"><strong>QFOLDIT CONTROL:</strong> Validation records, method versions, reproducibility, study identity, raw-data lineage, QA evidence.</span>
+        </div>
+      </div>
+      <!-- Regulated Records -->
+      <div class="standards-card">
+        <div class="card-title"><i class="fas fa-file-signature"></i> Regulated Records</div>
+        <div class="card-body">
+          <a href="https://www.ecfr.gov/current/title-21/chapter-I/subchapter-A/part-11" target="_blank" rel="noopener" class="std-ref"><strong>21 CFR Part 11</strong></a>
+          <span class="std-desc">Электронные записи и электронные подписи в регулируемых FDA средах.</span>
+          <span class="control"><strong>QFOLDIT CONTROL:</strong> Validated systems, secure audit trails, access controls, record retention, signature linkage.</span>
+        </div>
+      </div>
+      <!-- Medical Devices -->
+      <div class="standards-card">
+        <div class="card-title"><i class="fas fa-heartbeat"></i> Medical Devices</div>
+        <div class="card-body">
+          <a href="https://www.iso.org/standard/59752.html" target="_blank" rel="noopener" class="std-ref"><strong>ISO 13485:2016</strong></a>
+          <span class="std-desc">Системы менеджмента качества для медицинских изделий.</span>
+          <span class="control"><strong>QFOLDIT CONTROL:</strong> Design history, controlled changes, validation evidence, supplier traceability.</span>
+        </div>
+      </div>
+      <!-- Environmental & OH&S -->
+      <div class="standards-card">
+        <div class="card-title"><i class="fas fa-leaf"></i> Environment &amp; OH&S</div>
+        <div class="card-body">
+          <a href="https://www.iso.org/standard/92300.html" target="_blank" rel="noopener" class="std-ref"><strong>ISO 14001:2026</strong></a>
+          <a href="https://www.iso.org/standard/63787.html" target="_blank" rel="noopener" class="std-ref"><strong>ISO 45001:2018 + Amd 1:2024</strong></a>
+          <span class="std-desc">Экологический менеджмент и охрана труда — управление воздействиями и рисками.</span>
+          <span class="control"><strong>QFOLDIT CONTROL:</strong> Environmental mission profiles, safety gates, role controls, operational checklists.</span>
+        </div>
+      </div>
+      <!-- Industrial Cybersecurity & Digital Twins -->
+      <div class="standards-card">
+        <div class="card-title"><i class="fas fa-industry"></i> Industrial Cybersecurity &amp; DT</div>
+        <div class="card-body">
+          <a href="https://webstore.iec.ch/publication/19467" target="_blank" rel="noopener" class="std-ref"><strong>IEC 62443-3-3:2013</strong></a>
+          <a href="https://www.iso.org/standard/75066.html" target="_blank" rel="noopener" class="std-ref"><strong>ISO 23247-1:2021</strong></a>
+          <a href="https://www.iso.org/standard/78957.html" target="_blank" rel="noopener" class="std-ref"><strong>ISO/IEC 30141:2024</strong></a>
+          <span class="std-desc">Промышленная кибербезопасность (зоны, кондуиты, уровни безопасности) и цифровые двойники производства.</span>
+          <span class="control"><strong>QFOLDIT CONTROL:</strong> Network zoning, identity, integrity, restricted flow, simulation state, digital thread synchronization.</span>
         </div>
       </div>
     </div>
