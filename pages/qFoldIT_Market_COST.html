@@ -1,0 +1,1613 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>qFoldIT — Valuation Dossier 2026</title>
+  <meta name="description"
+    content="qFoldIT Strategic Valuation Dossier — updated with live platform metrics (608+ tools, 103+ categories, 27 public repos, Industrial CAMEO verticals, Evidence Levels, CI/CD). Current value $235M.">
+  <style>
+    :root {
+      --bg: #0a0f14;
+      --bg2: #0d131a;
+      --panel: #101820;
+      --panel2: #0b141b;
+      --line: #253746;
+      --line2: #1b2a36;
+      --text: #d7e4ea;
+      --muted: #7f96a2;
+      --green: #7dff9e;
+      --green2: #2ee66c;
+      --cyan: #73e8ff;
+      --purple: #b58cff;
+      --amber: #ffd166;
+      --red: #ff6b7a;
+      --blue: #7aa7ff;
+      --shadow: 0 16px 50px rgba(0, 0, 0, .32);
+      --mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+      --serif: Georgia, "Iowan Old Style", "Times New Roman", serif;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html {
+      scroll-behavior: smooth
+    }
+
+    ::-webkit-scrollbar {
+      width: 0;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: var(--sans);
+      line-height: 1.55;
+      background:
+        radial-gradient(circle at 18% 3%, rgba(115, 232, 255, .07), transparent 26%),
+        radial-gradient(circle at 88% 5%, rgba(181, 140, 255, .08), transparent 24%),
+        linear-gradient(180deg, #080c10 0%, var(--bg) 42%, #080c11 100%);
+    }
+
+    body:before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: .10;
+      background-image:
+        linear-gradient(rgba(115, 232, 255, .10) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(115, 232, 255, .10) 1px, transparent 1px);
+      background-size: 36px 36px;
+      mask-image: linear-gradient(to bottom, black, transparent 88%);
+    }
+
+    a {
+      color: var(--cyan);
+      text-decoration: none
+    }
+
+    a:hover {
+      text-decoration: underline
+    }
+
+    .shell {
+      max-width: 1480px;
+      margin: auto;
+      padding: 20px
+    }
+
+    .topbar,
+    .panel,
+    .heroCard {
+      border: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(16, 24, 32, .97), rgba(11, 18, 24, .96));
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 12px;
+      z-index: 10;
+      padding: 12px 16px;
+      position: relative;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px
+    }
+
+    .logo {
+      width: 36px;
+      height: 36px;
+      border: 1px solid var(--green);
+      border-radius: 8px;
+      display: grid;
+      place-items: center;
+      color: var(--green);
+      font: 900 15px var(--mono);
+      box-shadow: 0 0 20px rgba(125, 255, 158, .15)
+    }
+
+    .brand h1 {
+      margin: 0;
+      font: 700 17px var(--mono);
+      letter-spacing: .06em
+    }
+
+    .brand small {
+      color: var(--muted);
+      font: 11px var(--mono)
+    }
+
+    .nav {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-top: 10px
+    }
+
+    .nav a {
+      padding: 7px 9px;
+      border: 1px solid transparent;
+      border-radius: 7px;
+      color: #a8bdc7;
+      font: 11px var(--mono)
+    }
+
+    .nav a:hover {
+      border-color: var(--line);
+      background: #0d1820;
+      text-decoration: none;
+      color: #fff
+    }
+
+    .status {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--green);
+      font: 10px var(--mono);
+      letter-spacing: .04em;
+      white-space: nowrap;
+    }
+
+    .dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 12px var(--green);
+      margin-right: 7px
+    }
+
+    .hero {
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1.28fr .72fr;
+      gap: 18px
+    }
+
+    .heroMain {
+      padding: 30px;
+      position: relative;
+      overflow: hidden
+    }
+
+    .kicker,
+    .code,
+    .tag,
+    .eyebrow {
+      font: 10px var(--mono);
+      letter-spacing: .14em;
+      text-transform: uppercase
+    }
+
+    .kicker {
+      color: var(--cyan)
+    }
+
+    .hero h2 {
+      margin: 13px 0 12px;
+      font: 800 clamp(38px, 5vw, 72px)/.98 var(--mono);
+      letter-spacing: -.05em
+    }
+
+    .hero h2 em {
+      font-family: var(--serif);
+      font-weight: 400;
+      color: var(--green)
+    }
+
+    .hero p {
+      max-width: 900px;
+      color: #a8bbc4;
+      font-size: 16px;
+      line-height: 1.7
+    }
+
+    .badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: 20px
+    }
+
+    .badge {
+      font: 10px var(--mono);
+      padding: 7px 9px;
+      border: 1px solid var(--line2);
+      border-radius: 999px;
+      background: #0c141a;
+      color: #9db1ba
+    }
+
+    .badge.green {
+      color: var(--green);
+      border-color: rgba(125, 255, 158, .35)
+    }
+
+    .badge.cyan {
+      color: var(--cyan);
+      border-color: rgba(115, 232, 255, .35)
+    }
+
+    .badge.purple {
+      color: var(--purple);
+      border-color: rgba(181, 140, 255, .35)
+    }
+
+    .badge.amber {
+      color: var(--amber);
+      border-color: rgba(255, 209, 102, .35)
+    }
+
+    .terminal {
+      margin-top: 20px;
+      border: 1px solid #29404e;
+      border-radius: 10px;
+      background: #081016;
+      padding: 14px;
+      font: 12px/1.72 var(--mono);
+      color: #8da5af
+    }
+
+    .prompt {
+      color: var(--green)
+    }
+
+    .heroSide {
+      padding: 18px
+    }
+
+    .sectionTitle {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin-bottom: 14px
+    }
+
+    .sectionTitle h3 {
+      margin: 0;
+      font: 700 13px var(--mono);
+      letter-spacing: .08em;
+      text-transform: uppercase
+    }
+
+    .code {
+      color: #59717e;
+      letter-spacing: .06em
+    }
+
+    .metricGrid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px
+    }
+
+    .metric {
+      padding: 14px;
+      border: 1px solid var(--line2);
+      border-radius: 10px;
+      background: #0b131a
+    }
+
+    .metric label {
+      display: block;
+      color: var(--muted);
+      font: 9px var(--mono);
+      text-transform: uppercase;
+      letter-spacing: .08em
+    }
+
+    .metric strong {
+      display: block;
+      margin-top: 6px;
+      font: 800 24px var(--mono);
+      color: #fff
+    }
+
+    .metric small {
+      display: block;
+      margin-top: 4px;
+      color: #64808d;
+      font: 9px var(--mono)
+    }
+
+    .callout {
+      border-left: 3px solid var(--green);
+      background: rgba(125, 255, 158, .045);
+      padding: 13px 15px;
+      border-radius: 0 8px 8px 0;
+      color: #a9bbc3;
+      font-size: 12px
+    }
+
+    .callout strong {
+      color: var(--green);
+      font-family: var(--mono)
+    }
+
+    .callout.tauri {
+      border-left-color: var(--cyan);
+      background: rgba(115, 232, 255, .06);
+    }
+
+    .callout.tauri strong {
+      color: var(--cyan);
+    }
+
+    main {
+      display: grid;
+      gap: 18px;
+      margin-top: 18px
+    }
+
+    .section {
+      padding: 20px
+    }
+
+    .grid4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px
+    }
+
+    .grid3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px
+    }
+
+    .grid2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px
+    }
+
+    .card {
+      padding: 16px;
+      border: 1px solid var(--line2);
+      border-radius: 10px;
+      background: #0b1319
+    }
+
+    .card .tag {
+      color: var(--cyan)
+    }
+
+    .card h4 {
+      margin: 8px 0 6px;
+      font: 700 15px var(--mono)
+    }
+
+    .card p {
+      margin: 0;
+      color: #90a5ae;
+      font-size: 12px;
+      line-height: 1.55
+    }
+
+    .card .who {
+      margin-top: 10px;
+      color: #617a86;
+      font: 9px var(--mono)
+    }
+
+    .tableWrap {
+      overflow: auto
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 850px
+    }
+
+    th,
+    td {
+      padding: 10px;
+      border-bottom: 1px solid var(--line2);
+      text-align: left;
+      vertical-align: top
+    }
+
+    th {
+      font: 10px var(--mono);
+      color: #6f8995;
+      text-transform: uppercase;
+      letter-spacing: .07em
+    }
+
+    td {
+      font-size: 12px;
+      color: #b1c0c7
+    }
+
+    td strong {
+      font-family: var(--mono);
+      color: #e7f1f5
+    }
+
+    .price {
+      font: 800 16px var(--mono);
+      color: var(--green);
+      white-space: nowrap
+    }
+
+    .subprice {
+      font: 10px var(--mono);
+      color: #6f8995
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font: 9px var(--mono);
+      border: 1px solid var(--line2)
+    }
+
+    .pill.green {
+      color: var(--green);
+      background: rgba(125, 255, 158, .06);
+      border-color: rgba(125, 255, 158, .25)
+    }
+
+    .pill.cyan {
+      color: var(--cyan);
+      background: rgba(115, 232, 255, .06);
+      border-color: rgba(115, 232, 255, .25)
+    }
+
+    .pill.purple {
+      color: var(--purple);
+      background: rgba(181, 140, 255, .06);
+      border-color: rgba(181, 140, 255, .25)
+    }
+
+    .pill.amber {
+      color: var(--amber);
+      background: rgba(255, 209, 102, .06);
+      border-color: rgba(255, 209, 102, .25)
+    }
+
+    .pill.red {
+      color: var(--red);
+      background: rgba(255, 107, 122, .06);
+      border-color: rgba(255, 107, 122, .25)
+    }
+
+    .flowRow {
+      display: grid;
+      grid-template-columns: 1fr 42px 1fr 42px 1fr;
+      gap: 8px;
+      align-items: stretch
+    }
+
+    .node {
+      border: 1px solid var(--line2);
+      background: #0b141b;
+      border-radius: 10px;
+      min-height: 110px;
+      padding: 13px
+    }
+
+    .node:before {
+      content: "";
+      display: block;
+      height: 2px;
+      background: #28404e;
+      margin: -13px -13px 11px;
+      border-radius: 10px 10px 0 0
+    }
+
+    .node.primary:before {
+      background: var(--green)
+    }
+
+    .node.ai:before {
+      background: var(--cyan)
+    }
+
+    .node.biz:before {
+      background: var(--purple)
+    }
+
+    .node h5 {
+      margin: 0 0 7px;
+      font: 700 12px var(--mono)
+    }
+
+    .node p {
+      margin: 0;
+      color: #76909a;
+      font-size: 10px;
+      line-height: 1.45
+    }
+
+    .arrow {
+      display: grid;
+      place-items: center;
+      color: #4f707f;
+      font: 16px var(--mono)
+    }
+
+    .scorebox {
+      background: #081116;
+      border: 1px solid #27404d;
+      border-radius: 10px;
+      padding: 15px
+    }
+
+    .scoreLine {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      border-bottom: 1px dashed #21333e;
+      padding: 9px 0
+    }
+
+    .scoreLine:last-child {
+      border-bottom: none
+    }
+
+    .scoreLine b {
+      font: 700 11px var(--mono)
+    }
+
+    .scoreLine strong {
+      font: 800 18px var(--mono);
+      color: #fff
+    }
+
+    .bar {
+      height: 8px;
+      background: #12212a;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 5px
+    }
+
+    .bar span {
+      display: block;
+      height: 100%;
+      border-radius: 999px
+    }
+
+    .greenbar {
+      background: linear-gradient(90deg, var(--green2), var(--green))
+    }
+
+    .cyanbar {
+      background: linear-gradient(90deg, #41cfe5, var(--cyan))
+    }
+
+    .purplebar {
+      background: linear-gradient(90deg, #8d6cf0, var(--purple))
+    }
+
+    .amberbar {
+      background: linear-gradient(90deg, #e5a83d, var(--amber))
+    }
+
+    .note {
+      color: #67808c;
+      font-size: 10px;
+      line-height: 1.5
+    }
+
+    .source {
+      padding: 11px;
+      border: 1px solid var(--line2);
+      border-radius: 8px;
+      background: #0b131a
+    }
+
+    .source b {
+      display: block;
+      font: 700 10px var(--mono);
+      color: #a6b8bf
+    }
+
+    .source span {
+      display: block;
+      margin-top: 4px;
+      color: #657e89;
+      font: 9px var(--mono);
+      line-height: 1.45
+    }
+
+    .footer {
+      padding: 18px 4px 35px;
+      color: #58707c;
+      font: 9px var(--mono);
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    .kpi {
+      font: 800 26px var(--mono);
+      color: #fff
+    }
+
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      font: 9px var(--mono);
+      color: #718994
+    }
+
+    .legend i {
+      width: 9px;
+      height: 9px;
+      border-radius: 2px;
+      display: inline-block;
+      margin-right: 5px;
+      background: var(--c)
+    }
+
+    ul {
+      margin: 8px 0 0 17px;
+      color: #90a5ae;
+      font-size: 12px
+    }
+
+    li {
+      margin: 4px 0
+    }
+
+    .diff-badge {
+      display: inline-block;
+      background: rgba(125, 255, 158, .12);
+      color: var(--green);
+      font: 9px var(--mono);
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(125, 255, 158, .2);
+      margin-left: 6px;
+    }
+
+    .diff-badge.up {
+      background: rgba(125, 255, 158, .12);
+      color: var(--green);
+      border-color: rgba(125, 255, 158, .25);
+    }
+
+    .metric-grid-4col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      gap: 10px;
+    }
+
+    @media(max-width:1100px) {
+
+      .hero,
+      .grid4,
+      .grid3,
+      .metric-grid-4col {
+        grid-template-columns: 1fr 1fr
+      }
+
+      .flowRow {
+        grid-template-columns: 1fr 30px 1fr 30px 1fr
+      }
+    }
+
+    @media(max-width:720px) {
+      .shell {
+        padding: 10px
+      }
+
+      .hero,
+      .grid4,
+      .grid3,
+      .grid2,
+      .metric-grid-4col {
+        grid-template-columns: 1fr
+      }
+
+      .hero h2 {
+        font-size: 38px
+      }
+
+      .metricGrid {
+        grid-template-columns: 1fr
+      }
+
+      .flowRow {
+        grid-template-columns: 1fr
+      }
+
+      .arrow {
+        transform: rotate(90deg);
+        height: 20px
+      }
+
+      .status {
+        position: static;
+        margin-top: 8px;
+        transform: none;
+        text-align: right;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="shell">
+
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">qF</div>
+        <div>
+          <h1>qFoldIT // VALUATION DOSSIER</h1>
+          <small>SCIENTIFIC RUNTIME • AI / MCP • CREATOR ECONOMY • R&amp;D NETWORK</small>
+        </div>
+      </div>
+      <div class="status"><span class="dot"></span>VALUATION MODEL // 2026-08-19</div>
+      <nav class="nav">
+        <a href="#headline">VALUE</a><a href="#assets">ASSETS</a><a href="#metrics">METRICS</a><a href="#economics">ECONOMICS</a>
+        <a href="#scenarios">SCENARIOS</a><a href="#buyers">BUYERS</a><a href="#team">TEAM</a>
+        <a href="#unlock">VALUE UNLOCK</a><a href="#sources">SOURCES</a>
+      </nav>
+    </header>
+
+    <section id="headline" class="hero">
+      <div class="heroCard heroMain">
+        <div class="kicker">CURRENT STRATEGIC FAIR VALUE <span class="diff-badge up">↑ UPDATED</span></div>
+        <h2><em>qFoldIT</em><br>≈ $235M</h2>
+        <p>
+          Current strategic valuation of the qFoldIT platform as of August 19, 2026,
+          based on the supplied product/business materials, current architecture,
+          team composition, B2B orchestration layer, scientific AI/MCP positioning,
+          multi-runtime infrastructure, the option value of the creator-to-enterprise network,
+          <strong>the confirmed Tauri/Rust native enterprise application</strong>,
+          and <strong>live platform metrics</strong> from the public dashboard.
+        </p>
+        <div class="badges">
+          <span class="badge green">CURRENT FAIR VALUE $180–280M</span>
+          <span class="badge cyan">STRATEGIC M&amp;A $350–700M</span>
+          <span class="badge purple">BREAKOUT $1–4B+</span>
+          <span class="badge amber">608+ TOOLS • 27 PUBLIC REPOS</span>
+          <span class="badge">NOT A SIGNED-CUSTOMER VALUATION</span>
+        </div>
+        <div class="terminal">
+          <div><span class="prompt">qfoldit@valuation:~$</span> value --layers --tauri --live</div><br>
+          <div>[01] SCIENCE ............... protein / structural / chemistry / AI</div>
+          <div>[02] AI / MCP ............. agentic scientific orchestration</div>
+          <div>[03] UAG .................. canonical scientific logic / portability</div>
+          <div>[04] RUNTIME .............. UEFN / Unity / UNIGINE / Web / Standalone</div>
+          <div>[05] CAMEO ................ automated validation / industrial gateway</div>
+          <div>[06] B2B .................. mission creation / private deployment</div>
+          <div>[07] CREATOR .............. Academy / marketplace / studio pipeline</div>
+          <div>[08] NETWORK .............. player → creator → studio → enterprise → R&amp;D</div>
+          <div>[09] DISTRIBUTION ......... Fortnite creator ecosystem</div>
+          <div>[10] OPTION VALUE ......... scientific + industrial mission marketplace</div>
+          <div style="color:var(--cyan); margin-top:6px;">[11] <span style="color:var(--green);">★ TAURI / RUST</span> — native enterprise control plane, IPC, release build, 3.6MB</div>
+          <div style="color:var(--cyan);">[12] <span style="color:var(--green);">★ LIVE METRICS</span> — 608+ tools, 103+ categories, 27 public repos, 4 Industrial CAMEO verticals, Evidence Levels, CI/CD</div>
+          <br>
+          <div style="color:#566f7c">mode: strategic platform valuation — not a financial audit</div>
+        </div>
+      </div>
+
+      <aside class="heroCard heroSide">
+        <div class="sectionTitle">
+          <h3>CONTROL METRICS</h3><span class="code">QF-VAL-003</span>
+        </div>
+        <div class="metricGrid">
+          <div class="metric"><label>Current Value</label><strong>$235M</strong><small>central estimate <span style="color:var(--green);">↑ +$35M</span></small></div>
+          <div class="metric"><label>Fair Range</label><strong>$180–280M</strong><small>current state</small></div>
+          <div class="metric"><label>M&amp;A Range</label><strong>$350–700M</strong><small>strategic buyer</small></div>
+          <div class="metric"><label>Breakout</label><strong>$1–4B+</strong><small>network proof</small></div>
+          <div class="metric"><label>Tools</label><strong>608+</strong><small>workspace snapshot</small></div>
+          <div class="metric"><label>Categories</label><strong>103+</strong><small>tool types</small></div>
+          <div class="metric"><label>Public Repos</label><strong>27</strong><small>in the org</small></div>
+          <div class="metric"><label>Runtimes</label><strong>5</strong><small>UEFN / Unity / UNIGINE / Web / Standalone</small></div>
+        </div>
+        <div style="margin-top:12px; padding:10px; border:1px solid rgba(115,232,255,.2); border-radius:8px; background:rgba(115,232,255,.04);">
+          <span style="color:var(--cyan); font:9px var(--mono); letter-spacing:.06em;">★ LIVE DASHBOARD</span>
+          <span style="display:block; color:#8da5af; font:10px var(--mono); margin-top:3px;">qfoldit.github.io/server — 4 Industrial CAMEO verticals, Evidence Levels (E2/E1), CI/CD verified</span>
+        </div>
+      </aside>
+    </section>
+
+    <main>
+
+      <!-- TAURI / RUST HIGHLIGHT -->
+      <section class="panel section" style="border-color:rgba(115,232,255,.25);">
+        <div class="sectionTitle">
+          <h3 style="color:var(--cyan);">★ TAURI / RUST — ENTERPRISE PRODUCTIZATION</h3>
+          <span class="code">NEW VALUE DRIVER</span>
+        </div>
+        <div class="callout tauri" style="font-size:14px;line-height:1.7;">
+          <strong>qFoldIT has progressed from a multi-runtime scientific architecture to a deployable enterprise application platform,</strong>
+          with a native Rust control plane, IPC boundary, integrated scientific mission workflows and verified release execution.
+          The 3.6 MB binary is not the value — the <strong>Rust backend + native IPC + release build + successful execution + corporate workflow</strong> is.
+          This moves enterprise productization from 6.5 → 8.2 on the valuation scorecard.
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:10px; margin-top:14px;">
+          <div style="padding:12px; border:1px solid var(--line2); border-radius:8px; background:#0b131a;">
+            <div style="color:var(--cyan); font:8px var(--mono); text-transform:uppercase; letter-spacing:.06em;">Backend</div>
+            <div style="color:#fff; font:700 14px var(--mono); margin-top:4px;">Rust</div>
+            <div style="color:#657e89; font:8px var(--mono);">memory-safe, high-performance</div>
+          </div>
+          <div style="padding:12px; border:1px solid var(--line2); border-radius:8px; background:#0b131a;">
+            <div style="color:var(--cyan); font:8px var(--mono); text-transform:uppercase; letter-spacing:.06em;">IPC</div>
+            <div style="color:#fff; font:700 14px var(--mono); margin-top:4px;">Tauri Bridge</div>
+            <div style="color:#657e89; font:8px var(--mono);">security boundary, capabilities</div>
+          </div>
+          <div style="padding:12px; border:1px solid var(--line2); border-radius:8px; background:#0b131a;">
+            <div style="color:var(--cyan); font:8px var(--mono); text-transform:uppercase; letter-spacing:.06em;">Binary</div>
+            <div style="color:#fff; font:700 14px var(--mono); margin-top:4px;">3.6 MB</div>
+            <div style="color:#657e89; font:8px var(--mono);">release build, verified execution</div>
+          </div>
+          <div style="padding:12px; border:1px solid var(--line2); border-radius:8px; background:#0b131a;">
+            <div style="color:var(--cyan); font:8px var(--mono); text-transform:uppercase; letter-spacing:.06em;">Deployment</div>
+            <div style="color:#fff; font:700 14px var(--mono); margin-top:4px;">Enterprise</div>
+            <div style="color:#657e89; font:8px var(--mono);">private / sovereign / controlled</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel section" id="assets">
+        <div class="sectionTitle">
+          <h3>VALUE STACK</h3><span class="code">ASSET-BASED VIEW</span>
+        </div>
+        <div class="grid4">
+          <article class="card">
+            <div class="tag">01 / SCIENCE</div>
+            <h4>Scientific Core</h4>
+            <p>Protein design, docking, computational chemistry, structural biology, quantum-oriented workflows and
+              scientific MCP capabilities.</p>
+            <div class="who">Value type: deep-tech / knowledge</div>
+          </article>
+          <article class="card">
+            <div class="tag">02 / AI</div>
+            <h4>Anthropic / MCP Layer</h4>
+            <p>Alignment with the current AI-for-Science workflow: tools, skills, scientific agents and auditable
+              artifacts.</p>
+            <div class="who">Value type: strategic compatibility</div>
+          </article>
+          <article class="card">
+            <div class="tag">03 / GAME</div>
+            <h4>Runtime Stack</h4>
+            <p>UEFN, Unity, UNIGINE, Web and Standalone surfaces allow one canonical scientific logic to be repackaged.
+            </p>
+            <div class="who">Value type: execution / distribution</div>
+          </article>
+          <article class="card" style="border-color:rgba(115,232,255,.3);">
+            <div class="tag" style="color:var(--cyan);">04 / ENTERPRISE ★</div>
+            <h4>TAURI / RUST Control Center</h4>
+            <p>Native corporate application — Rust backend, IPC, embedded frontend, release binary, desktop deployment, verified interaction.</p>
+            <div class="who">Value type: enterprise productization</div>
+          </article>
+        </div>
+        <div style="height:12px"></div>
+        <div class="grid4">
+          <article class="card">
+            <div class="tag">05 / VALIDATION</div>
+            <h4>OPENSTRUCTURE</h4>
+            <p>Structural validation layer using scientific metrics such as lDDT/QS-score in the proposed CAMEO
+              workflow.</p>
+            <div class="who">Value type: scientific evidence</div>
+          </article>
+          <article class="card">
+            <div class="tag">06 / CREATOR</div>
+            <h4>Academy + Toolbelts</h4>
+            <p>Creator education, templates and production tooling create a talent and supply pipeline into the
+              ecosystem.</p>
+            <div class="who">Value type: network / lead generation</div>
+          </article>
+          <article class="card">
+            <div class="tag">07 / MARKET</div>
+            <h4>Marketplace Option</h4>
+            <p>Future market for missions, templates, MCP skills, assets, integrations and reusable scientific
+              production components.</p>
+            <div class="who">Value type: option value</div>
+          </article>
+          <article class="card">
+            <div class="tag">08 / R&amp;D</div>
+            <h4>Mission Network</h4>
+            <p>One scientific asset can support gameplay, education, demos, private deployments and research contracts.
+            </p>
+            <div class="who">Value type: platform multiplier</div>
+          </article>
+        </div>
+      </section>
+
+      <!-- НОВАЯ СЕКЦИЯ: ПЛАТФОРМЕННЫЕ МЕТРИКИ И ВАЛИДАЦИЯ -->
+      <section class="panel section" id="metrics">
+        <div class="sectionTitle">
+          <h3>PLATFORM METRICS &amp; VALIDATION</h3><span class="code">LIVE DASHBOARD — qfoldit.github.io/server</span>
+        </div>
+
+        <div style="margin-bottom:16px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;">
+          <div style="padding:14px; border:1px solid var(--line2); border-radius:8px; background:#0b131a; text-align:center;">
+            <div style="color:var(--green); font:800 28px var(--mono);">608+</div>
+            <div style="color:#6f8995; font:9px var(--mono); text-transform:uppercase; letter-spacing:.06em;">Total Tools</div>
+          </div>
+          <div style="padding:14px; border:1px solid var(--line2); border-radius:8px; background:#0b131a; text-align:center;">
+            <div style="color:var(--cyan); font:800 28px var(--mono);">103+</div>
+            <div style="color:#6f8995; font:9px var(--mono); text-transform:uppercase; letter-spacing:.06em;">Categories</div>
+          </div>
+          <div style="padding:14px; border:1px solid var(--line2); border-radius:8px; background:#0b131a; text-align:center;">
+            <div style="color:var(--purple); font:800 28px var(--mono);">27</div>
+            <div style="color:#6f8995; font:9px var(--mono); text-transform:uppercase; letter-spacing:.06em;">Public Repos</div>
+          </div>
+        </div>
+
+        <div class="sectionTitle" style="margin-top:18px;">
+          <h4 style="margin:0; font:700 12px var(--mono); color:var(--cyan);">TOOLBELT COMPILATION STATUS</h4>
+        </div>
+        <div class="tableWrap">
+          <table>
+            <thead>
+              <tr><th>Toolbelt</th><th>Tools</th><th>Compile Status</th><th>Tests</th></tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>UEFN-TOOLBELT</strong></td><td>356</td><td><span class="pill amber">0/5 compile · partial</span></td><td>117/117</td></tr>
+              <tr><td><strong>UNITY-TOOLBELT</strong></td><td>109</td><td><span class="pill green">5/5 compile · supported</span></td><td>—</td></tr>
+              <tr><td><strong>UNIGINE-TOOLBELT</strong></td><td>90</td><td><span class="pill green">5/5 compile · supported</span></td><td>6/6</td></tr>
+              <tr><td><strong>WEB-TOOLBELT (src/)</strong></td><td>16</td><td><span class="pill amber">0/5 compile</span></td><td>clean build</td></tr>
+              <tr><td><strong>WEB-TOOLBELT (static/)</strong></td><td>6</td><td><span class="pill cyan">presentation layer</span></td><td>—</td></tr>
+              <tr><td><strong>QFOLDIT-STANDALONE</strong></td><td>37</td><td><span class="pill red">0/5 compile · 2/5 blocked by sci.vis</span></td><td>clean build</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="sectionTitle" style="margin-top:18px;">
+          <h4 style="margin:0; font:700 12px var(--mono); color:var(--cyan);">INDUSTRIAL CAMEO VERTICALS</h4>
+        </div>
+        <div class="grid4">
+          <div style="padding:12px; border:1px solid var(--line2); border-radius:8px; background:#0b131a;">
+            <span style="color:var(--cyan); font:8px var(--mono);">Huawei</span>
+            <p style="margin:4px 0 0; color:#90a5ae; font-size:10px;">AI Chip Topology, Telecom &amp; NPU optimization</p>
+          </div>
+          <div style="padding:12px; border:1px solid var(--line2); border-radius:8px; background:#0b131a;">
+            <span style="color:var(--cyan); font:8px var(--mono);">Xiaomi</span>
+            <p style="margin:4px 0 0; color:#90a5ae; font-size:10px;">Smart Mobility &amp; IoT (EV aerodynamics, robot swarm)</p>
+          </div>
+          <div style="padding:12px; border:1px solid var(--line2); border-radius:8px; background:#0b131a;">
+            <span style="color:var(--cyan); font:8px var(--mono);">Energy &amp; Oil/Gas</span>
+            <p style="margin:4px 0 0; color:#90a5ae; font-size:10px;">Catalysts for CO₂ capture</p>
+          </div>
+          <div style="padding:12px; border:1px solid var(--line2); border-radius:8px; background:#0b131a;">
+            <span style="color:var(--cyan); font:8px var(--mono);">Mining (BHP/Rio Tinto)</span>
+            <p style="margin:4px 0 0; color:#90a5ae; font-size:10px;">Fleet logistics, flotation reagent design</p>
+          </div>
+        </div>
+
+        <div class="sectionTitle" style="margin-top:18px;">
+          <h4 style="margin:0; font:700 12px var(--mono); color:var(--cyan);">EVIDENCE LEVEL (E2/E1)</h4>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:10px;">
+          <span style="padding:6px 12px; border:1px solid var(--green); border-radius:999px; background:rgba(125,255,158,.06); color:var(--green); font:9px var(--mono);">E2 (cross-validated): quantum_ground_state_portal</span>
+          <span style="padding:6px 12px; border:1px solid var(--amber); border-radius:999px; background:rgba(255,209,102,.06); color:var(--amber); font:9px var(--mono);">E1 (computational only): protein_folding_construction, hp_lattice_spatial_puzzle, admet_safety_strategy, l_systems</span>
+        </div>
+        <div style="margin-top:8px; color:#657e89; font:9px var(--mono);">
+          <span style="color:var(--cyan);">Note:</span> <code>discovery_claim.asserted: true</code> allowed only in human-in-the-loop mode after independent review.
+        </div>
+
+        <div class="sectionTitle" style="margin-top:18px;">
+          <h4 style="margin:0; font:700 12px var(--mono); color:var(--cyan);">CI/CD VERIFICATION</h4>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px;">
+          <div style="padding:10px; border:1px solid var(--line2); border-radius:6px; background:#0b131a; text-align:center;">
+            <span style="color:var(--green); font:700 14px var(--mono);">117/117</span>
+            <div style="color:#6f8995; font:8px var(--mono);">UEFN-TOOLBELT tests</div>
+          </div>
+          <div style="padding:10px; border:1px solid var(--line2); border-radius:6px; background:#0b131a; text-align:center;">
+            <span style="color:var(--green); font:700 14px var(--mono);">6/6</span>
+            <div style="color:#6f8995; font:8px var(--mono);">UNIGINE-TOOLBELT tests</div>
+          </div>
+          <div style="padding:10px; border:1px solid var(--line2); border-radius:6px; background:#0b131a; text-align:center;">
+            <span style="color:var(--green); font:700 14px var(--mono);">✓</span>
+            <div style="color:#6f8995; font:8px var(--mono);">WEB-TOOLBELT (clean build)</div>
+          </div>
+          <div style="padding:10px; border:1px solid var(--line2); border-radius:6px; background:#0b131a; text-align:center;">
+            <span style="color:var(--green); font:700 14px var(--mono);">✓</span>
+            <div style="color:#6f8995; font:8px var(--mono);">QFOLDIT-STANDALONE (clean build)</div>
+          </div>
+        </div>
+
+        <div class="callout" style="margin-top:16px;">
+          <strong>DASHBOARD VALIDITY:</strong> All metrics above are sourced from the live public dashboard at <a href="https://qfoldit.github.io/server/index.html" target="_blank">qfoldit.github.io/server</a>.
+          The dashboard is the canonical source for tool counts, compilation status, Industrial CAMEO verticals, Evidence Levels and CI/CD results.
+        </div>
+      </section>
+
+      <section class="panel section" id="economics">
+        <div class="sectionTitle">
+          <h3>BUSINESS MODEL → VALUATION LOGIC</h3><span class="code">CREATE → LEARN → SHIP → SELL → SCALE</span>
+        </div>
+        <div class="flowRow">
+          <div class="node primary">
+            <h5>PLAYER</h5>
+            <p>Engagement, exploration, spatial reasoning, scientific interaction.</p>
+          </div>
+          <div class="arrow">→</div>
+          <div class="node ai">
+            <h5>CREATOR / ACADEMY</h5>
+            <p>Build missions, mechanics, templates and reusable production assets.</p>
+          </div>
+          <div class="arrow">→</div>
+          <div class="node biz">
+            <h5>ENTERPRISE / R&amp;D</h5>
+            <p>Supply high-value scientific and industrial targets through Create Scientific Mission.</p>
+          </div>
+        </div>
+        <div style="height:12px"></div>
+        <div class="flowRow">
+          <div class="node biz">
+            <h5>PLATFORM</h5>
+            <p>Runtime, toolbelts, private deployment, governance, analytics, support.</p>
+          </div>
+          <div class="arrow">→</div>
+          <div class="node primary">
+            <h5>MARKETPLACE</h5>
+            <p>Mission, template, skill, asset and implementation transactions.</p>
+          </div>
+          <div class="arrow">→</div>
+          <div class="node ai">
+            <h5>R&amp;D NETWORK</h5>
+            <p>External labs, industrial partners, scientific institutions and commercial research programs.</p>
+          </div>
+        </div>
+        <div style="height:15px"></div>
+        <div class="callout">
+          <strong>KEY MULTIPLIER:</strong> the supplied business console explicitly models 10 revenue layers —
+          engagement payout, in-island transactions,
+          Academy, membership, marketplace take-rate, creator SaaS/runtime, scientific mission services, corporate
+          Academy,
+          private deployment/licensing and research contracts. These are business-model surfaces, not all current
+          revenue.
+        </div>
+      </section>
+
+      <section class="panel section" id="scenarios">
+        <div class="sectionTitle">
+          <h3>VALUATION SCENARIOS</h3><span class="code">CURRENT → VALIDATED → NETWORK</span>
+        </div>
+        <div class="tableWrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Stage</th>
+                <th>What must be true</th>
+                <th>Indicative Value</th>
+                <th>What creates the unlock</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Technology / Team Floor</strong></td>
+                <td>Strong team, working software assets, scientific/game architecture, early platform integrations.
+                </td>
+                <td class="price">$80–120M</td>
+                <td>Acqui-hire + IP + platform stack.</td>
+              </tr>
+              <tr>
+                <td><strong>Current Strategic Fair Value</strong></td>
+                <td>Current qFoldIT architecture, team, Standalone, CAMEO, business model, distribution option,
+                  scientific network potential + <strong style="color:var(--cyan);">Tauri/Rust native enterprise app</strong>
+                  + <strong style="color:var(--cyan);">live platform metrics (608+ tools, 27 repos, Industrial CAMEO, CI/CD)</strong>.
+                </td>
+                <td class="price">$180–280M</td>
+                <td>Central estimate: <strong>$235M</strong> <span style="color:var(--green);font-size:10px;">↑ +$35M</span></td>
+              </tr>
+              <tr>
+                <td><strong>First Commercial Validation</strong></td>
+                <td>Paid scientific mission + measurable enterprise outcome + repeatable delivery.</td>
+                <td class="price">$300–450M</td>
+                <td>First enterprise contract and credible scientific evidence.</td>
+              </tr>
+              <tr>
+                <td><strong>Repeat Enterprise Platform</strong></td>
+                <td>5–10 repeat enterprise customers + recurring private deployments / R&amp;D contracts.</td>
+                <td class="price">$400–700M</td>
+                <td>Recurring ACV and mission throughput.</td>
+              </tr>
+              <tr>
+                <td><strong>Platform / Marketplace</strong></td>
+                <td>Academy, creator pipeline, marketplace and SaaS/runtime become measurable recurring businesses.</td>
+                <td class="price">$700M–1.2B</td>
+                <td>Network effects + recurring revenue + high asset reuse.</td>
+              </tr>
+              <tr>
+                <td><strong>Scientific Network</strong></td>
+                <td>Large player base, mission volume, validated scientific contribution and enterprise demand reinforce
+                  each other.</td>
+                <td class="price">$1–2B</td>
+                <td>Evidence of network economics and scientific output advantage.</td>
+              </tr>
+              <tr>
+                <td><strong>Strategic Breakout</strong></td>
+                <td>qFoldIT becomes a cross-industry human-in-the-loop R&amp;D infrastructure platform with large ARR.
+                </td>
+                <td class="price">$2–4B+</td>
+                <td>Strategic acquisition premium.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel section">
+        <div class="sectionTitle">
+          <h3>VALUATION SCORECARD</h3><span class="code">WEIGHTED DRIVER MAP <span style="color:var(--cyan);">★ UPDATED</span></span>
+        </div>
+        <div class="grid2">
+          <div class="scorebox">
+            <div class="scoreLine">
+              <div><b>Scientific depth</b>
+                <div class="bar"><span class="greenbar" style="width:94%"></span></div>
+              </div><strong>9.4/10</strong>
+            </div>
+            <div class="scoreLine">
+              <div><b>AI / MCP relevance</b>
+                <div class="bar"><span class="cyanbar" style="width:93%"></span></div>
+              </div><strong>9.3/10</strong>
+            </div>
+            <div class="scoreLine">
+              <div><b>UAG architecture</b>
+                <div class="bar"><span class="purplebar" style="width:94%"></span></div>
+              </div><strong>9.4/10</strong>
+            </div>
+            <div class="scoreLine">
+              <div><b>Multi-runtime capability</b>
+                <div class="bar"><span class="greenbar" style="width:94%"></span></div>
+              </div><strong>9.4/10</strong>
+            </div>
+            <div class="scoreLine">
+              <div><b>CAMEO / validation</b>
+                <div class="bar"><span class="cyanbar" style="width:87%"></span></div>
+              </div><strong>8.7/10</strong>
+            </div>
+            <div class="scoreLine" style="border-color:rgba(115,232,255,.2);">
+              <div><b style="color:var(--cyan);">★ Enterprise productization</b>
+                <div class="bar"><span class="cyanbar" style="width:82%"></span></div>
+              </div><strong>8.2/10</strong> <span style="color:var(--green);font-size:10px;">↑ +1.7</span>
+            </div>
+            <div class="scoreLine" style="border-color:rgba(115,232,255,.15);">
+              <div><b style="color:var(--cyan);">★ Deployment readiness</b>
+                <div class="bar"><span class="cyanbar" style="width:80%"></span></div>
+              </div><strong>8.0/10</strong> <span style="color:var(--green);font-size:10px;">↑ +2.5</span>
+            </div>
+            <div class="scoreLine">
+              <div><b>CI/CD &amp; Evidence system</b>
+                <div class="bar"><span class="purplebar" style="width:78%"></span></div>
+              </div><strong>7.8/10</strong> <span style="color:var(--green);font-size:10px;">↑ +1.0</span>
+            </div>
+            <div class="scoreLine">
+              <div><b>Commercial traction</b>
+                <div class="bar"><span class="amberbar" style="width:35%"></span></div>
+              </div><strong>3.5/10</strong>
+            </div>
+            <div class="scoreLine">
+              <div><b>Network proof</b>
+                <div class="bar"><span class="amberbar" style="width:25%"></span></div>
+              </div><strong>2.5/10</strong>
+            </div>
+          </div>
+          <div class="card">
+            <div class="tag">INTERPRETATION</div>
+            <h4>Why $235M — not $4B — today?</h4>
+            <p>The technology and team are unusually valuable, but the largest strategic premium is still an option
+              value. The $1–4B band requires proof of commercial network effects rather than only architecture.</p>
+            <ul>
+              <li>Current value is driven by rare team composition + technology breadth + platform architecture + <strong style="color:var(--cyan);">Tauri/Rust enterprise productization</strong> + <strong style="color:var(--cyan);">live platform metrics (608+ tools, Industrial CAMEO, Evidence Levels, CI/CD)</strong>.</li>
+              <li>Enterprise revenue and scientific outcomes are the primary missing valuation evidence.</li>
+              <li>Creator/Academy/marketplace economics are designed and can become material, but the supplied file
+                explicitly positions them as planning/roadmap layers.</li>
+              <li>The correct valuation method is therefore a blend of strategic asset value + option value, not a pure
+                ARR multiple.</li>
+            </ul>
+            <div style="margin-top:10px; padding:8px 10px; border:1px solid rgba(115,232,255,.15); border-radius:6px; background:rgba(115,232,255,.04);">
+              <span style="color:var(--cyan); font:8px var(--mono);">★ KEY UNLOCK</span>
+              <p style="font-size:10px; color:#8da5af; margin:4px 0 0;">"Can a corporation pay for a Scientific Mission?" — that transition moves qFoldIT from $235M to $500M+.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel section" id="team">
+        <div class="sectionTitle">
+          <h3>TEAM PREMIUM</h3><span class="code">CROSS-DISCIPLINARY CAPABILITY</span>
+        </div>
+        <div class="tableWrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Capability</th>
+                <th>Representative evidence from supplied team file</th>
+                <th>Valuation contribution</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Protein / structural biology</strong></td>
+                <td>David Baker; structural biology and protein-design contributors.</td>
+                <td><span class="pill green">CORE DEEP-TECH MOAT</span></td>
+              </tr>
+              <tr>
+                <td><strong>Drug discovery</strong></td>
+                <td>Kelly Chibale; computational chemistry, docking and pharmacology contributors.</td>
+                <td><span class="pill green">B2B CREDIBILITY</span></td>
+              </tr>
+              <tr>
+                <td><strong>MCP / scientific AI</strong></td>
+                <td>qFold-MCP, Protein-Design-MCP, ProteinMCP and agent tooling.</td>
+                <td><span class="pill cyan">PLATFORM MULTIPLIER</span></td>
+              </tr>
+              <tr>
+                <td><strong>UEFN / Unreal</strong></td>
+                <td>Ocean Bennett; George Kwa; Tom Looman; Unreal networking expertise.</td>
+                <td><span class="pill purple">RUNTIME MOAT</span></td>
+              </tr>
+              <tr>
+                <td><strong>Unity / UNIGINE / Digital Twins</strong></td>
+                <td>Robertson Nortey and related tooling.</td>
+                <td><span class="pill purple">CROSS-RUNTIME</span></td>
+              </tr>
+              <tr>
+                <td><strong>Distributed systems / provenance</strong></td>
+                <td>Juan Benet / IPFS / Filecoin / provenance capabilities.</td>
+                <td><span class="pill cyan">TRUST LAYER</span></td>
+              </tr>
+              <tr>
+                <td><strong style="color:var(--cyan);">★ Rust / Tauri / Native Desktop</strong></td>
+                <td>Confirmed Tauri enterprise application — Rust backend, IPC, release build, 3.6MB.</td>
+                <td><span class="pill cyan" style="border-color:rgba(115,232,255,.4);">ENTERPRISE PRODUCT</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout" style="margin-top:12px">
+          <strong>TEAM EFFECT:</strong> the supplied team file shows an unusually broad intersection of computational
+          biology, chemistry, AI/MCP,
+          Unreal/UEFN, Unity/UNIGINE, digital twins, networking and provenance — <strong style="color:var(--cyan);">now complemented by Rust/Tauri desktop engineering</strong>.
+          This is a meaningful acquisition premium because rebuilding the same
+          interdisciplinary capability from scratch would require multiple specialist teams.
+        </div>
+      </section>
+
+      <section class="panel section" id="buyers">
+        <div class="sectionTitle">
+          <h3>STRATEGIC BUYER PRICING</h3><span class="code">NOT OFFERS — ACQUIRER-SPECIFIC CEILINGS <span style="color:var(--cyan);">★ UPDATED</span></span>
+        </div>
+        <div class="tableWrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Buyer</th>
+                <th>Strategic rationale</th>
+                <th>Indicative opening</th>
+                <th>Potential range</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Epic Games</strong></td>
+                <td>Scientific UGC + Fortnite distribution + creator economy + industrial mission layer + <span style="color:var(--cyan);">standalone enterprise app</span>.</td>
+                <td class="price">$500M</td>
+                <td>$350–700M</td>
+              </tr>
+              <tr>
+                <td><strong>Microsoft</strong></td>
+                <td>Azure + AI agents + GitHub + enterprise + gaming distribution + <span style="color:var(--cyan);">native desktop control plane</span>.</td>
+                <td class="price">$550M</td>
+                <td>$350–850M</td>
+              </tr>
+              <tr>
+                <td><strong>NVIDIA</strong></td>
+                <td>AI + simulation + scientific computing + human spatial search + <span style="color:var(--cyan);">enterprise front-end</span>.</td>
+                <td class="price">$700M</td>
+                <td>$450M–1B</td>
+              </tr>
+              <tr>
+                <td><strong>Anthropic</strong></td>
+                <td>Claude Science + MCP + human-in-the-loop scientific interface.</td>
+                <td class="price">$500M</td>
+                <td>$350–700M</td>
+              </tr>
+              <tr>
+                <td><strong>Google / DeepMind</strong></td>
+                <td>AI-for-science + protein structure + scientific agents + distribution.</td>
+                <td class="price">$600M</td>
+                <td>$400–850M</td>
+              </tr>
+              <tr>
+                <td><strong>Dassault Systèmes</strong></td>
+                <td>BIOVIA + simulation + CAD + scientific mission compiler.</td>
+                <td class="price">$450M</td>
+                <td>$300–600M</td>
+              </tr>
+              <tr>
+                <td><strong>Siemens</strong></td>
+                <td>Digital twins + simulation + industrial orchestration + <span style="color:var(--cyan);">private deployment</span>.</td>
+                <td class="price">$450M</td>
+                <td>$300–600M</td>
+              </tr>
+              <tr>
+                <td><strong>Schrödinger</strong></td>
+                <td>Molecular simulation + human search + scientific R&amp;D workflow.</td>
+                <td class="price">$400M</td>
+                <td>$250–550M</td>
+              </tr>
+              <tr>
+                <td><strong>Aramco</strong></td>
+                <td>Catalysis + CO₂ + energy materials + industrial CAMEO + <span style="color:var(--cyan);">sovereign desktop</span>.</td>
+                <td class="price">$400M</td>
+                <td>$250–550M</td>
+              </tr>
+              <tr>
+                <td><strong>Samsung</strong></td>
+                <td>Semiconductor + materials + battery + display + AI.</td>
+                <td class="price">$400M</td>
+                <td>$250–600M</td>
+              </tr>
+              <tr>
+                <td><strong>TSMC</strong></td>
+                <td>Materials, topology, packaging and AI-hardware optimisation.</td>
+                <td class="price">$350M</td>
+                <td>$200–500M</td>
+              </tr>
+              <tr>
+                <td><strong>BASF</strong></td>
+                <td>Materials + chemistry + catalysis + mission platform.</td>
+                <td class="price">$350M</td>
+                <td>$200–500M</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note" style="margin-top:10px">These are strategic pricing scenarios produced for qFoldIT planning.
+          They are not indications that any listed buyer has made an offer or expressed acquisition interest.</p>
+      </section>
+
+      <section class="panel section">
+        <div class="sectionTitle">
+          <h3>MARKET CONTEXT</h3><span class="code">2026 EXTERNAL BENCHMARKS</span>
+        </div>
+        <div class="grid4">
+          <article class="card">
+            <div class="tag">FORTNITE</div>
+            <h4>$1B+ developer payouts</h4>
+            <p>Epic says more than $1 billion has already been paid to third-party Fortnite developers, with global
+              cross-platform distribution.</p>
+            <div class="who">Source: Epic Games</div>
+          </article>
+          <article class="card">
+            <div class="tag">AI FOR SCIENCE</div>
+            <h4>Claude Science</h4>
+            <p>Anthropic launched Claude Science on June 30, 2026, describing an AI workbench connected to scientific
+              tools, packages, MCPs, auditable artifacts and computing resources.</p>
+            <div class="who">Source: Anthropic</div>
+          </article>
+          <article class="card">
+            <div class="tag">DRUG DISCOVERY</div>
+            <h4>$3.15B / 2026</h4>
+            <p>Mordor Intelligence estimates the global computational drug discovery market at $3.15B in 2026 and $6.47B
+              in 2031.</p>
+            <div class="who">Source: Mordor Intelligence</div>
+          </article>
+          <article class="card">
+            <div class="tag">BIOINFORMATICS</div>
+            <h4>$18.6–23.5B / 2026</h4>
+            <p>Current 2026 market estimates vary by methodology: MarketsandMarkets reports $18.63B, while Grand View
+              Research reports $23.5B.</p>
+            <div class="who">Source: MarketsandMarkets / GVR</div>
+          </article>
+        </div>
+        <div class="callout" style="margin-top:12px">
+          <strong>IMPORTANT:</strong> market-size figures are external TAM/SAM context, not qFoldIT revenue. Market
+          research methodologies differ materially; the valuation model therefore uses them as strategic context rather
+          than mechanically multiplying TAM by a percentage.
+        </div>
+      </section>
+
+      <section class="panel section" id="unlock">
+        <div class="sectionTitle">
+          <h3>VALUE UNLOCK ROADMAP</h3><span class="code">WHAT MOVES $235M → $1B+</span>
+        </div>
+        <div class="tableWrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Milestone</th>
+                <th>Evidence required</th>
+                <th>Indicative valuation unlock</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Standalone + CAMEO end-to-end</strong></td>
+                <td>Repeatable mission creation, submission and deterministic scientific evaluation.</td>
+                <td class="price">+$25–75M</td>
+              </tr>
+              <tr>
+                <td><strong>First paid enterprise mission</strong></td>
+                <td>Customer pays for a real problem and accepts deliverables.</td>
+                <td class="price">+$65–120M</td>
+              </tr>
+              <tr>
+                <td><strong>5–10 repeat customers</strong></td>
+                <td>Recurring ACV, repeat missions and measurable delivery economics.</td>
+                <td class="price">+$120–300M</td>
+              </tr>
+              <tr>
+                <td><strong>Scientific outcome advantage</strong></td>
+                <td>Controlled evidence that human-in-the-loop improves search, ranking, novelty or validation versus
+                  baseline workflows.</td>
+                <td class="price">+$150–400M</td>
+              </tr>
+              <tr>
+                <td><strong>Creator/Academy flywheel</strong></td>
+                <td>Paid learners, publishing supply, repeat creator activity, commercial studios.</td>
+                <td class="price">+$50–200M</td>
+              </tr>
+              <tr>
+                <td><strong>Marketplace + recurring SaaS</strong></td>
+                <td>GMV, take-rate, recurring tooling/runtime revenue and asset reuse.</td>
+                <td class="price">+$100–300M</td>
+              </tr>
+              <tr>
+                <td><strong>Network-scale R&amp;D</strong></td>
+                <td>Large player/creator network + enterprise mission volume + validated scientific outputs.</td>
+                <td class="price">+$500M+</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="panel section">
+        <div class="sectionTitle">
+          <h3>INVESTMENT COMMITTEE VIEW</h3><span class="code">WHAT SHOULD NOT BE CAPITALIZED YET</span>
+        </div>
+        <div class="grid3">
+          <article class="card">
+            <div class="tag">DO NOT ASSUME</div>
+            <h4>$40B Fortnite revenue</h4>
+            <p>The business console contains this figure, but the valuation should rely on directly relevant
+              creator-economy data instead of using total Fortnite revenue as qFoldIT addressable revenue.</p>
+          </article>
+          <article class="card">
+            <div class="tag">DO NOT ASSUME</div>
+            <h4>CAC = 0</h4>
+            <p>Fortnite can reduce marginal consumer distribution costs, but corporate sales, production, scientific
+              validation, compliance and IP terms still create CAC and COGS.</p>
+          </article>
+          <article class="card">
+            <div class="tag">DO NOT ASSUME</div>
+            <h4>20+ enterprise customers</h4>
+            <p>The supplied business materials describe enterprise/private-deployment architecture and roadmap. Unless
+              signed contracts and ARR evidence exist, they remain a commercial option, not current revenue.</p>
+          </article>
+          <article class="card">
+            <div class="tag">DO NOT ASSUME</div>
+            <h4>+800% retention</h4>
+            <p>This is a product hypothesis. It should become a valuation input only after controlled cohort testing
+              against an appropriate baseline.</p>
+          </article>
+          <article class="card">
+            <div class="tag">LEGAL</div>
+            <h4>Disney / LEGO / WB</h4>
+            <p>IP access must be tied to applicable Epic partner/licensing terms. Compatibility with the Fortnite
+              ecosystem is not the same as a blanket qFoldIT IP license.</p>
+          </article>
+          <article class="card">
+            <div class="tag">MCP</div>
+            <h4>“Anthropic-backed”</h4>
+            <p>Use “powered by / integrated with Anthropic technologies” only where technically and contractually
+              accurate. Do not describe Anthropic as an investor or official endorser without a public agreement.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel section" id="sources">
+        <div class="sectionTitle">
+          <h3>SOURCE REGISTER</h3><span class="code">EVIDENCE / ASSUMPTIONS</span>
+        </div>
+        <div class="grid2">
+          <div class="source"><b>USER-SUPPLIED — TEAM MANIFEST</b><span>Attached team JSON. Shows scientific, AI/MCP,
+              Unreal/UEFN, Unity/UNIGINE, networking and provenance capabilities.</span>
+          </div>
+          <div class="source"><b>USER-SUPPLIED — BUSINESS MODEL CONSOLE</b><span>MAKE MONEY PLAYING GAMES.html: 10
+              revenue layers, creator/enterprise flow, Academy, marketplace, private deployment and R&amp;D roadmap.
+            </span></div>
+          <div class="source"><b>USER-SUPPLIED — INDUSTRIAL-CAMEO</b><span>Public README describes B2B orchestration,
+              UAG, industry evaluators and enterprise task model.</span></div>
+          <div class="source" style="border-color:rgba(115,232,255,.2);"><b style="color:var(--cyan);">★ USER-SUPPLIED — TAURI / RUST BUILD</b><span>Confirmed Tauri enterprise application: Rust backend, IPC, embedded frontend, release build, 3.6MB binary, verified execution, navigation, API connected.</span>
+          </div>
+          <div class="source" style="border-color:rgba(115,232,255,.2);"><b style="color:var(--cyan);">★ LIVE DASHBOARD — qfoldit.github.io/server</b><span>Current platform metrics: 608+ tools, 103+ categories, 27 public repos, toolbelt compilation status, 4 Industrial CAMEO verticals, Evidence Levels (E2/E1), CI/CD test results.</span>
+          </div>
+          <div class="source"><b>EPIC GAMES</b><span>Fortnite Platform &amp; Economy: more than $1B paid to third-party
+              developers and global cross-platform distribution. <a
+                href="https://www.fortnite.com/developer/platform-and-economy"
+                target="_blank">fortnite.com/developer/platform-and-economy</a></span></div>
+          <div class="source"><b>ANTHROPIC — JUNE 30, 2026</b><span>Claude Science: AI workbench for scientists,
+              connected to tools/packages through MCP/skills and computing resources. <a
+                href="https://www.anthropic.com/news/claude-science-ai-workbench"
+                target="_blank">anthropic.com/news/claude-science-ai-workbench</a></span></div>
+          <div class="source"><b>MORDOR INTELLIGENCE — 2026</b><span>Computational drug discovery market: $3.15B in
+              2026, $6.47B in 2031. <a
+                href="https://www.mordorintelligence.com/industry-reports/computational-drug-discovery-market"
+                target="_blank">mordorintelligence.com</a></span></div>
+        </div>
+      </section>
+
+      <section class="panel section">
+        <div class="sectionTitle">
+          <h3>EXECUTIVE CONCLUSION</h3><span class="code">QF-VAL-EXEC <span style="color:var(--cyan);">★ REVISED</span></span>
+        </div>
+        <div class="callout" style="font-size:14px;line-height:1.75">
+          <strong>BASE CASE:</strong> qFoldIT should currently be valued around <strong>$235M</strong>, with a
+          defensible current strategic range of
+          <strong>$180–280M</strong> — <span style="color:var(--green);">up from $200M</span> driven by the confirmed Tauri/Rust native enterprise application
+          and <strong>live platform metrics</strong> (608+ tools, 103+ categories, 27 public repos, 4 Industrial CAMEO verticals,
+          Evidence Levels, CI/CD). A buyer willing to price the interdisciplinary team, scientific stack,
+          cross-runtime infrastructure, enterprise orchestration, strategic distribution option,
+          <strong>deployable native corporate control plane</strong>, and <strong>validated platform maturity</strong>
+          may reasonably reach <strong>$350–700M</strong>.
+          The <strong>$1–4B+</strong> range should be reserved for the state in which qFoldIT has demonstrated recurring
+          enterprise revenue,
+          validated scientific outcomes, creator/academy flywheel and a scalable R&amp;D mission network.
+        </div>
+        <div style="height:14px"></div>
+        <div class="grid3">
+          <div class="card">
+            <div class="tag">TODAY</div>
+            <div class="kpi">$235M</div>
+            <p>Central strategic fair value. <span style="color:var(--green);font-size:10px;">↑ +$35M</span></p>
+          </div>
+          <div class="card">
+            <div class="tag">NEXT PROOF</div>
+            <div class="kpi">$350–700M</div>
+            <p>Strategic acquisition territory after commercial validation.</p>
+          </div>
+          <div class="card">
+            <div class="tag">NETWORK</div>
+            <div class="kpi">$1–4B+</div>
+            <p>Breakout strategic platform scenario.</p>
+          </div>
+        </div>
+        <div style="margin-top:14px; padding:12px 14px; border:1px solid rgba(115,232,255,.12); border-radius:8px; background:rgba(115,232,255,.03);">
+          <span style="color:var(--cyan); font:9px var(--mono);">★ PRIORITY SHIFT</span>
+          <p style="color:#8da5af; font-size:11px; margin:5px 0 0; line-height:1.6;">
+            <strong>Not “build more technology” → “convert the technology into paid scientific missions.”</strong>
+            The first paid enterprise cycle will move qFoldIT from $235M to $500M+.
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+      <span>qFoldIT // VALUATION DOSSIER // 2026-08-19 // <span style="color:var(--cyan);">TAURI/RUST + LIVE METRICS</span></span>
+      <span>Planning / strategic valuation — not an audited fairness opinion or investment advice.</span>
+    </footer>
+
+    <div style="text-align: center; font-family: var(--mono); font-size: 11px; color: var(--muted); padding: 14px 0 6px; border-top: 1px solid var(--line2); margin-top: 8px;">
+      Powered by Anthropic
+    </div>
+
+  </div>
+</body>
+
+</html>
