@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOLDNITE – qFoldIT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'Burbank Big Condensed';
+            src: url('https://foldnite.github.io/assets/font/burbankbigcondensed_bold.otf') format('opentype');
+            font-weight: 700;
+            font-style: normal;
+            font-display: swap;
+        }
+        @font-face {
+            font-family: 'Burbank Big Condensed';
+            src: url('https://foldnite.github.io/assets/font/burbankbigcondensed_black.otf') format('opentype');
+            font-weight: 900;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Burbank Big Condensed', 'Segoe UI', system-ui, sans-serif;
+            background: #000;
+        }
+
+        .hero-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 1;
+            display: block;
+        }
+        .header-text {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            z-index: 10;
+            color: #ffffff;
+            font-family: 'Burbank Big Condensed', sans-serif;
+            font-weight: 900;
+            font-size: clamp(3rem, 8vw, 6rem);
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+            line-height: 1;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            gap: 0.15em;
+        }
+
+        .header-text .lego-icon {
+            height: 1em;
+            width: auto;
+            display: block;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+        }
+
+        .footer-text {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 10;
+            color: #ffffff;
+            font-family: 'Burbank Big Condensed', sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.8rem, 4vw, 3.5rem);
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.8);
+            letter-spacing: 0.3px;
+            pointer-events: none;
+            text-align: right;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0.3em;
+        }
+
+        .footer-text .fa-github {
+            font-size: 0.9em;
+            color: #ffffff;
+            filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+        }
+
+        @media (max-width: 600px) {
+            .header-text {
+                top: 20px;
+                left: 20px;
+                font-size: clamp(2.2rem, 10vw, 3.5rem);
+            }
+            .footer-text {
+                bottom: 20px;
+                right: 20px;
+                font-size: clamp(1.4rem, 5vw, 2.4rem);
+            }
+        }
+    </style>
+</head>
+<body>
+    <img class="hero-bg"
+         src="https://qfoldit.github.io/img/release.png"
+         alt="qFoldIT Quantum Poster" />
+
+    <div class="header-text">
+        <img class="lego-icon"
+             src="https://qfoldit.github.io/assets/lego_brand.svg"
+             alt="LEGO logo"
+             loading="lazy" />
+        FOLDNITE
+    </div>
+  
+    <div class="footer-text">
+        <i class="fab fa-github" aria-hidden="true"></i>
+        qFoldIT — v0.4.0
+    </div>
+</body>
+</html>
