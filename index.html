@@ -62,7 +62,7 @@
             display: flex;
             align-items: center;
             gap: 0.15em;
-            font-size: clamp(3.2rem, 6vw, 6rem); /* базовый размер */
+            font-size: clamp(3.2rem, 6vw, 6rem);
         }
 
         .header-text .lego-icon {
@@ -97,39 +97,43 @@
             filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
         }
 
-        /* ——— На маленьких экранах делаем ТЕКСТ И ЛОГОТИПЫ БОЛЬШЕ ——— */
         @media (max-width: 600px) {
             .header-text {
                 top: 24px;
                 left: 24px;
-                font-size: clamp(4rem, 12vw, 6rem); /* резко увеличиваем */
-                gap: 0.1em;
+                font-size: clamp(3.5rem, 10vw, 5.5rem);
             }
             .header-text .lego-icon {
-                height: 1.1em; /* чуть больше */
+                height: 1.1em;
             }
+
             .footer-text {
-                bottom: 24px;
-                right: 24px;
-                font-size: clamp(2.8rem, 8vw, 4rem);
-                gap: 0.2em;
+                left: 0;
+                right: 0;
+                bottom: 20px;
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+                gap: 0.3em;
+                font-size: clamp(1.8rem, 5vw, 2.8rem);
+                padding: 0 16px;
+                background: transparent;
             }
             .footer-text .fa-github {
-                font-size: 1em;
+                font-size: 0.9em;
             }
         }
 
-        /* ——— Очень маленькие экраны (до 400px) ——— */
         @media (max-width: 400px) {
             .header-text {
-                top: 20px;
-                left: 20px;
-                font-size: clamp(4.5rem, 14vw, 7rem);
+                top: 16px;
+                left: 16px;
+                font-size: clamp(3rem, 12vw, 4.5rem);
             }
             .footer-text {
-                bottom: 20px;
-                right: 20px;
-                font-size: clamp(3rem, 10vw, 4.5rem);
+                bottom: 16px;
+                font-size: clamp(1.6rem, 6vw, 2.4rem);
+                padding: 0 12px;
             }
         }
     </style>
