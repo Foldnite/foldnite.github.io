@@ -562,6 +562,159 @@
             color: #3C6CE7;
             opacity: 0.8;
         }
+
+        /* ============================================================
+           SCIENTIFIC MCP · 4 ДОМЕНА + WORKFLOWMCP (20 СЕРВЕРОВ)
+           ============================================================ */
+        .mcp-intro {
+            margin: 0 0 24px 0;
+            color: #B0B5BD;
+            font-size: 15px;
+        }
+        .mcp-intro strong { color: #E1E3E6; }
+
+        .mcp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .mcp-domain {
+            padding: 20px;
+            background: #1A1E24;
+            border-radius: 16px;
+            border: 1px solid #262A32;
+            border-top: 3px solid var(--mcp-accent, #3C6CE7);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .mcp-domain.bio {
+            --mcp-accent: #10b981;
+            --mcp-soft: #34d399;
+            --mcp-bg: rgba(16, 185, 129, 0.12);
+        }
+        .mcp-domain.materials {
+            --mcp-accent: #3C6CE7;
+            --mcp-soft: #6B8EFF;
+            --mcp-bg: rgba(60, 108, 231, 0.12);
+        }
+        .mcp-domain.topo {
+            --mcp-accent: #a855f7;
+            --mcp-soft: #c084fc;
+            --mcp-bg: rgba(168, 85, 247, 0.12);
+        }
+        .mcp-domain.eng {
+            --mcp-accent: #f59e0b;
+            --mcp-soft: #fbbf24;
+            --mcp-bg: rgba(245, 158, 11, 0.12);
+        }
+
+        .mcp-domain-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 8px;
+        }
+
+        .mcp-tag {
+            font-weight: 700;
+            color: var(--mcp-soft);
+            font-size: 13px;
+            letter-spacing: 0.04em;
+        }
+
+        .mcp-domain-badge {
+            font-size: 11px;
+            color: var(--mcp-soft);
+            background: var(--mcp-bg);
+            padding: 2px 8px;
+            border-radius: 6px;
+            white-space: nowrap;
+        }
+
+        .mcp-domain h4 {
+            margin: 0 0 10px;
+            color: #FFFFFF;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .mcp-servers {
+            margin: 0 0 12px;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #B0B5BD;
+        }
+        .mcp-servers strong { color: #E1E3E6; }
+
+        .mcp-industries {
+            padding-top: 10px;
+            border-top: 1px solid #262A32;
+            font-size: 12.5px;
+            line-height: 1.5;
+            color: #767C89;
+        }
+        .mcp-industries strong { color: #B0B5BD; }
+
+        .mcp-workflow {
+            padding: 18px 20px;
+            background: linear-gradient(90deg, rgba(16, 185, 129, 0.08) 0%, rgba(60, 108, 231, 0.08) 100%);
+            border: 1px solid rgba(60, 108, 231, 0.3);
+            border-radius: 16px;
+            margin-bottom: 16px;
+        }
+
+        .mcp-workflow-head {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .mcp-workflow-tag {
+            font-weight: 700;
+            color: #34d399;
+            font-size: 13px;
+            letter-spacing: 0.04em;
+        }
+
+        .mcp-workflow-flow {
+            font-size: 12px;
+            color: #6EE7B7;
+            font-weight: 600;
+        }
+
+        .mcp-workflow p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.55;
+            color: #B0B5BD;
+        }
+        .mcp-workflow p strong { color: #FFFFFF; }
+
+        .mcp-principle {
+            padding: 14px 18px;
+            background: #2A2419;
+            border-left: 3px solid #fbbf24;
+            border-radius: 12px;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #FDE68A;
+        }
+        .mcp-principle strong { color: #FEF3C7; }
+
+        @media (max-width: 620px) {
+            .mcp-domain-head { flex-direction: column; align-items: flex-start; }
+            .mcp-workflow-head { flex-direction: column; align-items: flex-start; }
+        }
     </style>
 </head>
 <body>
@@ -630,6 +783,7 @@
 
         <div class="tabs" role="tablist">
             <span class="tab active" role="tab" data-panel="panel-desc" data-i18n="tab.desc">Description</span>
+            <span class="tab" role="tab" data-panel="panel-mcp" data-i18n="tab.mcp">Scientific MCP</span>
             <span class="tab" role="tab" data-panel="panel-sysreq" data-i18n="tab.sysreq">System requirements</span>
             <span class="tab" role="tab" data-panel="panel-news" data-i18n="tab.news">News</span>
             <span class="tab" role="tab" data-panel="panel-disc" data-i18n="tab.disc">Discussions</span>
@@ -750,6 +904,87 @@
 
                         <div class="note" data-i18n="card.note">
                             <i class="fas fa-flask"></i> The project is fully import-independent and implemented on the VK Play platform. VK Play users get exclusive access to the VR, PC and WEB versions, as well as custom levels from the developers. Multiplayer is available in all-terrain vehicle and other vehicle modes.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================
+                     SCIENTIFIC MCP · 4 ДОМЕНА + WORKFLOWMCP (20 СЕРВЕРОВ)
+                     ============================================================ -->
+                <div class="tab-panel" id="panel-mcp" role="tabpanel" hidden>
+                    <div class="card">
+                        <h2 data-i18n="mcp.title"><i class="fas fa-microscope" style="color: #3C6CE7;"></i> Scientific MCP · 20 research servers</h2>
+
+                        <p class="mcp-intro" data-i18n="mcp.intro">
+                            The digital twin of MAS «Snowflake» on <strong>UNIGINE 2</strong> is an extreme testbed for applied research and engineering R&amp;D. Through the standardised <strong>Scientific MCP</strong> protocol the simulation links to <strong>20 specialised compute servers</strong>, grouped into 4 scientific families and one validation platform <strong>WorkflowMCP</strong>.
+                        </p>
+
+                        <div class="mcp-grid">
+                            <!-- 1. BioMCP -->
+                            <div class="mcp-domain bio">
+                                <div>
+                                    <div class="mcp-domain-head">
+                                        <span class="mcp-tag" data-i18n="mcp.bio.tag">BIOMCP · 6 SERVERS</span>
+                                        <span class="mcp-domain-badge" data-i18n="mcp.bio.badge">Biotech &amp; Medicine</span>
+                                    </div>
+                                    <h4 data-i18n="mcp.bio.head">Molecular biology and extremophiles</h4>
+                                    <p class="mcp-servers" data-i18n="mcp.bio.servers"><strong>Servers:</strong> Protein/Ligand · RNA/Protein · Protein Design · Protein/Pathway · Enzyme/Protein · Protein/Microbe.</p>
+                                </div>
+                                <div class="mcp-industries" data-i18n="mcp.bio.ind"><strong>Tasks &amp; industries:</strong> Pharma, RNA therapy, AI-drug discovery, synthetic and industrial biotech, agritech in the Arctic phytolab.</div>
+                            </div>
+
+                            <!-- 2. MaterialsMCP -->
+                            <div class="mcp-domain materials">
+                                <div>
+                                    <div class="mcp-domain-head">
+                                        <span class="mcp-tag" data-i18n="mcp.mat.tag">MATERIALSMCP · 5 SERVERS</span>
+                                        <span class="mcp-domain-badge" data-i18n="mcp.mat.badge">Materials &amp; Hydrogen</span>
+                                    </div>
+                                    <h4 data-i18n="mcp.mat.head">Crystals, catalysts and energy storage</h4>
+                                    <p class="mcp-servers" data-i18n="mcp.mat.servers"><strong>Servers:</strong> Crystal/Molecular · Crystal Lattice · Catalyst/MOF · MOF/Adsorption · Crystal/Ligand.</p>
+                                </div>
+                                <div class="mcp-industries" data-i18n="mcp.mat.ind"><strong>Tasks &amp; industries:</strong> Chemistry, frost-resistant batteries, hydrogen storage and carbon capture (CCS), catalysis, mining.</div>
+                            </div>
+
+                            <!-- 3. TopoMCP -->
+                            <div class="mcp-domain topo">
+                                <div>
+                                    <div class="mcp-domain-head">
+                                        <span class="mcp-tag" data-i18n="mcp.topo.tag">TOPOMCP · 5 SERVERS</span>
+                                        <span class="mcp-domain-badge" data-i18n="mcp.topo.badge">Physics &amp; Microelectronics</span>
+                                    </div>
+                                    <h4 data-i18n="mcp.topo.head">Topology, photonics and quantum systems</h4>
+                                    <p class="mcp-servers" data-i18n="mcp.topo.servers"><strong>Servers:</strong> Node/Crystal · Topology Graph · 3D Topology · Optical/Topology · Quantum Topology.</p>
+                                </div>
+                                <div class="mcp-industries" data-i18n="mcp.topo.ind"><strong>Tasks &amp; industries:</strong> Semiconductors, AI hardware, non-volatile memory, lithography, optical comms and quantum computing.</div>
+                            </div>
+
+                            <!-- 4. EngMCP -->
+                            <div class="mcp-domain eng">
+                                <div>
+                                    <div class="mcp-domain-head">
+                                        <span class="mcp-tag" data-i18n="mcp.eng.tag">ENGMCP · 3 SERVERS</span>
+                                        <span class="mcp-domain-badge" data-i18n="mcp.eng.badge">Engineering &amp; CAD</span>
+                                    </div>
+                                    <h4 data-i18n="mcp.eng.head">CAD modelling and structural physics</h4>
+                                    <p class="mcp-servers" data-i18n="mcp.eng.servers"><strong>Servers:</strong> CAD/Material · CAD/Crystal · CAD/Physics.</p>
+                                </div>
+                                <div class="mcp-industries" data-i18n="mcp.eng.ind"><strong>Tasks &amp; industries:</strong> Aerospace, UAVs and Arctic rovers, automotive, scientific software and virtual structural testing.</div>
+                            </div>
+                        </div>
+
+                        <div class="mcp-workflow">
+                            <div class="mcp-workflow-head">
+                                <div class="mcp-workflow-tag" data-i18n="mcp.wf.tag">⚙️ WORKFLOWMCP · ORCHESTRATION AND VALIDATION LAYER (1 CORE)</div>
+                                <span class="mcp-workflow-flow" data-i18n="mcp.wf.flow">Mission Contract → SHA-256 → Independent validator → Evidence 1.1</span>
+                            </div>
+                            <p data-i18n="mcp.wf.p">
+                                Infrastructure layer on top of all four scientific domains. It records the mission contract, hashes input data (SHA-256), isolates runs for reproducibility, and routes candidates to an independent validator, producing a signed <strong>Evidence 1.1</strong> report.
+                            </p>
+                        </div>
+
+                        <div class="mcp-principle" data-i18n="mcp.principle">
+                            <strong>Scientific integrity principle:</strong> gameplay score in «Snowflake» does not replace scientific results. None of the 19 domain servers self-certifies — every solution is accepted through the independent <strong>WorkflowMCP</strong> validation loop.
                         </div>
                     </div>
                 </div>
@@ -890,6 +1125,7 @@
                 'feat.mp': 'мультиплеер',
                 'feat.levels': 'авторские уровни',
                 'tab.desc': 'Описание',
+                'tab.mcp': 'Scientific MCP',
                 'tab.sysreq': 'Системные требования',
                 'tab.news': 'Новости',
                 'tab.disc': 'Обсуждения',
@@ -947,6 +1183,32 @@
                 'tech.li2': '<strong>Панорамные камеры</strong> профессионального класса.',
                 'tech.li3': '<strong>Спутниковые снимки</strong> группировки «Канопус-В» для ортофотопланов.',
                 'tech.li4': '<strong>GNSS-приёмники (ГЛОНАСС) в режиме RTK</strong> — геодезическая привязка с точностью до сантиметра.',
+                'mcp.title': '<i class="fas fa-microscope" style="color: #3C6CE7;"></i> Scientific MCP · 20 исследовательских серверов',
+                'mcp.intro': 'Цифровой двойник МАС «Снежинка» на движке <strong>UNIGINE 2</strong> выступает экстремальным полигоном для прикладных исследований и инженерного R&amp;D. Через стандартизированный протокол <strong>Scientific MCP</strong> симуляция связывается с <strong>20 специализированными вычислительными серверами</strong>, объединёнными в 4 научных семейства и единую платформу валидации <strong>WorkflowMCP</strong>.',
+                'mcp.bio.tag': 'BIOMCP · 6 СЕРВЕРОВ',
+                'mcp.bio.badge': 'Биотех и медицина',
+                'mcp.bio.head': 'Молекулярная биология и экстремофилы',
+                'mcp.bio.servers': '<strong>Серверы:</strong> Protein/Ligand · RNA/Protein · Protein Design · Protein/Pathway · Enzyme/Protein · Protein/Microbe.',
+                'mcp.bio.ind': '<strong>Задачи и индустрии:</strong> Фарма, РНК-терапия, AI-drug discovery, синтетическая и промышленная биотехнология, агротех в арктической фитолаборатории.',
+                'mcp.mat.tag': 'MATERIALSMCP · 5 СЕРВЕРОВ',
+                'mcp.mat.badge': 'Материаловедение и водород',
+                'mcp.mat.head': 'Кристаллы, катализаторы и накопители',
+                'mcp.mat.servers': '<strong>Серверы:</strong> Crystal/Molecular · Crystal Lattice · Catalyst/MOF · MOF/Adsorption · Crystal/Ligand.',
+                'mcp.mat.ind': '<strong>Задачи и индустрии:</strong> Химия, морозостойкие аккумуляторы, хранение водорода и улавливание углерода (CCS), катализ, горнодобыча.',
+                'mcp.topo.tag': 'TOPOMCP · 5 СЕРВЕРОВ',
+                'mcp.topo.badge': 'Физика и микроэлектроника',
+                'mcp.topo.head': 'Топология, фотоника и квантовые системы',
+                'mcp.topo.servers': '<strong>Серверы:</strong> Node/Crystal · Topology Graph · 3D Topology · Optical/Topology · Quantum Topology.',
+                'mcp.topo.ind': '<strong>Задачи и индустрии:</strong> Полупроводники, AI-железо, энергонезависимая память, литография, оптическая связь и квантовые вычисления.',
+                'mcp.eng.tag': 'ENGMCP · 3 СЕРВЕРА',
+                'mcp.eng.badge': 'Инженерия и САПР',
+                'mcp.eng.head': 'CAD-моделирование и физика конструкций',
+                'mcp.eng.servers': '<strong>Серверы:</strong> CAD/Material · CAD/Crystal · CAD/Physics.',
+                'mcp.eng.ind': '<strong>Задачи и индустрии:</strong> Аэрокосмос, БПЛА и арктические вездеходы, автопром, научное ПО и цифровые испытания конструкций.',
+                'mcp.wf.tag': '⚙️ WORKFLOWMCP · ПЛАТФОРМЕННЫЙ СЛОЙ ОРКЕСТРАЦИИ И ВАЛИДАЦИИ (1 ЯДРО)',
+                'mcp.wf.flow': 'Mission Contract → SHA-256 → Независимый валидатор → Evidence 1.1',
+                'mcp.wf.p': 'Инфраструктурный контур поверх всех четырёх научных доменов. Фиксирует контракт миссии, хеширует входные данные (SHA-256), изолирует запуски для воспроизводимости и передаёт кандидатов на независимую проверку, формируя подписанный отчёт <strong>Evidence 1.1</strong>.',
+                'mcp.principle': '<strong>Принцип научной достоверности:</strong> игровой счёт в «Снежинке» не подменяет научный результат. Ни один из 19 доменных серверов не сертифицирует сам себя — приёмка каждого решения выполняется через независимый контур валидации <strong>WorkflowMCP</strong>.',
                 'sysreq.title': '<i class="fas fa-desktop"></i> Системные требования',
                 'sysreq.min': 'Минимальные',
                 'sysreq.rec': 'Рекомендуемые',
@@ -1008,6 +1270,7 @@
                 'feat.mp': 'multiplayer',
                 'feat.levels': 'custom levels',
                 'tab.desc': 'Description',
+                'tab.mcp': 'Scientific MCP',
                 'tab.sysreq': 'System requirements',
                 'tab.news': 'News',
                 'tab.disc': 'Discussions',
@@ -1065,6 +1328,32 @@
                 'tech.li2': '<strong>Panoramic cameras</strong> of professional grade.',
                 'tech.li3': '<strong>Satellite imagery</strong> from the «Kanopus-V» constellation for orthophoto maps.',
                 'tech.li4': '<strong>GNSS receivers (GLONASS) in RTK mode</strong> — geodetic referencing accurate to the centimetre.',
+                'mcp.title': '<i class="fas fa-microscope" style="color: #3C6CE7;"></i> Scientific MCP · 20 research servers',
+                'mcp.intro': 'The digital twin of MAS «Snowflake» on <strong>UNIGINE 2</strong> is an extreme testbed for applied research and engineering R&amp;D. Through the standardised <strong>Scientific MCP</strong> protocol the simulation links to <strong>20 specialised compute servers</strong>, grouped into 4 scientific families and one validation platform <strong>WorkflowMCP</strong>.',
+                'mcp.bio.tag': 'BIOMCP · 6 SERVERS',
+                'mcp.bio.badge': 'Biotech & Medicine',
+                'mcp.bio.head': 'Molecular biology and extremophiles',
+                'mcp.bio.servers': '<strong>Servers:</strong> Protein/Ligand · RNA/Protein · Protein Design · Protein/Pathway · Enzyme/Protein · Protein/Microbe.',
+                'mcp.bio.ind': '<strong>Tasks & industries:</strong> Pharma, RNA therapy, AI-drug discovery, synthetic and industrial biotech, agritech in the Arctic phytolab.',
+                'mcp.mat.tag': 'MATERIALSMCP · 5 SERVERS',
+                'mcp.mat.badge': 'Materials & Hydrogen',
+                'mcp.mat.head': 'Crystals, catalysts and energy storage',
+                'mcp.mat.servers': '<strong>Servers:</strong> Crystal/Molecular · Crystal Lattice · Catalyst/MOF · MOF/Adsorption · Crystal/Ligand.',
+                'mcp.mat.ind': '<strong>Tasks & industries:</strong> Chemistry, frost-resistant batteries, hydrogen storage and carbon capture (CCS), catalysis, mining.',
+                'mcp.topo.tag': 'TOPOMCP · 5 SERVERS',
+                'mcp.topo.badge': 'Physics & Microelectronics',
+                'mcp.topo.head': 'Topology, photonics and quantum systems',
+                'mcp.topo.servers': '<strong>Servers:</strong> Node/Crystal · Topology Graph · 3D Topology · Optical/Topology · Quantum Topology.',
+                'mcp.topo.ind': '<strong>Tasks & industries:</strong> Semiconductors, AI hardware, non-volatile memory, lithography, optical comms and quantum computing.',
+                'mcp.eng.tag': 'ENGMCP · 3 SERVERS',
+                'mcp.eng.badge': 'Engineering & CAD',
+                'mcp.eng.head': 'CAD modelling and structural physics',
+                'mcp.eng.servers': '<strong>Servers:</strong> CAD/Material · CAD/Crystal · CAD/Physics.',
+                'mcp.eng.ind': '<strong>Tasks & industries:</strong> Aerospace, UAVs and Arctic rovers, automotive, scientific software and virtual structural testing.',
+                'mcp.wf.tag': '⚙️ WORKFLOWMCP · ORCHESTRATION AND VALIDATION LAYER (1 CORE)',
+                'mcp.wf.flow': 'Mission Contract → SHA-256 → Independent validator → Evidence 1.1',
+                'mcp.wf.p': 'Infrastructure layer on top of all four scientific domains. It records the mission contract, hashes input data (SHA-256), isolates runs for reproducibility, and routes candidates to an independent validator, producing a signed <strong>Evidence 1.1</strong> report.',
+                'mcp.principle': '<strong>Scientific integrity principle:</strong> gameplay score in «Snowflake» does not replace scientific results. None of the 19 domain servers self-certifies — every solution is accepted through the independent <strong>WorkflowMCP</strong> validation loop.',
                 'sysreq.title': '<i class="fas fa-desktop"></i> System requirements',
                 'sysreq.min': 'Minimum',
                 'sysreq.rec': 'Recommended',
