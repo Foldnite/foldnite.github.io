@@ -546,6 +546,37 @@
             margin: 0;
         }
 
+        /* --- Ряд для изображений с иными пропорциями --- */
+        .image-row.image-row-odd {
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .image-row.image-row-odd .inline-image {
+            flex: 0 1 auto;
+            max-width: 340px;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        .image-row.image-row-odd .inline-image img {
+            width: auto;
+            max-width: 100%;
+            max-height: 320px;
+            height: auto;
+            display: block;
+        }
+
+        @media (max-width: 620px) {
+            .image-row.image-row-odd .inline-image {
+                max-width: 100%;
+            }
+            .image-row.image-row-odd .inline-image img {
+                max-height: 260px;
+            }
+        }
+
         .empty-state {
             display: flex;
             flex-direction: column;
@@ -1047,7 +1078,7 @@
                             <li data-i18n="zone1.li2"><strong>Equipment:</strong> Wind farm, solar farm, electrolysers, inverters, hydrogen storage systems, backup diesel generators.</li>
                         </ul>
                         <div class="inline-image">
-                            <img src="https://comiccon2025.github.io/img/energy_1.jpg" alt="Wind turbines and energy equipment" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:20px;text-align:center;background:#1A1E24;\'><i class=\'fas fa-bolt\' style=\'font-size:32px;color:#3C6CE7;\'></i><p>Energy Zone</p></div>'">
+                            <img src="https://comiccon2025.github.io/img/energy_1.jpg" alt="Wind turbines and energy equipment" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:20px;text-align:center;background:#1A1E24;\'><i class=\'fas fa-bolt\' style=\'font-size:32px;color:#3C6CE7;\'></i><p>Energy Zone</p></div>'">
                             <div style="padding: 8px; text-align: center; color: #767C89;" data-i18n="zone1.caption">Wind turbines and energy equipment — electrolysers, inverters and hydrogen storage</div>
                         </div>
 
@@ -1067,7 +1098,7 @@
                             <li data-i18n="zone3.li2"><strong>Equipment:</strong> Bioreactors, automated plant systems, microscopes, incubators, telemedicine consoles.</li>
                         </ul>
                         <div class="inline-image">
-                            <img src="https://comiccon2025.github.io/img/room/room_plants_1.jpg" alt="Phytolaboratory" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:20px;text-align:center;background:#1A1E24;\'><i class=\'fas fa-seedling\' style=\'font-size:32px;color:#3C6CE7;\'></i><p>Arctic greenhouse (hydroponics)</p></div>'">
+                            <img src="https://comiccon2025.github.io/img/room/room_plants_1.jpg" alt="Phytolaboratory" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:20px;text-align:center;background:#1A1E24;\'><i class=\'fas fa-seedling\' style=\'font-size:32px;color:#3C6CE7;\'></i><p>Arctic greenhouse (hydroponics)</p></div>'">
                             <div style="padding: 8px; text-align: center; color: #767C89;" data-i18n="zone3.caption">Automated plant system — Biology &amp; Medicine zone</div>
                         </div>
 
@@ -1095,7 +1126,7 @@
                             <li data-i18n="zone6.li2"><strong>Equipment:</strong> Satellite terminals, server racks, control consoles, quantum-safe communication channels.</li>
                         </ul>
                         <div class="inline-image">
-                            <img src="https://comiccon2025.github.io/img/dishes.jpg" alt="Satellite antennas" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:20px;text-align:center;background:#1A1E24;\'><i class=\'fas fa-satellite\' style=\'font-size:32px;color:#3C6CE7;\'></i><p>Satellite communications</p></div>'">
+                            <img src="https://comiccon2025.github.io/img/dishes.jpg" alt="Satellite antennas" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:20px;text-align:center;background:#1A1E24;\'><i class=\'fas fa-satellite\' style=\'font-size:32px;color:#3C6CE7;\'></i><p>Satellite communications</p></div>'">
                             <div style="padding: 8px; text-align: center; color: #767C89;" data-i18n="zone6.caption">Connectivity Hub satellite terminals</div>
                         </div>
 
@@ -1106,26 +1137,30 @@
                             <li data-i18n="zone7.li1"><strong>Gameplay:</strong> Balancing crew rest and workload, managing closed water and air cycles, waste sorting, running the laundry.</li>
                             <li data-i18n="zone7.li2"><strong>Equipment:</strong> Crew quarters, canteen, gym, coworking, reverse-osmosis filters, air regeneration units, waste sorting line.</li>
                         </ul>
+                        <!-- Ряд 1: стандартные пропорции -->
                         <div class="image-row">
                             <div class="inline-image">
-                                <img src="https://comiccon2025.github.io/img/room/room1111.jpg" alt="Crew quarters" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:30px;text-align:center;background:#1A1E24;\'><i class=\'fas fa-bed\' style=\'font-size:32px;color:#3C6CE7;\'></i><p>Crew quarters</p></div>'">
+                                <img src="https://comiccon2025.github.io/img/room/room11.jpg" alt="Living module interior" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:30px;text-align:center;background:#1A1E24;\'><i class=\'fas fa-couch\' style=\'font-size:32px;color:#3C6CE7;\'></i><p>Living module</p></div>'">
                             </div>
                             <div class="inline-image">
-                                <img src="https://comiccon2025.github.io/img/room/room11.jpg" alt="Living module interior" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:30px;text-align:center;background:#1A1E24;\'><i class=\'fas fa-couch\' style=\'font-size:32px;color:#3C6CE7;\'></i><p>Living module</p></div>'">
+                                <img src="https://comiccon2025.github.io/img/room/room1.jpg" alt="Common area" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:30px;text-align:center;background:#1A1E24;\'><i class=\'fas fa-users\' style=\'font-size:32px;color:#3C6CE7;\'></i><p>Common area</p></div>'">
                             </div>
                             <div class="inline-image">
-                                <img src="https://comiccon2025.github.io/img/room/room1.jpg" alt="Common area" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:30px;text-align:center;background:#1A1E24;\'><i class=\'fas fa-users\' style=\'font-size:32px;color:#3C6CE7;\'></i><p>Common area</p></div>'">
+                                <img src="https://comiccon2025.github.io/img/room/room111.jpg" alt="Coworking space" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:30px;text-align:center;background:#1A1E24;\'><i class=\'fas fa-laptop\' style=\'font-size:32px;color:#3C6CE7;\'></i><p>Coworking</p></div>'">
+                            </div>
+                        </div>
+                        <!-- Ряд 2: изображения с иными пропорциями -->
+                        <div class="image-row image-row-odd">
+                            <div class="inline-image">
+                                <img src="https://comiccon2025.github.io/img/room/room1111.jpg" alt="Crew quarters" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:30px;text-align:center;background:#1A1E24;\'><i class=\'fas fa-bed\' style=\'font-size:32px;color:#3C6CE7;\'></i><p>Crew quarters</p></div>'">
                             </div>
                             <div class="inline-image">
-                                <img src="https://comiccon2025.github.io/img/room/room111.jpg" alt="Coworking space" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:30px;text-align:center;background:#1A1E24;\'><i class=\'fas fa-laptop\' style=\'font-size:32px;color:#3C6CE7;\'></i><p>Coworking</p></div>'">
-                            </div>
-                            <div class="inline-image">
-                                <img src="https://comiccon2025.github.io/img/room/room_Drone.jpg" alt="Drone in the living module" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:30px;text-align:center;background:#1A1E24;\'><i class=\'fas fa-drone\' style=\'font-size:32px;color:#3C6CE7;\'></i><p>Drone</p></div>'">
+                                <img src="https://comiccon2025.github.io/img/room/room_Drone.jpg" alt="Drone in the living module" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:30px;text-align:center;background:#1A1E24;\'><i class=\'fas fa-drone\' style=\'font-size:32px;color:#3C6CE7;\'></i><p>Drone</p></div>'">
                             </div>
                         </div>
                         <div style="padding: 8px; text-align: center; color: #767C89;" data-i18n="zone7.caption.rooms">Crew quarters, common areas and coworking — Living &amp; Life Support zone</div>
                         <div class="inline-image">
-                            <img src="https://comiccon2025.github.io/img/interior_window.jpg" alt="View from the living module window" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;background:#1A1E24;\'><i class=\'fas fa-window-maximize\' style=\'font-size:32px;color:#3C6CE7;\'></i><p>View from the window</p></div>'">
+                            <img src="https://comiccon2025.github.io/img/interior_window.jpg" alt="View from the living module window" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;background:#1A1E24;\'><i class=\'fas fa-window-maximize\' style=\'font-size:32px;color:#3C6CE7;\'></i><p>View from the window</p></div>'">
                             <div style="padding: 8px; text-align: center; color: #767C89;" data-i18n="zone7.caption.window">View from the living module window — Arctic landscape</div>
                         </div>
 
@@ -1134,10 +1169,10 @@
 
                         <div class="image-row">
                             <div class="inline-image">
-                                <img src="https://blockchainaccreditive.github.io/css/price2.jpg" alt="All-terrain vehicle and snowbike" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:30px;text-align:center;\'><i class=\'fas fa-truck\' style=\'font-size:32px;\'></i><p>All-terrain vehicle</p></div>'">
+                                <img src="https://blockchainaccreditive.github.io/css/price2.jpg" alt="All-terrain vehicle and snowbike" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:30px;text-align:center;\'><i class=\'fas fa-truck\' style=\'font-size:32px;\'></i><p>All-terrain vehicle</p></div>'">
                             </div>
                             <div class="inline-image">
-                                <img src="https://comiccon2025.github.io/img/snowflake/underwater_1.jpg" alt="Underwater drone" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:30px;text-align:center;\'><i class=\'fas fa-water\' style=\'font-size:32px;\'></i><p>Underwater drone</p></div>'">
+                                <img src="https://comiccon2025.github.io/img/snowflake/underwater_1.jpg" alt="Underwater drone" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:30px;text-align:center;\'><i class=\'fas fa-water\' style=\'font-size:32px;\'></i><p>Underwater drone</p></div>'">
                             </div>
                         </div>
                         <ul>
@@ -1155,7 +1190,7 @@
                         </ul>
 
                         <div class="inline-image">
-                            <img src="https://comiccon2025.github.io/img/snowflake/lIdar.jpg" alt="Laser scanning (lidar)" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;\'>🌀 [lidar data visualisation]</div>'">
+                            <img src="https://comiccon2025.github.io/img/snowflake/lIdar.jpg" alt="Laser scanning (lidar)" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:40px;text-align:center;\'>🌀 [lidar data visualisation]</div>'">
                             <div style="padding: 12px; text-align: center; color: #767C89;" data-i18n="terrain.caption">Laser scanning (lidar) — the basis of sub-decimetre terrain accuracy</div>
                         </div>
 
