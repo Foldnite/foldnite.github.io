@@ -564,7 +564,7 @@
         }
 
         /* ============================================================
-           ОБРАЗОВАТЕЛЬНАЯ И R&D-ИГРОСРЕДА
+           ОБРАЗОВАТЕЛЬНАЯ И R&D-ИГРОСРЕДА · 9 ПРИНЦИПОВ СИРИУСА
            ============================================================ */
         .edu-intro {
             background: linear-gradient(135deg, rgba(60, 108, 231, 0.12) 0%, rgba(16, 185, 129, 0.08) 100%);
@@ -576,55 +576,102 @@
 
         .edu-intro p {
             margin: 0;
-            font-size: 15.5px;
+            font-size: 15px;
             line-height: 1.7;
             color: #D9DDE3;
         }
 
         .edu-intro p strong { color: #FFFFFF; }
 
-        .edu-pillars {
+        .edu-principles {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+            gap: 14px;
         }
 
-        .edu-pillar {
-            display: flex;
-            align-items: flex-start;
-            gap: 14px;
-            padding: 18px 20px;
+        .edu-principle {
+            padding: 18px;
             background: #1A1E24;
             border: 1px solid #262A32;
-            border-radius: 16px;
-            border-left: 3px solid #3C6CE7;
+            border-radius: 14px;
             transition: border-color 0.2s, background 0.2s;
+            border-left: 3px solid #3C6CE7;
         }
 
-        .edu-pillar:hover {
-            background: #1E2229;
-            border-left-color: #6B8EFF;
-        }
+        .edu-principle.green { border-left-color: #10b981; }
+        .edu-principle.purple { border-left-color: #a855f7; }
 
-        .edu-pillar i {
-            color: #3C6CE7;
-            font-size: 20px;
-            margin-top: 2px;
-            min-width: 24px;
-            text-align: center;
-        }
+        .edu-principle:hover { background: #1E2229; }
+        .edu-principle.blue:hover { border-left-color: #6B8EFF; }
+        .edu-principle.green:hover { border-left-color: #34d399; }
+        .edu-principle.purple:hover { border-left-color: #c084fc; }
 
-        .edu-pillar-title {
+        .edu-principle-num {
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            margin-bottom: 6px;
+            color: #6B8EFF;
+        }
+        .edu-principle.green .edu-principle-num { color: #34d399; }
+        .edu-principle.purple .edu-principle-num { color: #c084fc; }
+
+        .edu-principle h3 {
+            margin: 0 0 8px;
+            font-size: 15px;
             font-weight: 600;
             color: #FFFFFF;
-            font-size: 15px;
-            margin-bottom: 4px;
             line-height: 1.3;
         }
 
-        .edu-pillar-desc {
+        .edu-principle p {
+            margin: 0;
             font-size: 13px;
-            line-height: 1.5;
+            line-height: 1.55;
+            color: #B0B5BD;
+        }
+        .edu-principle p strong { color: #E1E3E6; }
+
+        /* ============================================================
+           NEWS · ХРОНОЛОГИЯ ВЕХ ПРОЕКТА
+           ============================================================ */
+        .news-list {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .news-item {
+            padding: 18px 20px;
+            background: #1A1E24;
+            border: 1px solid #262A32;
+            border-left: 3px solid #3C6CE7;
+            border-radius: 14px;
+        }
+
+        .news-item.green { border-left-color: #10b981; }
+
+        .news-item-date {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: #6B8EFF;
+            margin-bottom: 6px;
+        }
+        .news-item.green .news-item-date { color: #34d399; }
+
+        .news-item-title {
+            margin: 0 0 8px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #FFFFFF;
+            line-height: 1.35;
+        }
+
+        .news-item-text {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.6;
             color: #B0B5BD;
         }
 
@@ -975,46 +1022,72 @@
                 </div>
 
                 <!-- ============================================================
-                     ОБРАЗОВАТЕЛЬНАЯ И R&D-ИГРОСРЕДА НОВОГО ПОКОЛЕНИЯ
+                     ОБРАЗОВАТЕЛЬНАЯ И R&D-ИГРОСРЕДА · 9 ПРИНЦИПОВ СИРИУСА
                      ============================================================ -->
                 <div class="tab-panel" id="panel-edu" role="tabpanel" hidden>
                     <div class="card">
-                        <h2 data-i18n="edu.title"><i class="fas fa-graduation-cap" style="color: #3C6CE7;"></i> Educational and R&amp;D game environment of the new generation</h2>
+                        <h2 data-i18n="edu.title"><i class="fas fa-graduation-cap" style="color: #3C6CE7;"></i> Educational and R&amp;D game environment: 9 principles of the Sirius «World of Knowledge»</h2>
 
                         <div class="edu-intro">
                             <p data-i18n="edu.text">
-                                MAS «Snowflake» is built on the principles of systems thinking from first causes and learning through real practice. <strong>Schoolchildren, students and engineers</strong> work in a unified digital environment with scientists and AI agents: designing UAV missions, balancing hydrogen energy and conducting biotechnological experiments — receiving, instead of conventional game points, a <strong>verified scientific result</strong>.
+                                The architecture of the MAS «Snowflake» digital twin was designed around 9 foundational principles of an educational game environment — from accessibility on any device to evidence-based scientific validation via <strong>Scientific MCP</strong>.
                             </p>
                         </div>
 
-                        <div class="edu-pillars">
-                            <div class="edu-pillar">
-                                <i class="fas fa-sitemap" aria-hidden="true"></i>
-                                <div>
-                                    <div class="edu-pillar-title" data-i18n="edu.p1.title">Systems thinking</div>
-                                    <div class="edu-pillar-desc" data-i18n="edu.p1.desc">From first causes to construction: understanding connections rather than memorising facts.</div>
-                                </div>
+                        <div class="edu-principles">
+                            <!-- 1 -->
+                            <div class="edu-principle">
+                                <div class="edu-principle-num" data-i18n="edu.p1.num">01 · ACCESSIBILITY</div>
+                                <h3 data-i18n="edu.p1.title">Entry levels and multi-platform</h3>
+                                <p data-i18n="edu.p1.desc">Scenarios of different difficulty (from schoolchild to engineer), clear instructions and a choice of participation via <strong>PC, VR or WEB</strong> with no geographic restrictions.</p>
                             </div>
-                            <div class="edu-pillar">
-                                <i class="fas fa-tools" aria-hidden="true"></i>
-                                <div>
-                                    <div class="edu-pillar-title" data-i18n="edu.p2.title">Learning through practice</div>
-                                    <div class="edu-pillar-desc" data-i18n="edu.p2.desc">Real missions on the station's digital twin instead of abstract textbook tasks.</div>
-                                </div>
+                            <!-- 2 -->
+                            <div class="edu-principle">
+                                <div class="edu-principle-num" data-i18n="edu.p2.num">02 · FIRST-CAUSE THINKING</div>
+                                <h3 data-i18n="edu.p2.title">Physics and logic instead of memorisation</h3>
+                                <p data-i18n="edu.p2.desc">The model visibly demonstrates cause-and-effect relationships: why the system works this way, which physical constraints apply, and what each parameter affects.</p>
                             </div>
-                            <div class="edu-pillar">
-                                <i class="fas fa-users" aria-hidden="true"></i>
-                                <div>
-                                    <div class="edu-pillar-title" data-i18n="edu.p3.title">Unified environment</div>
-                                    <div class="edu-pillar-desc" data-i18n="edu.p3.desc">Schoolchildren, students, engineers, scientists and AI agents work together.</div>
-                                </div>
+                            <!-- 3 -->
+                            <div class="edu-principle">
+                                <div class="edu-principle-num" data-i18n="edu.p3.num">03 · SOCIAL LEARNING</div>
+                                <h3 data-i18n="edu.p3.title">Team roles and hypothesis exchange</h3>
+                                <p data-i18n="edu.p3.desc">Multiplayer with distributed roles of <strong>researcher, engineer, analyst and coordinator</strong>, requiring joint decision-making and hypothesis testing.</p>
                             </div>
-                            <div class="edu-pillar">
-                                <i class="fas fa-shield-alt" aria-hidden="true"></i>
-                                <div>
-                                    <div class="edu-pillar-title" data-i18n="edu.p4.title">Verified result</div>
-                                    <div class="edu-pillar-desc" data-i18n="edu.p4.desc">Instead of game points — a scientific result confirmed by independent validation.</div>
-                                </div>
+                            <!-- 4 -->
+                            <div class="edu-principle green">
+                                <div class="edu-principle-num" data-i18n="edu.p4.num">04 · ENGAGEMENT THROUGH PLAY</div>
+                                <h3 data-i18n="edu.p4.title">Meaningful goals without replacing science</h3>
+                                <p data-i18n="edu.p4.desc">Game tasks, clear progress and feedback hold attention, but game score never substitutes for scientific correctness (validated through <strong>WorkflowMCP</strong>).</p>
+                            </div>
+                            <!-- 5 -->
+                            <div class="edu-principle green">
+                                <div class="edu-principle-num" data-i18n="edu.p5.num">05 · BELONGING TO SOMETHING BIGGER</div>
+                                <h3 data-i18n="edu.p5.title">Real Arctic challenges</h3>
+                                <p data-i18n="edu.p5.desc">Every educational action is tied to a major scientific task — operating an autonomous hydrogen-powered Arctic station, climatology and polar robotics.</p>
+                            </div>
+                            <!-- 6 -->
+                            <div class="edu-principle green">
+                                <div class="edu-principle-num" data-i18n="edu.p6.num">06 · RESPONSIBILITY THROUGH CONSEQUENCES</div>
+                                <h3 data-i18n="edu.p6.title">Systemic effect of every decision</h3>
+                                <p data-i18n="edu.p6.desc">The model shows the real consequences of mistakes and discoveries for the energy balance, rover logistics, crew safety, resources and the fragile ecosystem.</p>
+                            </div>
+                            <!-- 7 -->
+                            <div class="edu-principle purple">
+                                <div class="edu-principle-num" data-i18n="edu.p7.num">07 · INDEPENDENT PATH CHOICE</div>
+                                <h3 data-i18n="edu.p7.title">Freedom of method and captured logic</h3>
+                                <p data-i18n="edu.p7.desc">The participant chooses their role, sequence of steps and acceptable solution method themselves, while the system records their trajectory and justification in the <strong>Mission Contract</strong>.</p>
+                            </div>
+                            <!-- 8 -->
+                            <div class="edu-principle purple">
+                                <div class="edu-principle-num" data-i18n="edu.p8.num">08 · LIVING ADAPTIVE ENVIRONMENT</div>
+                                <h3 data-i18n="edu.p8.title">Tuning with a mentor, not a "black box"</h3>
+                                <p data-i18n="edu.p8.desc">Mission updates and difficulty levels are built on collaboration with a teacher and feedback, not opaque automatic profiling.</p>
+                            </div>
+                            <!-- 9 -->
+                            <div class="edu-principle purple">
+                                <div class="edu-principle-num" data-i18n="edu.p9.num">09 · EXPERIENCE, NOT MEMORISATION</div>
+                                <h3 data-i18n="edu.p9.title">Research, solution and debrief</h3>
+                                <p data-i18n="edu.p9.desc">The full experience cycle: independent modelling, decision-making in a dynamic environment, team discussion and a structured <strong>debrief</strong> based on the validation report.</p>
                             </div>
                         </div>
                     </div>
@@ -1088,10 +1161,10 @@
                         <div class="mcp-workflow">
                             <div class="mcp-workflow-head">
                                 <div class="mcp-workflow-tag" data-i18n="mcp.wf.tag">⚙️ WORKFLOWMCP · ORCHESTRATION AND VALIDATION LAYER (1 CORE)</div>
-                                <span class="mcp-workflow-flow" data-i18n="mcp.wf.flow">Mission Contract → SHA-256 → Independent validator → Evidence 1.1</span>
+                                <span class="mcp-workflow-flow" data-i18n="mcp.wf.flow">Mission Contract → SHA-256 → Independent validator</span>
                             </div>
                             <p data-i18n="mcp.wf.p">
-                                Infrastructure layer on top of all four scientific domains. It records the mission contract, hashes input data (SHA-256), isolates runs for reproducibility, and routes candidates to an independent validator, producing a signed <strong>Evidence 1.1</strong> report.
+                                Infrastructure layer on top of all four scientific domains. It records the mission contract, hashes input data (SHA-256), isolates runs for reproducibility, and routes candidates to an independent validator, producing a signed report.
                             </p>
                         </div>
 
@@ -1139,12 +1212,23 @@
                     </div>
                 </div>
 
+                <!-- ============================================================
+                     NEWS · ХРОНОЛОГИЯ ВЕХ ПРОЕКТА
+                     ============================================================ -->
                 <div class="tab-panel" id="panel-news" role="tabpanel" hidden>
                     <div class="card">
                         <h2 data-i18n="news.title">News</h2>
-                        <div class="empty-state">
-                            <i class="far fa-newspaper"></i>
-                            <p style="margin: 0;" data-i18n="news.empty">No news yet.</p>
+                        <div class="news-list">
+                            <div class="news-item">
+                                <div class="news-item-date" data-i18n="news.item1.date">2026 · PLATFORM UPDATE</div>
+                                <h3 class="news-item-title" data-i18n="news.item1.title">Integration of 20 Scientific MCP servers and the 9 Sirius principles</h3>
+                                <p class="news-item-text" data-i18n="news.item1.text">The MAS «Snowflake» digital twin on the UNIGINE 2 engine is connected to 4 scientific domains (BioMCP, MaterialsMCP, TopoMCP, EngMCP) and the WorkflowMCP evidence-based validation loop.</p>
+                            </div>
+                            <div class="news-item green">
+                                <div class="news-item-date" data-i18n="news.item2.date">MAY 2023 · FIELD TESTING</div>
+                                <h3 class="news-item-title" data-i18n="news.item2.title">VR-version of the digital twin demonstrated to the YNAO leadership</h3>
+                                <p class="news-item-text" data-i18n="news.item2.text">The Governor of the Yamalo-Nenets Autonomous Okrug, Dmitry Artyukhov, personally tested the VR version of the digital twin of the International Arctic Station «Snowflake».</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1182,6 +1266,7 @@
                         <li><span class="info-label" data-i18n="side.platform">Platform</span><span class="info-value">PC / VR / WEB</span></li>
                         <li><span class="info-label" data-i18n="side.engine">Engine</span><span class="info-value">UNIGINE 2 <a href="https://reestr.digital.gov.ru/reestr/2338176/" target="blank" style="color: #3C6CE7;">(reg. No. 22252)</a></span></li>
                         <li><span class="info-label" data-i18n="side.mode">Mode</span><span class="info-value" data-i18n="side.modev">Single-player / multiplayer (vehicles)</span></li>
+                        <li><span class="info-label" data-i18n="side.ynao">VR demo (2023)</span><span class="info-value" data-i18n="side.ynao.value">YNAO Governor D. Artyukhov</span></li>
                     </ul>
                 </div>
 
@@ -1200,7 +1285,7 @@
                         <p style="font-size: 12px; color: #B0B5BD; margin-bottom: 8px;" data-i18n="side.cert">
                             Unified register of Russian programs for electronic computers and databases, application reg. No. 298402, registry <a href="https://reestr.digital.gov.ru/reestr/2338176/" target="blank">No. 22252</a>.<br>
                             Certificate of state registration of a computer program <a href="https://unigine.com/ru/company/about/" target="blank">No. 2014660370</a>.<br>
-                            UNIGINE trademark number: <a href="https://unigine.com/ru/company/about/" target="blank">745516</a>.
+                            UNIGINE trademark number: <a href="https://unigine.com/ru/company/about/" target="_blank">745516</a>.
                         </p>
                     </div>
                 </div>
@@ -1296,16 +1381,35 @@
                 'tech.li2': '<strong>Панорамные камеры</strong> профессионального класса.',
                 'tech.li3': '<strong>Спутниковые снимки</strong> группировки «Канопус-В» для ортофотопланов.',
                 'tech.li4': '<strong>GNSS-приёмники (ГЛОНАСС) в режиме RTK</strong> — геодезическая привязка с точностью до сантиметра.',
-                'edu.title': '<i class="fas fa-graduation-cap" style="color: #3C6CE7;"></i> Образовательная и R&amp;D-игросреда нового поколения',
-                'edu.text': 'МАС «Снежинка» построена на принципах системного мышления от первопричины и обучения через реальную практику. <strong>Школьники, студенты и инженеры</strong> работают в единой цифровой среде с учёными и ИИ-агентами: проектируют миссии БПЛА, балансируют водородную энергетику и проводят биотехнологические эксперименты, получая вместо условных игровых баллов <strong>верифицированный научный результат</strong>.',
-                'edu.p1.title': 'Системное мышление',
-                'edu.p1.desc': 'От первопричины к конструкции: понимание связей, а не заучивание фактов.',
-                'edu.p2.title': 'Обучение через практику',
-                'edu.p2.desc': 'Реальные миссии на цифровом двойнике станции вместо абстрактных задач.',
-                'edu.p3.title': 'Единая среда',
-                'edu.p3.desc': 'Школьники, студенты, инженеры, учёные и ИИ-агенты работают вместе.',
-                'edu.p4.title': 'Верифицированный результат',
-                'edu.p4.desc': 'Вместо игровых баллов — научный результат, подтверждённый независимой валидацией.',
+                'edu.title': '<i class="fas fa-graduation-cap" style="color: #3C6CE7;"></i> Образовательная и R&amp;D-игросреда: 9 принципов «Мира знаний Сириуса»',
+                'edu.text': 'Архитектура цифрового двойника МАС «Снежинка» проектировалась с опорой на 9 базовых принципов образовательной игросреды — от доступности на любых устройствах до доказательной научной валидации через <strong>Scientific MCP</strong>.',
+                'edu.p1.num': '01 · ДОСТУПНОСТЬ',
+                'edu.p1.title': 'Входные уровни и мультиплатформа',
+                'edu.p1.desc': 'Сценарии разной сложности (от школьника до инженера), понятные инструкции и выбор способа участия через <strong>PC, VR или WEB</strong> без привязки к географии.',
+                'edu.p2.num': '02 · МЫШЛЕНИЕ ОТ ПЕРВОПРИЧИНЫ',
+                'edu.p2.title': 'Физика и логика вместо заучивания',
+                'edu.p2.desc': 'Модель наглядно показывает причинно-следственные связи: почему система работает именно так, какие физические ограничения действуют и на что влияет каждый параметр.',
+                'edu.p3.num': '03 · СОЦИАЛЬНОЕ ОБУЧЕНИЕ',
+                'edu.p3.title': 'Командные роли и обмен гипотезами',
+                'edu.p3.desc': 'Мультиплеер с распределением ролей <strong>исследователя, инженера, аналитика и координатора</strong>, требующих совместного принятия решений и проверки гипотез.',
+                'edu.p4.num': '04 · ВОВЛЕЧЕНИЕ ЧЕРЕЗ ИГРУ',
+                'edu.p4.title': 'Значимые цели без подмены науки',
+                'edu.p4.desc': 'Игровые задачи, понятный прогресс и обратная связь удерживают внимание, но игровой счёт никогда не подменяет научную корректность (валидация через <strong>WorkflowMCP</strong>).',
+                'edu.p5.num': '05 · ПРИЧАСТНОСТЬ К БОЛЬШОМУ',
+                'edu.p5.title': 'Реальные вызовы Арктики',
+                'edu.p5.desc': 'Каждое учебное действие связано с крупной научной задачей — работой автономной арктической станции на водороде, климатологией и полярной робототехникой.',
+                'edu.p6.num': '06 · ОТВЕТСТВЕННОСТЬ ЧЕРЕЗ ПОСЛЕДСТВИЯ',
+                'edu.p6.title': 'Системный эффект каждого решения',
+                'edu.p6.desc': 'Модель показывает реальные последствия ошибок и находок для энергобаланса, логистики вездеходов, безопасности экипажа, ресурсов и хрупкой экосистемы.',
+                'edu.p7.num': '07 · САМОСТОЯТЕЛЬНЫЙ ВЫБОР ПУТИ',
+                'edu.p7.title': 'Свобода метода и фиксация логики',
+                'edu.p7.desc': 'Участник сам выбирает роль, последовательность шагов и допустимый метод решения, а система фиксирует его траекторию и обоснование выбора в <strong>Mission Contract</strong>.',
+                'edu.p8.num': '08 · ЖИВАЯ, АДАПТИВНАЯ СРЕДА',
+                'edu.p8.title': 'Настройка с наставником, а не «чёрный ящик»',
+                'edu.p8.desc': 'Обновление миссий и уровней сложности строится на основе совместной работы с преподавателем и обратной связи, а не непрозрачного автоматического профилирования.',
+                'edu.p9.num': '09 · ПРОЖИВАНИЕ, А НЕ ЗАПОМИНАНИЕ',
+                'edu.p9.title': 'Исследование, решение и debrief',
+                'edu.p9.desc': 'Полный цикл опыта: самостоятельное моделирование, принятие решений в динамической среде, командное обсуждение и структурированный разбор (<strong>debrief</strong>) по отчёту валидации.',
                 'mcp.title': '<i class="fas fa-microscope" style="color: #3C6CE7;"></i> Scientific MCP · 20 исследовательских серверов',
                 'mcp.intro': 'Цифровой двойник МАС «Снежинка» на движке <strong>UNIGINE 2</strong> выступает экстремальным полигоном для прикладных исследований и инженерного R&amp;D. Через стандартизированный протокол <strong>Scientific MCP</strong> симуляция связывается с <strong>20 специализированными вычислительными серверами</strong>, объединёнными в 4 научных семейства и единую платформу валидации <strong>WorkflowMCP</strong>.',
                 'mcp.bio.tag': 'BIOMCP · 6 СЕРВЕРОВ',
@@ -1329,8 +1433,8 @@
                 'mcp.eng.servers': '<strong>Серверы:</strong> CAD/Material · CAD/Crystal · CAD/Physics.',
                 'mcp.eng.ind': '<strong>Задачи и индустрии:</strong> Аэрокосмос, БПЛА и арктические вездеходы, автопром, научное ПО и цифровые испытания конструкций.',
                 'mcp.wf.tag': '⚙️ WORKFLOWMCP · ПЛАТФОРМЕННЫЙ СЛОЙ ОРКЕСТРАЦИИ И ВАЛИДАЦИИ (1 ЯДРО)',
-                'mcp.wf.flow': 'Mission Contract → SHA-256 → Независимый валидатор → Evidence 1.1',
-                'mcp.wf.p': 'Инфраструктурный контур поверх всех четырёх научных доменов. Фиксирует контракт миссии, хеширует входные данные (SHA-256), изолирует запуски для воспроизводимости и передаёт кандидатов на независимую проверку, формируя подписанный отчёт <strong>Evidence 1.1</strong>.',
+                'mcp.wf.flow': 'Mission Contract → SHA-256 → Независимый валидатор',
+                'mcp.wf.p': 'Инфраструктурный контур поверх всех четырёх научных доменов. Фиксирует контракт миссии, хеширует входные данные (SHA-256), изолирует запуски для воспроизводимости и передаёт кандидатов на независимую проверку, формируя подписанный отчёт.',
                 'mcp.principle': '<strong>Принцип научной достоверности:</strong> игровой счёт в «Снежинке» не подменяет научный результат. Ни один из 19 доменных серверов не сертифицирует сам себя — приёмка каждого решения выполняется через независимый контур валидации <strong>WorkflowMCP</strong>.',
                 'sysreq.title': '<i class="fas fa-desktop"></i> Системные требования',
                 'sysreq.min': 'Минимальные',
@@ -1346,7 +1450,12 @@
                 'sysreq.note': '*рекомендуется для работы с высокодетализированной средой',
                 'sysreq.vrnote': '<strong>VR-режим:</strong> требуется шлем виртуальной реальности с поддержкой PC VR (SteamVR / OpenXR) и портом USB 3.0.',
                 'news.title': 'Новости',
-                'news.empty': 'Пока нет новостей.',
+                'news.item1.date': '2026 · ОБНОВЛЕНИЕ ПЛАТФОРМЫ',
+                'news.item1.title': 'Интеграция 20 серверов Scientific MCP и 9 принципов «Сириуса»',
+                'news.item1.text': 'Цифровой двойник МАС «Снежинка» на движке UNIGINE 2 подключён к 4 научным доменам (BioMCP, MaterialsMCP, TopoMCP, EngMCP) и контуру доказательной валидации WorkflowMCP.',
+                'news.item2.date': 'МАЙ 2023 · ПОЛЕВОЕ ТЕСТИРОВАНИЕ',
+                'news.item2.title': 'Демонстрация VR-версии цифрового двойника руководству ЯНАО',
+                'news.item2.text': 'Губернатор Ямало-Ненецкого автономного округа Дмитрий Артюхов лично протестировал VR-версию цифрового двойника Международной арктической станции «Снежинка».',
                 'disc.title': 'Обсуждения',
                 'disc.empty': 'Обсуждений пока нет. Станьте первым!',
                 'sup.title': 'Поддержка',
@@ -1360,6 +1469,8 @@
                 'side.engine': 'Движок',
                 'side.mode': 'Режим',
                 'side.modev': 'Одиночный / мультиплеер (техника)',
+                'side.ynao': 'VR-демо (2023)',
+                'side.ynao.value': 'Губернатор ЯНАО Д. Артюхов',
                 'side.tech': '<i class="fas fa-microchip"></i> Технические детали',
                 'side.t1': 'Фотограмметрия',
                 'side.t2': 'Геодезия',
@@ -1452,16 +1563,35 @@
                 'tech.li2': '<strong>Panoramic cameras</strong> of professional grade.',
                 'tech.li3': '<strong>Satellite imagery</strong> from the «Kanopus-V» constellation for orthophoto maps.',
                 'tech.li4': '<strong>GNSS receivers (GLONASS) in RTK mode</strong> — geodetic referencing accurate to the centimetre.',
-                'edu.title': '<i class="fas fa-graduation-cap" style="color: #3C6CE7;"></i> Educational and R&amp;D game environment of the new generation',
-                'edu.text': 'MAS «Snowflake» is built on the principles of systems thinking from first causes and learning through real practice. <strong>Schoolchildren, students and engineers</strong> work in a unified digital environment with scientists and AI agents: designing UAV missions, balancing hydrogen energy and conducting biotechnological experiments — receiving, instead of conventional game points, a <strong>verified scientific result</strong>.',
-                'edu.p1.title': 'Systems thinking',
-                'edu.p1.desc': 'From first causes to construction: understanding connections rather than memorising facts.',
-                'edu.p2.title': 'Learning through practice',
-                'edu.p2.desc': "Real missions on the station's digital twin instead of abstract textbook tasks.",
-                'edu.p3.title': 'Unified environment',
-                'edu.p3.desc': 'Schoolchildren, students, engineers, scientists and AI agents work together.',
-                'edu.p4.title': 'Verified result',
-                'edu.p4.desc': 'Instead of game points — a scientific result confirmed by independent validation.',
+                'edu.title': '<i class="fas fa-graduation-cap" style="color: #3C6CE7;"></i> Educational and R&amp;D game environment: 9 principles of the Sirius «World of Knowledge»',
+                'edu.text': 'The architecture of the MAS «Snowflake» digital twin was designed around 9 foundational principles of an educational game environment — from accessibility on any device to evidence-based scientific validation via <strong>Scientific MCP</strong>.',
+                'edu.p1.num': '01 · ACCESSIBILITY',
+                'edu.p1.title': 'Entry levels and multi-platform',
+                'edu.p1.desc': 'Scenarios of different difficulty (from schoolchild to engineer), clear instructions and a choice of participation via <strong>PC, VR or WEB</strong> with no geographic restrictions.',
+                'edu.p2.num': '02 · FIRST-CAUSE THINKING',
+                'edu.p2.title': 'Physics and logic instead of memorisation',
+                'edu.p2.desc': 'The model visibly demonstrates cause-and-effect relationships: why the system works this way, which physical constraints apply, and what each parameter affects.',
+                'edu.p3.num': '03 · SOCIAL LEARNING',
+                'edu.p3.title': 'Team roles and hypothesis exchange',
+                'edu.p3.desc': 'Multiplayer with distributed roles of <strong>researcher, engineer, analyst and coordinator</strong>, requiring joint decision-making and hypothesis testing.',
+                'edu.p4.num': '04 · ENGAGEMENT THROUGH PLAY',
+                'edu.p4.title': 'Meaningful goals without replacing science',
+                'edu.p4.desc': 'Game tasks, clear progress and feedback hold attention, but game score never substitutes for scientific correctness (validated through <strong>WorkflowMCP</strong>).',
+                'edu.p5.num': '05 · BELONGING TO SOMETHING BIGGER',
+                'edu.p5.title': 'Real Arctic challenges',
+                'edu.p5.desc': 'Every educational action is tied to a major scientific task — operating an autonomous hydrogen-powered Arctic station, climatology and polar robotics.',
+                'edu.p6.num': '06 · RESPONSIBILITY THROUGH CONSEQUENCES',
+                'edu.p6.title': 'Systemic effect of every decision',
+                'edu.p6.desc': 'The model shows the real consequences of mistakes and discoveries for the energy balance, rover logistics, crew safety, resources and the fragile ecosystem.',
+                'edu.p7.num': '07 · INDEPENDENT PATH CHOICE',
+                'edu.p7.title': 'Freedom of method and captured logic',
+                'edu.p7.desc': 'The participant chooses their role, sequence of steps and acceptable solution method themselves, while the system records their trajectory and justification in the <strong>Mission Contract</strong>.',
+                'edu.p8.num': '08 · LIVING ADAPTIVE ENVIRONMENT',
+                'edu.p8.title': 'Tuning with a mentor, not a "black box"',
+                'edu.p8.desc': 'Mission updates and difficulty levels are built on collaboration with a teacher and feedback, not opaque automatic profiling.',
+                'edu.p9.num': '09 · EXPERIENCE, NOT MEMORISATION',
+                'edu.p9.title': 'Research, solution and debrief',
+                'edu.p9.desc': 'The full experience cycle: independent modelling, decision-making in a dynamic environment, team discussion and a structured <strong>debrief</strong> based on the validation report.',
                 'mcp.title': '<i class="fas fa-microscope" style="color: #3C6CE7;"></i> Scientific MCP · 20 research servers',
                 'mcp.intro': 'The digital twin of MAS «Snowflake» on <strong>UNIGINE 2</strong> is an extreme testbed for applied research and engineering R&amp;D. Through the standardised <strong>Scientific MCP</strong> protocol the simulation links to <strong>20 specialised compute servers</strong>, grouped into 4 scientific families and one validation platform <strong>WorkflowMCP</strong>.',
                 'mcp.bio.tag': 'BIOMCP · 6 SERVERS',
@@ -1485,8 +1615,8 @@
                 'mcp.eng.servers': '<strong>Servers:</strong> CAD/Material · CAD/Crystal · CAD/Physics.',
                 'mcp.eng.ind': '<strong>Tasks & industries:</strong> Aerospace, UAVs and Arctic rovers, automotive, scientific software and virtual structural testing.',
                 'mcp.wf.tag': '⚙️ WORKFLOWMCP · ORCHESTRATION AND VALIDATION LAYER (1 CORE)',
-                'mcp.wf.flow': 'Mission Contract → SHA-256 → Independent validator → Evidence 1.1',
-                'mcp.wf.p': 'Infrastructure layer on top of all four scientific domains. It records the mission contract, hashes input data (SHA-256), isolates runs for reproducibility, and routes candidates to an independent validator, producing a signed <strong>Evidence 1.1</strong> report.',
+                'mcp.wf.flow': 'Mission Contract → SHA-256 → Independent validator',
+                'mcp.wf.p': 'Infrastructure layer on top of all four scientific domains. It records the mission contract, hashes input data (SHA-256), isolates runs for reproducibility, and routes candidates to an independent validator, producing a signed report.',
                 'mcp.principle': '<strong>Scientific integrity principle:</strong> gameplay score in «Snowflake» does not replace scientific results. None of the 19 domain servers self-certifies — every solution is accepted through the independent <strong>WorkflowMCP</strong> validation loop.',
                 'sysreq.title': '<i class="fas fa-desktop"></i> System requirements',
                 'sysreq.min': 'Minimum',
@@ -1502,7 +1632,12 @@
                 'sysreq.note': '*recommended for working with a highly detailed environment',
                 'sysreq.vrnote': '<strong>VR mode:</strong> requires a virtual reality headset with PC VR support (SteamVR / OpenXR) and a USB 3.0 port.',
                 'news.title': 'News',
-                'news.empty': 'No news yet.',
+                'news.item1.date': '2026 · PLATFORM UPDATE',
+                'news.item1.title': 'Integration of 20 Scientific MCP servers and the 9 Sirius principles',
+                'news.item1.text': 'The MAS «Snowflake» digital twin on the UNIGINE 2 engine is connected to 4 scientific domains (BioMCP, MaterialsMCP, TopoMCP, EngMCP) and the WorkflowMCP evidence-based validation loop.',
+                'news.item2.date': 'MAY 2023 · FIELD TESTING',
+                'news.item2.title': 'VR-version of the digital twin demonstrated to the YNAO leadership',
+                'news.item2.text': 'The Governor of the Yamalo-Nenets Autonomous Okrug, Dmitry Artyukhov, personally tested the VR version of the digital twin of the International Arctic Station «Snowflake».',
                 'disc.title': 'Discussions',
                 'disc.empty': 'No discussions yet. Be the first!',
                 'sup.title': 'Support',
@@ -1516,6 +1651,8 @@
                 'side.engine': 'Engine',
                 'side.mode': 'Mode',
                 'side.modev': 'Single-player / multiplayer (vehicles)',
+                'side.ynao': 'VR demo (2023)',
+                'side.ynao.value': 'YNAO Governor D. Artyukhov',
                 'side.tech': '<i class="fas fa-microchip"></i> Technical details',
                 'side.t1': 'Photogrammetry',
                 'side.t2': 'Geodesy',
