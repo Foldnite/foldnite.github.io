@@ -823,9 +823,116 @@
         }
         .mcp-principle strong { color: #FEF3C7; }
 
+        /* ============================================================
+           AI ASSISTANT · YANDEX AI STUDIO + GITVERSE
+           ============================================================ */
+        .ai-intro {
+            margin: 0 0 24px 0;
+            color: #B0B5BD;
+            font-size: 15px;
+        }
+        .ai-intro strong { color: #E1E3E6; }
+
+        .ai-pipeline {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .ai-step {
+            padding: 16px;
+            background: #1A1E24;
+            border: 1px solid #262A32;
+            border-radius: 14px;
+            border-left: 3px solid var(--step-accent, #facc15);
+        }
+
+        .ai-step.step1 { --step-accent: #facc15; --step-soft: #facc15; }
+        .ai-step.step2 { --step-accent: #fb923c; --step-soft: #fb923c; }
+        .ai-step.step3 { --step-accent: #3C6CE7; --step-soft: #6B8EFF; }
+        .ai-step.step4 { --step-accent: #10b981; --step-soft: #34d399; }
+
+        .ai-step-num {
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            margin-bottom: 6px;
+            color: var(--step-soft);
+        }
+
+        .ai-step h4 {
+            margin: 0 0 8px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #FFFFFF;
+            line-height: 1.3;
+        }
+
+        .ai-step p {
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #B0B5BD;
+        }
+        .ai-step p strong { color: #E1E3E6; }
+
+        .ai-scenarios {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .ai-scenario {
+            padding: 16px 18px;
+            background: #1A1E24;
+            border: 1px solid #262A32;
+            border-radius: 14px;
+        }
+
+        .ai-scenario-tag {
+            font-weight: 700;
+            font-size: 12.5px;
+            margin-bottom: 6px;
+            letter-spacing: 0.03em;
+        }
+        .ai-scenario.bio .ai-scenario-tag { color: #34d399; }
+        .ai-scenario.energy .ai-scenario-tag { color: #6B8EFF; }
+        .ai-scenario.eng .ai-scenario-tag { color: #fbbf24; }
+
+        .ai-scenario p {
+            margin: 0;
+            font-size: 13.5px;
+            line-height: 1.55;
+            color: #B0B5BD;
+        }
+
+        .ai-compat {
+            padding: 14px 18px;
+            background: #2A2419;
+            border-left: 3px solid #facc15;
+            border-radius: 12px;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #FDE68A;
+        }
+        .ai-compat strong { color: #FEF3C7; }
+        .ai-compat code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Inter', monospace;
+            font-size: 12px;
+            color: #FEF08A;
+            border: 1px solid rgba(250, 204, 21, 0.2);
+            white-space: nowrap;
+        }
+
         @media (max-width: 620px) {
             .mcp-domain-head { flex-direction: column; align-items: flex-start; }
             .mcp-workflow-head { flex-direction: column; align-items: flex-start; }
+            .ai-step-head { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
@@ -897,6 +1004,7 @@
             <span class="tab active" role="tab" data-panel="panel-desc" data-i18n="tab.desc">Description</span>
             <span class="tab" role="tab" data-panel="panel-edu" data-i18n="tab.edu">Education</span>
             <span class="tab" role="tab" data-panel="panel-mcp" data-i18n="tab.mcp">Scientific MCP</span>
+            <span class="tab" role="tab" data-panel="panel-ai" data-i18n="tab.ai">AI Assistant</span>
             <span class="tab" role="tab" data-panel="panel-sysreq" data-i18n="tab.sysreq">System requirements</span>
             <span class="tab" role="tab" data-panel="panel-news" data-i18n="tab.news">News</span>
             <span class="tab" role="tab" data-panel="panel-disc" data-i18n="tab.disc">Discussions</span>
@@ -920,48 +1028,69 @@
 
                         <h3 style="margin-top: 30px;" data-i18n="zone.title">🪐 Key station zones</h3>
 
+                        <!-- 1. Energy -->
                         <h4 data-i18n="zone1.title"><i class="fas fa-bolt"></i> 1. Energy Zone (Core Energy)</h4>
-                        <p data-i18n="zone1.p">The heart of «Snowflake». The player manages the balance of generation and consumption.</p>
+                        <p data-i18n="zone1.p">The heart of «Snowflake». The player balances generation and consumption across the whole station.</p>
                         <ul>
-                            <li data-i18n="zone1.li1"><strong>Gameplay:</strong> Tuning electrolysers to produce hydrogen during strong winds, switching to fuel cells in calm weather.</li>
-                            <li data-i18n="zone1.li2"><strong>Equipment:</strong> Industrial controllers, inverters, hydrogen storage monitoring systems.</li>
+                            <li data-i18n="zone1.li1"><strong>Gameplay:</strong> Tuning electrolysers during strong winds, switching to fuel cells in calm weather, activating backup diesel generators in emergencies.</li>
+                            <li data-i18n="zone1.li2"><strong>Equipment:</strong> Wind farm, solar farm, electrolysers, inverters, hydrogen storage systems, backup diesel generators.</li>
                         </ul>
 
-                        <h4 data-i18n="zone2.title"><i class="fas fa-temperature-low"></i> 2. Climate Monitoring Zone (Climate Monitoring)</h4>
-                        <p data-i18n="zone2.p">Working with real-time data.</p>
+                        <!-- 2. Climate & Environment -->
+                        <h4 data-i18n="zone2.title"><i class="fas fa-temperature-low"></i> 2. Climate &amp; Environment Zone</h4>
+                        <p data-i18n="zone2.p">Real-time data from the Arctic environment — the station's eyes and ears.</p>
                         <ul>
-                            <li data-i18n="zone2.li1"><strong>Gameplay:</strong> Deploying permafrost sensors, launching weather balloons, analysing atmospheric composition. Interpreting charts to predict a storm.</li>
-                            <li data-i18n="zone2.li2"><strong>Equipment:</strong> Lidars, gas analysers, permafrost zone sensors.</li>
+                            <li data-i18n="zone2.li1"><strong>Gameplay:</strong> Deploying permafrost sensors, launching weather balloons, analysing atmospheric composition, predicting storms from live charts.</li>
+                            <li data-i18n="zone2.li2"><strong>Equipment:</strong> Lidars, gas analysers, permafrost sensors, meteorological stations.</li>
                         </ul>
 
-                        <h4 data-i18n="zone3.title"><i class="fas fa-robot"></i> 3. Robotics Zone (Arctic Robotics)</h4>
-                        <p data-i18n="zone3.p">The most dynamic part.</p>
+                        <!-- 3. Biology & Medicine -->
+                        <h4 data-i18n="zone3.title"><i class="fas fa-leaf"></i> 3. Biology &amp; Medicine Zone</h4>
+                        <p data-i18n="zone3.p">Closed-loop life sciences and crew health — from extremophile proteins to telemedicine.</p>
                         <ul>
-                            <li data-i18n="zone3.li1"><strong>Gameplay:</strong> Remote control of drones and all-terrain vehicles to inspect external structures. Programming AI for autonomous clearing of snow from solar panels.</li>
-                            <li data-i18n="zone3.li2"><strong>Equipment:</strong> UAV control consoles, robotic manipulators, logic programming interfaces.</li>
-                        </ul>
-
-                        <h4 data-i18n="zone4.title"><i class="fas fa-leaf"></i> 4. Biology Zone (BioTech &amp; Life Science)</h4>
-                        <p data-i18n="zone4.p">Research in a closed loop.</p>
-                        <ul>
-                            <li data-i18n="zone4.li1"><strong>Gameplay:</strong> Growing plants in aeroponics/hydroponics (Arctic greenhouse), studying the microbiology of extreme environments.</li>
-                            <li data-i18n="zone4.li2"><strong>Equipment:</strong> Automated plant systems, microscopes, incubators.</li>
+                            <li data-i18n="zone3.li1"><strong>Gameplay:</strong> Protein folding of cold-resistant enzymes, growing plants in aeroponics/hydroponics, VR medical consultations.</li>
+                            <li data-i18n="zone3.li2"><strong>Equipment:</strong> Bioreactors, automated plant systems, microscopes, incubators, telemedicine consoles.</li>
                         </ul>
                         <div class="inline-image">
                             <img src="https://comiccon2025.github.io/img/room/room_plants_1.jpg" alt="Phytolaboratory" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:20px;text-align:center;background:#1A1E24;\'><i class=\'fas fa-seedling\' style=\'font-size:32px;color:#3C6CE7;\'></i><p>Arctic greenhouse (hydroponics)</p></div>'">
-                            <div style="padding: 8px; text-align: center; color: #767C89;" data-i18n="zone4.caption">Automated plant system — Biology zone</div>
+                            <div style="padding: 8px; text-align: center; color: #767C89;" data-i18n="zone3.caption">Automated plant system — Biology &amp; Medicine zone</div>
                         </div>
 
-                        <h4 data-i18n="zone5.title"><i class="fas fa-satellite-dish"></i> 5. Connectivity Zone (Connectivity Hub)</h4>
-                        <p data-i18n="zone5.p">In the Arctic, connectivity is survival.</p>
+                        <!-- 4. Robotics & Transport -->
+                        <h4 data-i18n="zone4.title"><i class="fas fa-robot"></i> 4. Robotics &amp; Transport Zone</h4>
+                        <p data-i18n="zone4.p">The most dynamic part of the station — drones, rovers and the entire vehicle fleet.</p>
                         <ul>
-                            <li data-i18n="zone5.li1"><strong>Mechanics:</strong> Deploying a Mesh network, configuring satellite terminals, ensuring a stable signal between the station and the sensors.</li>
-                            <li data-i18n="zone5.li2"><strong>Scenarios:</strong> Fighting radio interference during the northern lights, restoring communications after an antenna is damaged by wind.</li>
+                            <li data-i18n="zone4.li1"><strong>Gameplay:</strong> Remote control of drones and all-terrain vehicles, route planning on micro-relief, programming AI for autonomous snow clearing.</li>
+                            <li data-i18n="zone4.li2"><strong>Equipment:</strong> UAV consoles, robotic manipulators, drone port, warm hangar, helipad.</li>
+                        </ul>
+
+                        <!-- 5. Materials & Engineering -->
+                        <h4 data-i18n="zone5.title"><i class="fas fa-cubes"></i> 5. Materials &amp; Engineering Zone</h4>
+                        <p data-i18n="zone5.p">Testing and prototyping new materials in extreme Arctic conditions.</p>
+                        <ul>
+                            <li data-i18n="zone5.li1"><strong>Gameplay:</strong> Testing composites in climate chambers, printing spare parts on-site, running virtual test benches.</li>
+                            <li data-i18n="zone5.li2"><strong>Equipment:</strong> 3D printers, CNC machines, climate chambers, structural test rigs.</li>
+                        </ul>
+
+                        <!-- 6. Connectivity & Control -->
+                        <h4 data-i18n="zone6.title"><i class="fas fa-satellite-dish"></i> 6. Connectivity &amp; Control Zone</h4>
+                        <p data-i18n="zone6.p">In the Arctic, connectivity is survival — and the Central Control Post is the station's brain.</p>
+                        <ul>
+                            <li data-i18n="zone6.li1"><strong>Gameplay:</strong> Deploying Mesh networks, configuring satellite terminals, fighting radio interference during the northern lights, managing all station systems from a single dashboard.</li>
+                            <li data-i18n="zone6.li2"><strong>Equipment:</strong> Satellite terminals, server racks, control consoles, quantum-safe communication channels.</li>
                         </ul>
                         <div class="inline-image">
                             <img src="https://comiccon2025.github.io/img/dishes.jpg" alt="Satellite antennas" onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'padding:20px;text-align:center;background:#1A1E24;\'><i class=\'fas fa-satellite\' style=\'font-size:32px;color:#3C6CE7;\'></i><p>Satellite communications</p></div>'">
-                            <div style="padding: 8px; text-align: center; color: #767C89;" data-i18n="zone5.caption">Connectivity Hub satellite terminals</div>
+                            <div style="padding: 8px; text-align: center; color: #767C89;" data-i18n="zone6.caption">Connectivity Hub satellite terminals</div>
                         </div>
+
+                        <!-- 7. Living & Life Support -->
+                        <h4 data-i18n="zone7.title"><i class="fas fa-home"></i> 7. Living &amp; Life Support Zone</h4>
+                        <p data-i18n="zone7.p">Everyday life and closed-loop life support for the crew of 80.</p>
+                        <ul>
+                            <li data-i18n="zone7.li1"><strong>Gameplay:</strong> Balancing crew rest and workload, managing closed water and air cycles, waste sorting, running the laundry.</li>
+                            <li data-i18n="zone7.li2"><strong>Equipment:</strong> Crew quarters, canteen, gym, coworking, reverse-osmosis filters, air regeneration units, waste sorting line.</li>
+                        </ul>
 
                         <h3 data-i18n="fleet.title">🚜 Digital vehicle fleet (Arctic Fleet) — multiplayer</h3>
                         <p data-i18n="fleet.p">The digital twin lets you test the movement physics of every vehicle type. <strong>Multiplayer is available in vehicle mode</strong> — explore the station together with friends.</p>
@@ -1174,6 +1303,62 @@
                     </div>
                 </div>
 
+                <!-- ============================================================
+                     AI ASSISTANT · YANDEX AI STUDIO + GITVERSE
+                     ============================================================ -->
+                <div class="tab-panel" id="panel-ai" role="tabpanel" hidden>
+                    <div class="card">
+                        <h2 data-i18n="ai.title"><i class="fas fa-wand-magic-sparkles" style="color: #facc15;"></i> AI assistant: Yandex AI Studio &amp; GitVerse</h2>
+
+                        <p class="ai-intro" data-i18n="ai.intro">
+                            Virtual labs of MAS «Snowflake» (PC / VR / WEB) integrate the <strong>YandexGPT</strong> models through the official <strong>OpenAI-compatible Yandex AI Studio API</strong>. The neural network works together with 20 <strong>Scientific MCP</strong> servers and the <strong>GitVerse</strong> platform: it translates natural-language hypotheses into structured engineering formats, eliminating hallucinations through mandatory computational validation.
+                        </p>
+
+                        <div class="ai-pipeline">
+                            <div class="ai-step step1">
+                                <div class="ai-step-num" data-i18n="ai.step1.num">01 · REQUEST IN UNIGINE 2</div>
+                                <h4 data-i18n="ai.step1.title">Hypothesis in natural language</h4>
+                                <p data-i18n="ai.step1.desc">A researcher in VR or browser describes desired properties of a molecule, material or UAV flight mission.</p>
+                            </div>
+                            <div class="ai-step step2">
+                                <div class="ai-step-num" data-i18n="ai.step2.num">02 · YANDEX AI STUDIO</div>
+                                <h4 data-i18n="ai.step2.title">Structured Output &amp; Tools</h4>
+                                <p data-i18n="ai.step2.desc">YandexGPT converts text into strict JSON (SMILES, crystal lattice parameters or an MCP tool call).</p>
+                            </div>
+                            <div class="ai-step step3">
+                                <div class="ai-step-num" data-i18n="ai.step3.num">03 · SCIENTIFIC MCP + 3D</div>
+                                <h4 data-i18n="ai.step3.title">Computation and visualisation</h4>
+                                <p data-i18n="ai.step3.desc">BioMCP / MaterialsMCP / EngMCP servers validate physics, return 3D coordinates to UNIGINE 2 and a WorkflowMCP report.</p>
+                            </div>
+                            <div class="ai-step step4">
+                                <div class="ai-step-num" data-i18n="ai.step4.num">04 · GITVERSE &amp; TEAM</div>
+                                <h4 data-i18n="ai.step4.title">Branching and review</h4>
+                                <p data-i18n="ai.step4.desc">Successful versions (Version A / Version B) are committed to GitVerse with a SHA-256 hash for joint review and merge in multiplayer.</p>
+                            </div>
+                        </div>
+
+                        <h3 data-i18n="ai.scen.title">Generative design scenarios on the station</h3>
+                        <div class="ai-scenarios">
+                            <div class="ai-scenario bio">
+                                <div class="ai-scenario-tag" data-i18n="ai.scen.bio.tag">TEXT → MOLECULE (BIOMCP)</div>
+                                <p data-i18n="ai.scen.bio.desc">Design of cold-resistant extremophile enzymes and biostimulators for the Arctic phytolab with instant 3D model assembly in VR.</p>
+                            </div>
+                            <div class="ai-scenario energy">
+                                <div class="ai-scenario-tag" data-i18n="ai.scen.energy.tag">TEXT → CATALYST (MATERIALSMCP)</div>
+                                <p data-i18n="ai.scen.energy.desc">Selection of MOFs and electrolytes for hydrogen storage and battery operation at temperatures down to −50 °C.</p>
+                            </div>
+                            <div class="ai-scenario eng">
+                                <div class="ai-scenario-tag" data-i18n="ai.scen.eng.tag">TEXT → UAV MISSION (ENGMCP)</div>
+                                <p data-i18n="ai.scen.eng.desc">Generation of flight missions and rover routes over 1–3 cm terrain with wind load, connectivity and range constraints.</p>
+                            </div>
+                        </div>
+
+                        <div class="ai-compat" data-i18n="ai.compat">
+                            <strong>Architectural compatibility:</strong> connection via the standard OpenAI-compatible protocol <code>ai.api.cloud.yandex.net/v1</code> allows language models to be swapped without changing the Python orchestrator and guarantees 100% import independence of the loop (UNIGINE 2 + VK Play + Yandex Cloud + GitVerse).
+                        </div>
+                    </div>
+                </div>
+
                 <div class="tab-panel" id="panel-sysreq" role="tabpanel" hidden>
                     <div class="card">
                         <h2 data-i18n="sysreq.title"><i class="fas fa-desktop"></i> System requirements</h2>
@@ -1260,13 +1445,13 @@
                 <div class="card" style="padding: 20px;">
                     <h3 style="margin-top: 0; margin-bottom: 16px;" data-i18n="side.details"><i class="fas fa-info-circle"></i> Game details</h3>
                     <ul class="info-list">
-                        <li><span class="info-label" data-i18n="side.dev">Developer</span><span class="info-value">qFoldIT/Unigine</span></li>
+                        <li><span class="info-label" data-i18n="side.dev">Developer</span><span class="info-value">Foldnite/Unigine</span></li>
                         <li><span class="info-label" data-i18n="side.pub">Publisher</span><span class="info-value">VK Play</span></li>
                         <li><span class="info-label" data-i18n="side.date">Release date</span><span class="info-value">2026</span></li>
                         <li><span class="info-label" data-i18n="side.platform">Platform</span><span class="info-value">PC / VR / WEB</span></li>
                         <li><span class="info-label" data-i18n="side.engine">Engine</span><span class="info-value">UNIGINE 2 <a href="https://reestr.digital.gov.ru/reestr/2338176/" target="blank" style="color: #3C6CE7;">(reg. No. 22252)</a></span></li>
                         <li><span class="info-label" data-i18n="side.mode">Mode</span><span class="info-value" data-i18n="side.modev">Single-player / multiplayer (vehicles)</span></li>
-                        <li><span class="info-label" data-i18n="side.ynao">VR demo (2023)</span><span class="info-value" data-i18n="side.ynao.value">YNAO Governor D. Artyukhov</span></li>
+                        <li><span class="info-label" data-i18n="side.ynao">VR demo</span><span class="info-value" data-i18n="side.ynao.value">YNAO Governor D. Artyukhov</span></li>
                     </ul>
                 </div>
 
@@ -1279,6 +1464,8 @@
                         <li><span class="info-label" data-i18n="side.t4">Satellites</span><span class="info-value">«Kanopus-V»</span></li>
                         <li><span class="info-label" data-i18n="side.t5">Weather</span><span class="info-value" data-i18n="side.t5v">Dynamic</span></li>
                         <li><span class="info-label" data-i18n="side.t6">Physics</span><span class="info-value" data-i18n="side.t6v">micro-relief</span></li>
+                        <li><span class="info-label" data-i18n="side.t7">LLM</span><span class="info-value">YandexGPT</span></li>
+                        <li><span class="info-label" data-i18n="side.t8">VCS</span><span class="info-value">GitVerse</span></li>
                     </ul>
                     <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #262A32;">
                         <p style="color: #9BB7FF; font-size: 13px; margin-bottom: 4px;"><i class="fas fa-certificate"></i> <strong>UNIGINE</strong></p>
@@ -1324,6 +1511,7 @@
                 'tab.desc': 'Описание',
                 'tab.edu': 'Образование',
                 'tab.mcp': 'Scientific MCP',
+                'tab.ai': 'ИИ-ассистент',
                 'tab.sysreq': 'Системные требования',
                 'tab.news': 'Новости',
                 'tab.disc': 'Обсуждения',
@@ -1334,28 +1522,36 @@
                 'card.weather': '<i class="fas fa-cloud-sun"></i> <strong>Динамическая смена погоды и времени суток</strong> — бураны, полярная ночь, северное сияние — всё это меняет геймплей и требует адаптации.',
                 'card.note': '<i class="fas fa-flask"></i> Проект полностью импортонезависим и реализован на базе VK Play. Пользователям VK Play эксклюзивно доступны VR, PC и WEB-версии, а также авторские уровни от разработчиков. В режиме вездеходов и другой техники доступен мультиплеер.',
                 'zone.title': '🪐 Ключевые зоны станции',
-                'zone1.title': '<i class="fas fa-bolt"></i> 1. Зона Энергетики (Core Energy)',
-                'zone1.p': 'Сердце «Снежинки». Игрок управляет балансом выработки и потребления.',
-                'zone1.li1': '<strong>Геймплей:</strong> Настройка электролизеров для производства водорода в период сильного ветра, переключение на топливные элементы в штиль.',
-                'zone1.li2': '<strong>Оборудование:</strong> Промышленные контроллеры, инверторы, системы мониторинга водородных накопителей.',
-                'zone2.title': '<i class="fas fa-temperature-low"></i> 2. Зона изучения климата (Climate Monitoring)',
-                'zone2.p': 'Работа с данными в реальном времени.',
-                'zone2.li1': '<strong>Геймплей:</strong> Расстановка датчиков вечной мерзлоты, запуск метеозондов, анализ состава атмосферы. Интерпретация графиков для предсказания бури.',
-                'zone2.li2': '<strong>Оборудование:</strong> Лидары, газоанализаторы, датчики криолитозоны.',
-                'zone3.title': '<i class="fas fa-robot"></i> 3. Зона робототехники (Arctic Robotics)',
-                'zone3.p': 'Самая динамичная часть.',
-                'zone3.li1': '<strong>Геймплей:</strong> Дистанционное управление беспилотниками и вездеходами для осмотра внешних конструкций. Программирование ИИ для автономной очистки солнечных панелей от снега.',
-                'zone3.li2': '<strong>Оборудование:</strong> Пульты управления БПЛА, роботизированные манипуляторы, интерфейсы логического программирования.',
-                'zone4.title': '<i class="fas fa-leaf"></i> 4. Зона биологии (BioTech &amp; Life Science)',
-                'zone4.p': 'Исследования в замкнутом цикле.',
-                'zone4.li1': '<strong>Геймплей:</strong> Выращивание растений в аэропонике/гидропонике (арктическая теплица), изучение микробиологии экстремальных сред.',
-                'zone4.li2': '<strong>Оборудование:</strong> Автоматизированные фитосистемы, микроскопы, инкубаторы.',
-                'zone4.caption': 'Автоматизированная фитосистема — зона биологии',
-                'zone5.title': '<i class="fas fa-satellite-dish"></i> 5. Зона систем связи (Connectivity Hub)',
-                'zone5.p': 'В Арктике связь — выживание.',
-                'zone5.li1': '<strong>Механика:</strong> Развёртывание Mesh-сети, настройка спутниковых терминалов, обеспечение стабильного сигнала между станцией и датчиками.',
-                'zone5.li2': '<strong>Сценарии:</strong> Борьба с радиопомехами во время северного сияния, восстановление связи после повреждения антенны ветром.',
-                'zone5.caption': 'Спутниковые терминалы Connectivity Hub',
+                'zone1.title': '<i class="fas fa-bolt"></i> 1. Зона энергетики (Core Energy)',
+                'zone1.p': 'Сердце «Снежинки». Игрок балансирует выработку и потребление всей станции.',
+                'zone1.li1': '<strong>Геймплей:</strong> Настройка электролизёров при сильном ветре, переключение на топливные элементы в штиль, запуск резервных ДГУ в аварийных сценариях.',
+                'zone1.li2': '<strong>Оборудование:</strong> Ветропарк, солнечная ферма, электролизёры, инверторы, системы мониторинга H₂, резервные ДГУ.',
+                'zone2.title': '<i class="fas fa-temperature-low"></i> 2. Зона климата и окружающей среды',
+                'zone2.p': 'Реальные данные об арктической среде — глаза и уши станции.',
+                'zone2.li1': '<strong>Геймплей:</strong> Расстановка датчиков вечной мерзлоты, запуск метеозондов, анализ состава атмосферы, прогноз бури по графикам в реальном времени.',
+                'zone2.li2': '<strong>Оборудование:</strong> Лидары, газоанализаторы, датчики криолитозоны, метеостанции.',
+                'zone3.title': '<i class="fas fa-leaf"></i> 3. Зона биологии и медицины',
+                'zone3.p': 'Исследования в замкнутом цикле и здоровье экипажа — от белков экстремофилов до телемедицины.',
+                'zone3.li1': '<strong>Геймплей:</strong> Фолдинг белков холодоустойчивых ферментов, выращивание растений в аэропонике/гидропонике, VR-консультации врачей.',
+                'zone3.li2': '<strong>Оборудование:</strong> Биореакторы, автоматизированные фитосистемы, микроскопы, инкубаторы, телемедицинские консоли.',
+                'zone3.caption': 'Автоматизированная фитосистема — зона биологии и медицины',
+                'zone4.title': '<i class="fas fa-robot"></i> 4. Зона робототехники и транспорта',
+                'zone4.p': 'Самая динамичная часть станции — дроны, вездеходы и весь транспортный парк.',
+                'zone4.li1': '<strong>Геймплей:</strong> Дистанционное управление дронами и вездеходами, маршруты по микрорельефу, программирование ИИ для автономной очистки панелей от снега.',
+                'zone4.li2': '<strong>Оборудование:</strong> Пульты БПЛА, роботизированные манипуляторы, дронопорт, тёплый ангар, вертолётная площадка.',
+                'zone5.title': '<i class="fas fa-cubes"></i> 5. Зона материалов и инженерии',
+                'zone5.p': 'Испытания и прототипирование новых материалов в экстремальных арктических условиях.',
+                'zone5.li1': '<strong>Геймплей:</strong> Тестирование композитов в климатических камерах, печать запасных деталей на месте, прогон виртуальных стендов.',
+                'zone5.li2': '<strong>Оборудование:</strong> 3D-принтеры, фрезерные станки, климатические камеры, испытательные стенды.',
+                'zone6.title': '<i class="fas fa-satellite-dish"></i> 6. Зона связи и управления',
+                'zone6.p': 'В Арктике связь — это выживание, а Центральный пост управления — мозг станции.',
+                'zone6.li1': '<strong>Геймплей:</strong> Развёртывание Mesh-сети, настройка спутниковых терминалов, борьба с радиопомехами во время северного сияния, управление всеми системами с единого дашборда.',
+                'zone6.li2': '<strong>Оборудование:</strong> Спутниковые терминалы, серверные стойки, пульты ЦПУ, квантово-защищённые каналы связи.',
+                'zone6.caption': 'Спутниковые терминалы — зона связи и управления',
+                'zone7.title': '<i class="fas fa-home"></i> 7. Жилая зона и жизнеобеспечение',
+                'zone7.p': 'Быт и замкнутые циклы жизнеобеспечения экипажа из 80 человек.',
+                'zone7.li1': '<strong>Геймплей:</strong> Баланс отдыха и нагрузки экипажа, замкнутые циклы воды и воздуха, сортировка отходов, работа прачечной.',
+                'zone7.li2': '<strong>Оборудование:</strong> Жилые каюты, столовая, спортзал, коворкинг, фильтры обратного осмоса, системы регенерации воздуха, линия сортировки ТБО.',
                 'fleet.title': '🚜 Парк цифровой техники (Arctic Fleet) — мультиплеер',
                 'fleet.p': 'Цифровой двойник позволяет протестировать физику движения каждого вида транспорта. <strong>В режиме техники доступен мультиплеер</strong> — исследуйте станцию вместе с друзьями.',
                 'fleet.li1': '<strong>Вездеходы и снегоходы:</strong> Транспортировка грузов и учёных между модулями по пересечённой местности с учётом реальных микронеровностей.',
@@ -1436,6 +1632,28 @@
                 'mcp.wf.flow': 'Mission Contract → SHA-256 → Независимый валидатор',
                 'mcp.wf.p': 'Инфраструктурный контур поверх всех четырёх научных доменов. Фиксирует контракт миссии, хеширует входные данные (SHA-256), изолирует запуски для воспроизводимости и передаёт кандидатов на независимую проверку, формируя подписанный отчёт.',
                 'mcp.principle': '<strong>Принцип научной достоверности:</strong> игровой счёт в «Снежинке» не подменяет научный результат. Ни один из 19 доменных серверов не сертифицирует сам себя — приёмка каждого решения выполняется через независимый контур валидации <strong>WorkflowMCP</strong>.',
+                'ai.title': '<i class="fas fa-wand-magic-sparkles" style="color: #facc15;"></i> ИИ-ассистент исследователя: Yandex AI Studio и GitVerse',
+                'ai.intro': 'Виртуальные лаборатории МАС «Снежинка» (PC / VR / WEB) интегрируют модели семейства <strong>YandexGPT</strong> через официальный <strong>OpenAI-совместимый API Yandex AI Studio</strong>. Нейросеть работает в связке с 20 серверами <strong>Scientific MCP</strong> и платформой <strong>GitVerse</strong>: она переводит гипотезы с естественного языка в структурированные инженерные форматы, исключая «галлюцинации» за счёт обязательной расчётной валидации.',
+                'ai.step1.num': '01 · ЗАПРОС В UNIGINE 2',
+                'ai.step1.title': 'Гипотеза на естественном языке',
+                'ai.step1.desc': 'Исследователь в VR или браузере описывает желаемые свойства молекулы, материала или полётного задания БПЛА.',
+                'ai.step2.num': '02 · YANDEX AI STUDIO',
+                'ai.step2.title': 'Structured Output &amp; Tools',
+                'ai.step2.desc': 'YandexGPT преобразует текст в строгий JSON (SMILES, параметры кристаллической решётки или вызов MCP-инструмента).',
+                'ai.step3.num': '03 · SCIENTIFIC MCP + 3D',
+                'ai.step3.title': 'Расчёт и визуализация',
+                'ai.step3.desc': 'Серверы BioMCP / MaterialsMCP / EngMCP проверяют физику, возвращают 3D-координаты в UNIGINE 2 и отчёт WorkflowMCP.',
+                'ai.step4.num': '04 · GITVERSE И КОМАНДА',
+                'ai.step4.title': 'Ветвление и ревью',
+                'ai.step4.desc': 'Удачные версии (Версия А / Версия Б) коммитятся в GitVerse с хэшем SHA-256 для совместного ревью и слияния в мультиплеере.',
+                'ai.scen.title': 'Сценарии генеративного проектирования на станции',
+                'ai.scen.bio.tag': 'ТЕКСТ → МОЛЕКУЛА (BIOMCP)',
+                'ai.scen.bio.desc': 'Проектирование морозостойких ферментов экстремофилов и биостимуляторов для арктической фитолаборатории с мгновенной сборкой 3D-модели в VR.',
+                'ai.scen.energy.tag': 'ТЕКСТ → КАТАЛИЗАТОР (MATERIALSMCP)',
+                'ai.scen.energy.desc': 'Подбор металлоорганических каркасов (MOF) и электролитов для хранения водорода и работы аккумуляторов при температурах до −50 °C.',
+                'ai.scen.eng.tag': 'ТЕКСТ → МИССИЯ БПЛА (ENGMCP)',
+                'ai.scen.eng.desc': 'Генерация полётных заданий и маршрутов вездеходов по рельефу точностью 1–3 см с учётом ветровой нагрузки, связи и запаса хода.',
+                'ai.compat': '<strong>Архитектурная совместимость:</strong> подключение через стандартный OpenAI-совместимый протокол <code>ai.api.cloud.yandex.net/v1</code> позволяет переключать языковые модели без изменения Python-оркестратора и гарантирует 100% импортонезависимость контура (UNIGINE 2 + VK Play + Yandex Cloud + GitVerse).',
                 'sysreq.title': '<i class="fas fa-desktop"></i> Системные требования',
                 'sysreq.min': 'Минимальные',
                 'sysreq.rec': 'Рекомендуемые',
@@ -1469,7 +1687,7 @@
                 'side.engine': 'Движок',
                 'side.mode': 'Режим',
                 'side.modev': 'Одиночный / мультиплеер (техника)',
-                'side.ynao': 'VR-демо (2023)',
+                'side.ynao': 'VR-демо',
                 'side.ynao.value': 'Губернатор ЯНАО Д. Артюхов',
                 'side.tech': '<i class="fas fa-microchip"></i> Технические детали',
                 'side.t1': 'Фотограмметрия',
@@ -1480,6 +1698,8 @@
                 'side.t5v': 'Динамическая',
                 'side.t6': 'Физика',
                 'side.t6v': 'микрорельеф',
+                'side.t7': 'LLM',
+                'side.t8': 'VCS',
                 'side.cert': 'Единый реестр российских программ для ЭВМ и баз данных, рег. № заявления 298402, реестровый <a href="https://reestr.digital.gov.ru/reestr/2338176/" target="blank">№ 22252</a>.<br>Свидетельство о государственной регистрации программы для ЭВМ <a href="https://unigine.com/ru/company/about/" target="blank">№ 2014660370</a>.<br>Номер товарного знака UNIGINE: <a href="https://unigine.com/ru/company/about/" target="blank">745516</a>.',
                 'footer.copy': '© 2025 VK Play. Демо-страница цифрового двойника «Снежинка».',
                 'footer.terms': 'Пользовательское соглашение',
@@ -1506,6 +1726,7 @@
                 'tab.desc': 'Description',
                 'tab.edu': 'Education',
                 'tab.mcp': 'Scientific MCP',
+                'tab.ai': 'AI Assistant',
                 'tab.sysreq': 'System requirements',
                 'tab.news': 'News',
                 'tab.disc': 'Discussions',
@@ -1517,27 +1738,35 @@
                 'card.note': '<i class="fas fa-flask"></i> The project is fully import-independent and implemented on the VK Play platform. VK Play users get exclusive access to the VR, PC and WEB versions, as well as custom levels from the developers. Multiplayer is available in all-terrain vehicle and other vehicle modes.',
                 'zone.title': '🪐 Key station zones',
                 'zone1.title': '<i class="fas fa-bolt"></i> 1. Energy Zone (Core Energy)',
-                'zone1.p': 'The heart of «Snowflake». The player manages the balance of generation and consumption.',
-                'zone1.li1': '<strong>Gameplay:</strong> Tuning electrolysers to produce hydrogen during strong winds, switching to fuel cells in calm weather.',
-                'zone1.li2': '<strong>Equipment:</strong> Industrial controllers, inverters, hydrogen storage monitoring systems.',
-                'zone2.title': '<i class="fas fa-temperature-low"></i> 2. Climate Monitoring Zone (Climate Monitoring)',
-                'zone2.p': 'Working with real-time data.',
-                'zone2.li1': '<strong>Gameplay:</strong> Deploying permafrost sensors, launching weather balloons, analysing atmospheric composition. Interpreting charts to predict a storm.',
-                'zone2.li2': '<strong>Equipment:</strong> Lidars, gas analysers, permafrost zone sensors.',
-                'zone3.title': '<i class="fas fa-robot"></i> 3. Robotics Zone (Arctic Robotics)',
-                'zone3.p': 'The most dynamic part.',
-                'zone3.li1': '<strong>Gameplay:</strong> Remote control of drones and all-terrain vehicles to inspect external structures. Programming AI for autonomous clearing of snow from solar panels.',
-                'zone3.li2': '<strong>Equipment:</strong> UAV control consoles, robotic manipulators, logic programming interfaces.',
-                'zone4.title': '<i class="fas fa-leaf"></i> 4. Biology Zone (BioTech &amp; Life Science)',
-                'zone4.p': 'Research in a closed loop.',
-                'zone4.li1': '<strong>Gameplay:</strong> Growing plants in aeroponics/hydroponics (Arctic greenhouse), studying the microbiology of extreme environments.',
-                'zone4.li2': '<strong>Equipment:</strong> Automated plant systems, microscopes, incubators.',
-                'zone4.caption': 'Automated plant system — Biology zone',
-                'zone5.title': '<i class="fas fa-satellite-dish"></i> 5. Connectivity Zone (Connectivity Hub)',
-                'zone5.p': 'In the Arctic, connectivity is survival.',
-                'zone5.li1': '<strong>Mechanics:</strong> Deploying a Mesh network, configuring satellite terminals, ensuring a stable signal between the station and the sensors.',
-                'zone5.li2': '<strong>Scenarios:</strong> Fighting radio interference during the northern lights, restoring communications after an antenna is damaged by wind.',
-                'zone5.caption': 'Connectivity Hub satellite terminals',
+                'zone1.p': 'The heart of «Snowflake». The player balances generation and consumption across the whole station.',
+                'zone1.li1': '<strong>Gameplay:</strong> Tuning electrolysers during strong winds, switching to fuel cells in calm weather, activating backup diesel generators in emergencies.',
+                'zone1.li2': '<strong>Equipment:</strong> Wind farm, solar farm, electrolysers, inverters, hydrogen storage systems, backup diesel generators.',
+                'zone2.title': '<i class="fas fa-temperature-low"></i> 2. Climate &amp; Environment Zone',
+                'zone2.p': "Real-time data from the Arctic environment — the station's eyes and ears.",
+                'zone2.li1': '<strong>Gameplay:</strong> Deploying permafrost sensors, launching weather balloons, analysing atmospheric composition, predicting storms from live charts.',
+                'zone2.li2': '<strong>Equipment:</strong> Lidars, gas analysers, permafrost sensors, meteorological stations.',
+                'zone3.title': '<i class="fas fa-leaf"></i> 3. Biology &amp; Medicine Zone',
+                'zone3.p': 'Closed-loop life sciences and crew health — from extremophile proteins to telemedicine.',
+                'zone3.li1': '<strong>Gameplay:</strong> Protein folding of cold-resistant enzymes, growing plants in aeroponics/hydroponics, VR medical consultations.',
+                'zone3.li2': '<strong>Equipment:</strong> Bioreactors, automated plant systems, microscopes, incubators, telemedicine consoles.',
+                'zone3.caption': 'Automated plant system — Biology &amp; Medicine zone',
+                'zone4.title': '<i class="fas fa-robot"></i> 4. Robotics &amp; Transport Zone',
+                'zone4.p': 'The most dynamic part of the station — drones, rovers and the entire vehicle fleet.',
+                'zone4.li1': '<strong>Gameplay:</strong> Remote control of drones and all-terrain vehicles, route planning on micro-relief, programming AI for autonomous snow clearing.',
+                'zone4.li2': '<strong>Equipment:</strong> UAV consoles, robotic manipulators, drone port, warm hangar, helipad.',
+                'zone5.title': '<i class="fas fa-cubes"></i> 5. Materials &amp; Engineering Zone',
+                'zone5.p': 'Testing and prototyping new materials in extreme Arctic conditions.',
+                'zone5.li1': '<strong>Gameplay:</strong> Testing composites in climate chambers, printing spare parts on-site, running virtual test benches.',
+                'zone5.li2': '<strong>Equipment:</strong> 3D printers, CNC machines, climate chambers, structural test rigs.',
+                'zone6.title': '<i class="fas fa-satellite-dish"></i> 6. Connectivity &amp; Control Zone',
+                'zone6.p': "In the Arctic, connectivity is survival — and the Central Control Post is the station's brain.",
+                'zone6.li1': '<strong>Gameplay:</strong> Deploying Mesh networks, configuring satellite terminals, fighting radio interference during the northern lights, managing all station systems from a single dashboard.',
+                'zone6.li2': '<strong>Equipment:</strong> Satellite terminals, server racks, control consoles, quantum-safe communication channels.',
+                'zone6.caption': 'Connectivity Hub satellite terminals',
+                'zone7.title': '<i class="fas fa-home"></i> 7. Living &amp; Life Support Zone',
+                'zone7.p': 'Everyday life and closed-loop life support for the crew of 80.',
+                'zone7.li1': '<strong>Gameplay:</strong> Balancing crew rest and workload, managing closed water and air cycles, waste sorting, running the laundry.',
+                'zone7.li2': '<strong>Equipment:</strong> Crew quarters, canteen, gym, coworking, reverse-osmosis filters, air regeneration units, waste sorting line.',
                 'fleet.title': '🚜 Digital vehicle fleet (Arctic Fleet) — multiplayer',
                 'fleet.p': 'The digital twin lets you test the movement physics of every vehicle type. <strong>Multiplayer is available in vehicle mode</strong> — explore the station together with friends.',
                 'fleet.li1': '<strong>All-terrain vehicles and snowmobiles:</strong> Transporting cargo and scientists between modules over rough terrain, taking real micro-relief into account.',
@@ -1618,6 +1847,28 @@
                 'mcp.wf.flow': 'Mission Contract → SHA-256 → Independent validator',
                 'mcp.wf.p': 'Infrastructure layer on top of all four scientific domains. It records the mission contract, hashes input data (SHA-256), isolates runs for reproducibility, and routes candidates to an independent validator, producing a signed report.',
                 'mcp.principle': '<strong>Scientific integrity principle:</strong> gameplay score in «Snowflake» does not replace scientific results. None of the 19 domain servers self-certifies — every solution is accepted through the independent <strong>WorkflowMCP</strong> validation loop.',
+                'ai.title': '<i class="fas fa-wand-magic-sparkles" style="color: #facc15;"></i> AI assistant: Yandex AI Studio &amp; GitVerse',
+                'ai.intro': 'Virtual labs of MAS «Snowflake» (PC / VR / WEB) integrate the <strong>YandexGPT</strong> models through the official <strong>OpenAI-compatible Yandex AI Studio API</strong>. The neural network works together with 20 <strong>Scientific MCP</strong> servers and the <strong>GitVerse</strong> platform: it translates natural-language hypotheses into structured engineering formats, eliminating hallucinations through mandatory computational validation.',
+                'ai.step1.num': '01 · REQUEST IN UNIGINE 2',
+                'ai.step1.title': 'Hypothesis in natural language',
+                'ai.step1.desc': 'A researcher in VR or browser describes desired properties of a molecule, material or UAV flight mission.',
+                'ai.step2.num': '02 · YANDEX AI STUDIO',
+                'ai.step2.title': 'Structured Output &amp; Tools',
+                'ai.step2.desc': 'YandexGPT converts text into strict JSON (SMILES, crystal lattice parameters or an MCP tool call).',
+                'ai.step3.num': '03 · SCIENTIFIC MCP + 3D',
+                'ai.step3.title': 'Computation and visualisation',
+                'ai.step3.desc': 'BioMCP / MaterialsMCP / EngMCP servers validate physics, return 3D coordinates to UNIGINE 2 and a WorkflowMCP report.',
+                'ai.step4.num': '04 · GITVERSE & TEAM',
+                'ai.step4.title': 'Branching and review',
+                'ai.step4.desc': 'Successful versions (Version A / Version B) are committed to GitVerse with a SHA-256 hash for joint review and merge in multiplayer.',
+                'ai.scen.title': 'Generative design scenarios on the station',
+                'ai.scen.bio.tag': 'TEXT → MOLECULE (BIOMCP)',
+                'ai.scen.bio.desc': 'Design of cold-resistant extremophile enzymes and biostimulators for the Arctic phytolab with instant 3D model assembly in VR.',
+                'ai.scen.energy.tag': 'TEXT → CATALYST (MATERIALSMCP)',
+                'ai.scen.energy.desc': 'Selection of MOFs and electrolytes for hydrogen storage and battery operation at temperatures down to −50 °C.',
+                'ai.scen.eng.tag': 'TEXT → UAV MISSION (ENGMCP)',
+                'ai.scen.eng.desc': 'Generation of flight missions and rover routes over 1–3 cm terrain with wind load, connectivity and range constraints.',
+                'ai.compat': '<strong>Architectural compatibility:</strong> connection via the standard OpenAI-compatible protocol <code>ai.api.cloud.yandex.net/v1</code> allows language models to be swapped without changing the Python orchestrator and guarantees 100% import independence of the loop (UNIGINE 2 + VK Play + Yandex Cloud + GitVerse).',
                 'sysreq.title': '<i class="fas fa-desktop"></i> System requirements',
                 'sysreq.min': 'Minimum',
                 'sysreq.rec': 'Recommended',
@@ -1651,7 +1902,7 @@
                 'side.engine': 'Engine',
                 'side.mode': 'Mode',
                 'side.modev': 'Single-player / multiplayer (vehicles)',
-                'side.ynao': 'VR demo (2023)',
+                'side.ynao': 'VR demo',
                 'side.ynao.value': 'YNAO Governor D. Artyukhov',
                 'side.tech': '<i class="fas fa-microchip"></i> Technical details',
                 'side.t1': 'Photogrammetry',
@@ -1662,6 +1913,8 @@
                 'side.t5v': 'Dynamic',
                 'side.t6': 'Physics',
                 'side.t6v': 'micro-relief',
+                'side.t7': 'LLM',
+                'side.t8': 'VCS',
                 'side.cert': 'Unified register of Russian programs for electronic computers and databases, application reg. No. 298402, registry <a href="https://reestr.digital.gov.ru/reestr/2338176/" target="blank">No. 22252</a>.<br>Certificate of state registration of a computer program <a href="https://unigine.com/ru/company/about/" target="blank">No. 2014660370</a>.<br>UNIGINE trademark number: <a href="https://unigine.com/ru/company/about/" target="blank">745516</a>.',
                 'footer.copy': '© 2025 VK Play. Demo page of the «Snowflake» digital twin.',
                 'footer.terms': 'Terms of use',
