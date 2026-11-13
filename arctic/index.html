@@ -564,6 +564,71 @@
         }
 
         /* ============================================================
+           ОБРАЗОВАТЕЛЬНАЯ И R&D-ИГРОСРЕДА
+           ============================================================ */
+        .edu-intro {
+            background: linear-gradient(135deg, rgba(60, 108, 231, 0.12) 0%, rgba(16, 185, 129, 0.08) 100%);
+            border: 1px solid rgba(60, 108, 231, 0.3);
+            border-radius: 16px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+        }
+
+        .edu-intro p {
+            margin: 0;
+            font-size: 15.5px;
+            line-height: 1.7;
+            color: #D9DDE3;
+        }
+
+        .edu-intro p strong { color: #FFFFFF; }
+
+        .edu-pillars {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+            gap: 16px;
+        }
+
+        .edu-pillar {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            padding: 18px 20px;
+            background: #1A1E24;
+            border: 1px solid #262A32;
+            border-radius: 16px;
+            border-left: 3px solid #3C6CE7;
+            transition: border-color 0.2s, background 0.2s;
+        }
+
+        .edu-pillar:hover {
+            background: #1E2229;
+            border-left-color: #6B8EFF;
+        }
+
+        .edu-pillar i {
+            color: #3C6CE7;
+            font-size: 20px;
+            margin-top: 2px;
+            min-width: 24px;
+            text-align: center;
+        }
+
+        .edu-pillar-title {
+            font-weight: 600;
+            color: #FFFFFF;
+            font-size: 15px;
+            margin-bottom: 4px;
+            line-height: 1.3;
+        }
+
+        .edu-pillar-desc {
+            font-size: 13px;
+            line-height: 1.5;
+            color: #B0B5BD;
+        }
+
+        /* ============================================================
            SCIENTIFIC MCP · 4 ДОМЕНА + WORKFLOWMCP (20 СЕРВЕРОВ)
            ============================================================ */
         .mcp-intro {
@@ -783,6 +848,7 @@
 
         <div class="tabs" role="tablist">
             <span class="tab active" role="tab" data-panel="panel-desc" data-i18n="tab.desc">Description</span>
+            <span class="tab" role="tab" data-panel="panel-edu" data-i18n="tab.edu">Education</span>
             <span class="tab" role="tab" data-panel="panel-mcp" data-i18n="tab.mcp">Scientific MCP</span>
             <span class="tab" role="tab" data-panel="panel-sysreq" data-i18n="tab.sysreq">System requirements</span>
             <span class="tab" role="tab" data-panel="panel-news" data-i18n="tab.news">News</span>
@@ -904,6 +970,52 @@
 
                         <div class="note" data-i18n="card.note">
                             <i class="fas fa-flask"></i> The project is fully import-independent and implemented on the VK Play platform. VK Play users get exclusive access to the VR, PC and WEB versions, as well as custom levels from the developers. Multiplayer is available in all-terrain vehicle and other vehicle modes.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ============================================================
+                     ОБРАЗОВАТЕЛЬНАЯ И R&D-ИГРОСРЕДА НОВОГО ПОКОЛЕНИЯ
+                     ============================================================ -->
+                <div class="tab-panel" id="panel-edu" role="tabpanel" hidden>
+                    <div class="card">
+                        <h2 data-i18n="edu.title"><i class="fas fa-graduation-cap" style="color: #3C6CE7;"></i> Educational and R&amp;D game environment of the new generation</h2>
+
+                        <div class="edu-intro">
+                            <p data-i18n="edu.text">
+                                MAS «Snowflake» is built on the principles of systems thinking from first causes and learning through real practice. <strong>Schoolchildren, students and engineers</strong> work in a unified digital environment with scientists and AI agents: designing UAV missions, balancing hydrogen energy and conducting biotechnological experiments — receiving, instead of conventional game points, a <strong>verified scientific result</strong>.
+                            </p>
+                        </div>
+
+                        <div class="edu-pillars">
+                            <div class="edu-pillar">
+                                <i class="fas fa-sitemap" aria-hidden="true"></i>
+                                <div>
+                                    <div class="edu-pillar-title" data-i18n="edu.p1.title">Systems thinking</div>
+                                    <div class="edu-pillar-desc" data-i18n="edu.p1.desc">From first causes to construction: understanding connections rather than memorising facts.</div>
+                                </div>
+                            </div>
+                            <div class="edu-pillar">
+                                <i class="fas fa-tools" aria-hidden="true"></i>
+                                <div>
+                                    <div class="edu-pillar-title" data-i18n="edu.p2.title">Learning through practice</div>
+                                    <div class="edu-pillar-desc" data-i18n="edu.p2.desc">Real missions on the station's digital twin instead of abstract textbook tasks.</div>
+                                </div>
+                            </div>
+                            <div class="edu-pillar">
+                                <i class="fas fa-people-group" aria-hidden="true"></i>
+                                <div>
+                                    <div class="edu-pillar-title" data-i18n="edu.p3.title">Unified environment</div>
+                                    <div class="edu-pillar-desc" data-i18n="edu.p3.desc">Schoolchildren, students, engineers, scientists and AI agents work together.</div>
+                                </div>
+                            </div>
+                            <div class="edu-pillar">
+                                <i class="fas fa-shield-halved" aria-hidden="true"></i>
+                                <div>
+                                    <div class="edu-pillar-title" data-i18n="edu.p4.title">Verified result</div>
+                                    <div class="edu-pillar-desc" data-i18n="edu.p4.desc">Instead of game points — a scientific result confirmed by independent validation.</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1125,6 +1237,7 @@
                 'feat.mp': 'мультиплеер',
                 'feat.levels': 'авторские уровни',
                 'tab.desc': 'Описание',
+                'tab.edu': 'Образование',
                 'tab.mcp': 'Scientific MCP',
                 'tab.sysreq': 'Системные требования',
                 'tab.news': 'Новости',
@@ -1183,6 +1296,16 @@
                 'tech.li2': '<strong>Панорамные камеры</strong> профессионального класса.',
                 'tech.li3': '<strong>Спутниковые снимки</strong> группировки «Канопус-В» для ортофотопланов.',
                 'tech.li4': '<strong>GNSS-приёмники (ГЛОНАСС) в режиме RTK</strong> — геодезическая привязка с точностью до сантиметра.',
+                'edu.title': '<i class="fas fa-graduation-cap" style="color: #3C6CE7;"></i> Образовательная и R&amp;D-игросреда нового поколения',
+                'edu.text': 'МАС «Снежинка» построена на принципах системного мышления от первопричины и обучения через реальную практику. <strong>Школьники, студенты и инженеры</strong> работают в единой цифровой среде с учёными и ИИ-агентами: проектируют миссии БПЛА, балансируют водородную энергетику и проводят биотехнологические эксперименты, получая вместо условных игровых баллов <strong>верифицированный научный результат</strong>.',
+                'edu.p1.title': 'Системное мышление',
+                'edu.p1.desc': 'От первопричины к конструкции: понимание связей, а не заучивание фактов.',
+                'edu.p2.title': 'Обучение через практику',
+                'edu.p2.desc': 'Реальные миссии на цифровом двойнике станции вместо абстрактных задач.',
+                'edu.p3.title': 'Единая среда',
+                'edu.p3.desc': 'Школьники, студенты, инженеры, учёные и ИИ-агенты работают вместе.',
+                'edu.p4.title': 'Верифицированный результат',
+                'edu.p4.desc': 'Вместо игровых баллов — научный результат, подтверждённый независимой валидацией.',
                 'mcp.title': '<i class="fas fa-microscope" style="color: #3C6CE7;"></i> Scientific MCP · 20 исследовательских серверов',
                 'mcp.intro': 'Цифровой двойник МАС «Снежинка» на движке <strong>UNIGINE 2</strong> выступает экстремальным полигоном для прикладных исследований и инженерного R&amp;D. Через стандартизированный протокол <strong>Scientific MCP</strong> симуляция связывается с <strong>20 специализированными вычислительными серверами</strong>, объединёнными в 4 научных семейства и единую платформу валидации <strong>WorkflowMCP</strong>.',
                 'mcp.bio.tag': 'BIOMCP · 6 СЕРВЕРОВ',
@@ -1270,6 +1393,7 @@
                 'feat.mp': 'multiplayer',
                 'feat.levels': 'custom levels',
                 'tab.desc': 'Description',
+                'tab.edu': 'Education',
                 'tab.mcp': 'Scientific MCP',
                 'tab.sysreq': 'System requirements',
                 'tab.news': 'News',
@@ -1328,6 +1452,16 @@
                 'tech.li2': '<strong>Panoramic cameras</strong> of professional grade.',
                 'tech.li3': '<strong>Satellite imagery</strong> from the «Kanopus-V» constellation for orthophoto maps.',
                 'tech.li4': '<strong>GNSS receivers (GLONASS) in RTK mode</strong> — geodetic referencing accurate to the centimetre.',
+                'edu.title': '<i class="fas fa-graduation-cap" style="color: #3C6CE7;"></i> Educational and R&amp;D game environment of the new generation',
+                'edu.text': 'MAS «Snowflake» is built on the principles of systems thinking from first causes and learning through real practice. <strong>Schoolchildren, students and engineers</strong> work in a unified digital environment with scientists and AI agents: designing UAV missions, balancing hydrogen energy and conducting biotechnological experiments — receiving, instead of conventional game points, a <strong>verified scientific result</strong>.',
+                'edu.p1.title': 'Systems thinking',
+                'edu.p1.desc': 'From first causes to construction: understanding connections rather than memorising facts.',
+                'edu.p2.title': 'Learning through practice',
+                'edu.p2.desc': "Real missions on the station's digital twin instead of abstract textbook tasks.",
+                'edu.p3.title': 'Unified environment',
+                'edu.p3.desc': 'Schoolchildren, students, engineers, scientists and AI agents work together.',
+                'edu.p4.title': 'Verified result',
+                'edu.p4.desc': 'Instead of game points — a scientific result confirmed by independent validation.',
                 'mcp.title': '<i class="fas fa-microscope" style="color: #3C6CE7;"></i> Scientific MCP · 20 research servers',
                 'mcp.intro': 'The digital twin of MAS «Snowflake» on <strong>UNIGINE 2</strong> is an extreme testbed for applied research and engineering R&amp;D. Through the standardised <strong>Scientific MCP</strong> protocol the simulation links to <strong>20 specialised compute servers</strong>, grouped into 4 scientific families and one validation platform <strong>WorkflowMCP</strong>.',
                 'mcp.bio.tag': 'BIOMCP · 6 SERVERS',
