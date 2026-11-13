@@ -908,6 +908,18 @@
             color: #B0B5BD;
         }
 
+        .ai-voice {
+            padding: 14px 18px;
+            background: rgba(60, 108, 231, 0.08);
+            border-left: 3px solid #6B8EFF;
+            border-radius: 12px;
+            font-size: 13.5px;
+            line-height: 1.55;
+            color: #D9DDE3;
+            margin-bottom: 14px;
+        }
+        .ai-voice strong { color: #FFFFFF; }
+
         .ai-compat {
             padding: 14px 18px;
             background: #2A2419;
@@ -932,7 +944,6 @@
         @media (max-width: 620px) {
             .mcp-domain-head { flex-direction: column; align-items: flex-start; }
             .mcp-workflow-head { flex-direction: column; align-items: flex-start; }
-            .ai-step-head { flex-direction: column; align-items: flex-start; }
         }
     </style>
 </head>
@@ -1353,6 +1364,10 @@
                             </div>
                         </div>
 
+                        <div class="ai-voice" data-i18n="ai.voice">
+                            <strong>Voice interface:</strong> Yandex SpeechKit provides speech-to-text and text-to-speech inside the VR terminal — the station literally talks with the voice of Alice, and the researcher can dictate hypotheses and mission parameters hands-free while wearing an HMD.
+                        </div>
+
                         <div class="ai-compat" data-i18n="ai.compat">
                             <strong>Architectural compatibility:</strong> connection via the standard OpenAI-compatible protocol <code>ai.api.cloud.yandex.net/v1</code> allows language models to be swapped without changing the Python orchestrator and guarantees 100% import independence of the loop (UNIGINE 2 + VK Play + Yandex Cloud + GitVerse).
                         </div>
@@ -1466,6 +1481,7 @@
                         <li><span class="info-label" data-i18n="side.t6">Physics</span><span class="info-value" data-i18n="side.t6v">micro-relief</span></li>
                         <li><span class="info-label" data-i18n="side.t7">LLM</span><span class="info-value">YandexGPT</span></li>
                         <li><span class="info-label" data-i18n="side.t8">VCS</span><span class="info-value">GitVerse</span></li>
+                        <li><span class="info-label" data-i18n="side.t9">Voice</span><span class="info-value">Yandex SpeechKit</span></li>
                     </ul>
                     <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid #262A32;">
                         <p style="color: #9BB7FF; font-size: 13px; margin-bottom: 4px;"><i class="fas fa-certificate"></i> <strong>UNIGINE</strong></p>
@@ -1480,7 +1496,7 @@
         </div>
 
         <footer class="footer">
-            <div data-i18n="footer.copy">© 2025 VK Play. Demo page of the «Snowflake» digital twin.</div>
+            <div data-i18n="footer.copy">© 2026 VK Play. Demo page of the «Snowflake» digital twin.</div>
             <div class="footer-links">
                 <a href="https://vkplay.ru/legal/terms" target="_blank" data-i18n="footer.terms">Terms of use</a>
                 <a href="https://vkplay.ru/legal/privacy" target="_blank" data-i18n="footer.privacy">Privacy policy</a>
@@ -1653,6 +1669,7 @@
                 'ai.scen.energy.desc': 'Подбор металлоорганических каркасов (MOF) и электролитов для хранения водорода и работы аккумуляторов при температурах до −50 °C.',
                 'ai.scen.eng.tag': 'ТЕКСТ → МИССИЯ БПЛА (ENGMCP)',
                 'ai.scen.eng.desc': 'Генерация полётных заданий и маршрутов вездеходов по рельефу точностью 1–3 см с учётом ветровой нагрузки, связи и запаса хода.',
+                'ai.voice': '<strong>Голосовой интерфейс:</strong> Yandex SpeechKit обеспечивает распознавание речи и синтез голоса прямо в VR-терминале — станция буквально говорит голосом Алисы, а исследователь может диктовать гипотезы и параметры миссий без помощи рук, не снимая шлема.',
                 'ai.compat': '<strong>Архитектурная совместимость:</strong> подключение через стандартный OpenAI-совместимый протокол <code>ai.api.cloud.yandex.net/v1</code> позволяет переключать языковые модели без изменения Python-оркестратора и гарантирует 100% импортонезависимость контура (UNIGINE 2 + VK Play + Yandex Cloud + GitVerse).',
                 'sysreq.title': '<i class="fas fa-desktop"></i> Системные требования',
                 'sysreq.min': 'Минимальные',
@@ -1700,8 +1717,9 @@
                 'side.t6v': 'микрорельеф',
                 'side.t7': 'LLM',
                 'side.t8': 'VCS',
+                'side.t9': 'Голос',
                 'side.cert': 'Единый реестр российских программ для ЭВМ и баз данных, рег. № заявления 298402, реестровый <a href="https://reestr.digital.gov.ru/reestr/2338176/" target="blank">№ 22252</a>.<br>Свидетельство о государственной регистрации программы для ЭВМ <a href="https://unigine.com/ru/company/about/" target="blank">№ 2014660370</a>.<br>Номер товарного знака UNIGINE: <a href="https://unigine.com/ru/company/about/" target="blank">745516</a>.',
-                'footer.copy': '© 2025 VK Play. Демо-страница цифрового двойника «Снежинка».',
+                'footer.copy': '© 2026 VK Play. Демо-страница цифрового двойника «Снежинка».',
                 'footer.terms': 'Пользовательское соглашение',
                 'footer.privacy': 'Конфиденциальность',
                 'footer.help': 'Помощь'
@@ -1868,6 +1886,7 @@
                 'ai.scen.energy.desc': 'Selection of MOFs and electrolytes for hydrogen storage and battery operation at temperatures down to −50 °C.',
                 'ai.scen.eng.tag': 'TEXT → UAV MISSION (ENGMCP)',
                 'ai.scen.eng.desc': 'Generation of flight missions and rover routes over 1–3 cm terrain with wind load, connectivity and range constraints.',
+                'ai.voice': '<strong>Voice interface:</strong> Yandex SpeechKit provides speech-to-text and text-to-speech inside the VR terminal — the station literally talks with the voice of Alice, and the researcher can dictate hypotheses and mission parameters hands-free while wearing an HMD.',
                 'ai.compat': '<strong>Architectural compatibility:</strong> connection via the standard OpenAI-compatible protocol <code>ai.api.cloud.yandex.net/v1</code> allows language models to be swapped without changing the Python orchestrator and guarantees 100% import independence of the loop (UNIGINE 2 + VK Play + Yandex Cloud + GitVerse).',
                 'sysreq.title': '<i class="fas fa-desktop"></i> System requirements',
                 'sysreq.min': 'Minimum',
@@ -1915,8 +1934,9 @@
                 'side.t6v': 'micro-relief',
                 'side.t7': 'LLM',
                 'side.t8': 'VCS',
+                'side.t9': 'Voice',
                 'side.cert': 'Unified register of Russian programs for electronic computers and databases, application reg. No. 298402, registry <a href="https://reestr.digital.gov.ru/reestr/2338176/" target="blank">No. 22252</a>.<br>Certificate of state registration of a computer program <a href="https://unigine.com/ru/company/about/" target="blank">No. 2014660370</a>.<br>UNIGINE trademark number: <a href="https://unigine.com/ru/company/about/" target="blank">745516</a>.',
-                'footer.copy': '© 2025 VK Play. Demo page of the «Snowflake» digital twin.',
+                'footer.copy': '© 2026 VK Play. Demo page of the «Snowflake» digital twin.',
                 'footer.terms': 'Terms of use',
                 'footer.privacy': 'Privacy policy',
                 'footer.help': 'Help'
