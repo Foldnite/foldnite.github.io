@@ -1064,8 +1064,27 @@
                         <div class="tech-block">
                             <p style="margin-bottom: 0;" data-i18n="card.intro"><strong>A game built on the digital twin of the International Scientific Station «Snowflake».</strong> A virtual copy constructed from photogrammetry and geodetic scanning data lets you experience the real operation of the scientific equipment of the member countries of the project. Every detail — from ice structure to module layout — is recreated with an accuracy of 1 to 3 centimetres.</p>
                         </div>
-                        <p data-i18n="card.p1">The project is implemented as an import-independent digital twin for the VK Play platform. We combined industrial UAVs with 8K sensors, professional-grade panoramic cameras and satellite imagery from the «Kanopus-V» constellation. Geodetic referencing via GNSS receivers (GLONASS) in RTK mode provided sub-decimetre terrain accuracy. The result is a complete copy of the area, where every micro-relief feature affects the physics of all-terrain vehicles and snowbikes and the calculation of signal coverage zones.</p>
+                        <p data-i18n="card.p1">The capture workflow combines medium- and high-resolution mapping UAVs (including 8K sensors), professional panoramic / 3D-VR cameras, a tethered underwater remotely operated vehicle (ROV), satellite imagery from the «Kanopus-V» constellation, satellite-derived elevation data, photogrammetry and GNSS/GLONASS RTK georeferencing. These complementary sources were used to reconstruct the station surroundings and terrain for the interactive world. The project owner reports centimetre-scale scene detail; visual fidelity should not be read as an engineering-certified accuracy guarantee for every coordinate without the corresponding survey metadata and control report.</p>
 
+                        <div class="divider"></div>
+                        <div class="tech-block" style="margin-top: 12px;">
+                            <h3 data-i18n="platform.title">Foldnite: from spatial world to validated scientific mission</h3>
+                            <p data-i18n="platform.summary"><strong>Foldnite is a platform for creating scientific game worlds in which spatial assembly, structured scientific objects, computation and result verification are connected in one system of interactive missions.</strong></p>
+                            <p data-i18n="platform.example">MAS «Snowflake» is one concrete world: the Arctic station provides the real spatial and engineering context.</p>
+                            <ul>
+                                <li data-i18n="platform.vbma"><strong>VBMA</strong> supplies the reusable spatial grammar: voxel/block environments plus molecular and other typed node-link structures.</li>
+                                <li data-i18n="platform.sos"> <strong>SOS / SKG / SEM</strong> define scientific objects and states, knowledge relationships, operations, agents, experiments and workflows.</li>
+                                <li data-i18n="platform.uag"><strong>UAG</strong> packages the engine-neutral assembly, object references, constraints, interactions and provenance for runtime adapters.</li>
+                                <li data-i18n="platform.factory"><strong>Mission Factory</strong> turns an approved scientific or engineering brief into a governed mission contract, scenario and materialisation plan.</li>
+                                <li data-i18n="platform.engine"><strong>UNIGINE 2</strong> supplies the visual and physics-simulation runtime for the Arctic world; other runtimes require their own adapters and qualification.</li>
+                                <li data-i18n="platform.mcp"><strong>Scientific MCP and QSIS</strong> connect approved scientific tools and typed interoperable service contracts.</li>
+                                <li data-i18n="platform.validation"><strong>Validation Fabric</strong> separates raw computation and simulation from independent, claim-specific validation.</li>
+                                <li data-i18n="platform.evidence"><strong>Evidence</strong> binds accepted results to exact inputs, versions, sources and validation records and can return them to the scientific graph.</li>
+                            </ul>
+                            <p data-i18n="platform.bricks">Construction-brick / LEGO-like modular composition is a long-standing part of Foldnite's world-building language, not a new third-party dependency. Any LEGO-owned or other protected assets remain subject to separate rights and permissions.</p>
+                            <p data-i18n="platform.boundary">A generated scene, particle effect, game score, AI suggestion or successful MCP response is not scientific evidence by itself. Only the governed validation path can assign the appropriate evidence status.</p>
+                        </div>
+                        <div class="divider"></div>
                         <p data-i18n="card.weather"><i class="fas fa-cloud-sun"></i> <strong>Dynamic weather and day-night cycle</strong> — blizzards, polar night, the northern lights — all of this changes the gameplay and demands adaptation.</p>
 
                         <h3 style="margin-top: 30px;" data-i18n="zone.title">🪐 Key station zones</h3>
@@ -1221,7 +1240,9 @@
                             <li data-i18n="tech.li1"><strong>Industrial UAVs</strong> with 8K sensors for detailed surveying.</li>
                             <li data-i18n="tech.li2"><strong>Panoramic cameras</strong> of professional grade.</li>
                             <li data-i18n="tech.li3"><strong>Satellite imagery</strong> from the «Kanopus-V» constellation for orthophoto maps.</li>
-                            <li data-i18n="tech.li4"><strong>GNSS receivers (GLONASS) in RTK mode</strong> — geodetic referencing accurate to the centimetre.</li>
+                            <li data-i18n="tech.li4"><strong>GNSS receivers (GLONASS) in RTK mode</strong> — geodetic referencing for spatial alignment.</li>
+                            <li data-i18n="tech.li5"><strong>Underwater ROV</strong> for visual inspection and capture of submerged environments.</li>
+                            <li data-i18n="tech.li6"><strong>Photogrammetry and geodetic processing</strong> to align source captures and build the scene-level spatial reconstruction.</li>
                         </ul>
 
                         <div class="note" data-i18n="card.note">
@@ -1601,6 +1622,19 @@
                 'tab.news': 'Новости',
                 'tab.disc': 'Обсуждения',
                 'tab.support': 'Поддержка',
+                'platform.title': "Foldnite: от пространственного мира к проверяемой научной миссии",
+                'platform.summary': "<strong>Foldnite — это платформа для создания научных игровых миров, в которых пространственная сборка, структурированные научные объекты, вычисления и проверка результатов соединяются в единую систему интерактивных миссий.</strong>",
+                'platform.example': "МАС «Снежинка» — конкретный пример такого мира: арктическая станция задаёт реальный пространственный и инженерный контекст.",
+                'platform.vbma': "<strong>VBMA</strong> задаёт повторно используемую пространственную грамматику: воксельно-блочное окружение и молекулярные и другие типизированные графы узлов и связей.",
+                'platform.sos': "<strong>SOS / SKG / SEM</strong> описывают научные объекты и состояния, связи знаний, операции, агентов, эксперименты и рабочие процессы.",
+                'platform.uag': "<strong>UAG</strong> упаковывает независимую от движка сборку, ссылки на объекты, ограничения, взаимодействия и происхождение данных для runtime-адаптеров.",
+                'platform.factory': "<strong>Mission Factory</strong> превращает утверждённую научную или инженерную задачу в управляемый контракт миссии, сценарий и план материализации.",
+                'platform.engine': "<strong>UNIGINE 2</strong> обеспечивает визуализацию и физическую симуляцию арктического мира; другим runtime требуются собственные адаптеры и квалификация.",
+                'platform.mcp': "<strong>Scientific MCP и QSIS</strong> подключают разрешённые научные инструменты и типизированные интероперабельные контракты сервисов.",
+                'platform.validation': "<strong>Validation Fabric</strong> отделяет необработанный результат вычисления или симуляции от независимой проверки конкретного научного утверждения.",
+                'platform.evidence': "<strong>Evidence</strong> связывает принятые результаты с точными входными данными, версиями, источниками и записями валидации и может возвращать их в научный граф.",
+                'platform.bricks': "Модульная визуальная грамматика строительных блоков в духе LEGO давно входит в язык проектирования миров Foldnite и не является новой сторонней зависимостью. Использование принадлежащих LEGO или других защищённых ассетов регулируется отдельными правами и разрешениями.",
+                'platform.boundary': "Сгенерированная сцена, эффект частиц, игровой счёт, предложение AI или успешный ответ MCP сами по себе не являются научным доказательством. Статус evidence присваивается только через установленный процесс валидации.",
                 'card.title': '<i class="fas fa-snowflake" style="color: #3C6CE7;"></i> Цифровой двойник МАС «Снежинка» — реальность с точностью до сантиметра',
                 'card.intro': '<strong>Игра на основе цифрового двойника Международной научной станции «Снежинка».</strong> Виртуальная копия, построенная по данным фотограмметрии и геодезического сканирования, позволит вам испытать реальную работу научного оборудования стран-участниц проекта. Каждая деталь — от структуры льда до расположения модулей — воссоздана с точностью от 1 до 3 сантиметров.',
                 'card.p1': 'Проект реализован как импортонезависимый цифровой двойник для платформы VK Play. Мы объединили промышленные БПЛА с 8K-сенсорами, панорамные камеры профессионального класса и спутниковые снимки группировки «Канопус-В». Геодезическая привязка через GNSS-приемники (ГЛОНАСС) в режиме RTK обеспечила субдециметровую точность рельефа. Результат — полная копия местности, где каждый микрорельеф влияет на физику движения вездеходов, сноубайков и расчёт зон покрытия связи.',
@@ -1663,10 +1697,12 @@
                 'loop.p2': 'Каждое действие требует понимания работы реального оборудования и влияет на общий успех миссии.',
                 'tech.title': '📡 Технологии создания',
                 'tech.p': 'Мы использовали связку передовых методов:',
-                'tech.li1': '<strong>Промышленные БПЛА</strong> с 8K-сенсорами для детальной съёмки.',
-                'tech.li2': '<strong>Панорамные камеры</strong> профессионального класса.',
-                'tech.li3': '<strong>Спутниковые снимки</strong> группировки «Канопус-В» для ортофотопланов.',
-                'tech.li4': '<strong>GNSS-приёмники (ГЛОНАСС) в режиме RTK</strong> — геодезическая привязка с точностью до сантиметра.',
+                'tech.li1': "<strong>Картографические БПЛА среднего и высокого разрешения</strong>, в том числе с 8K-сенсорами, для съёмки местности.",
+                'tech.li2': "<strong>Профессиональные панорамные и 3D/VR-камеры</strong> для пространственной фиксации окружения.",
+                'tech.li3': "<strong>Спутниковые снимки «Канопус-В» и спутниковые модели высот</strong> для картографической основы и рельефа.",
+                'tech.li4': "<strong>GNSS-приёмники (ГЛОНАСС) в режиме RTK</strong> для геодезической привязки и согласования источников.",
+                'tech.li6': "<strong>Фотограмметрия и геодезическая обработка</strong> для совмещения исходных данных и построения пространственной реконструкции сцены.",
+                'tech.li5': "<strong>Подводный ROV</strong> для визуального осмотра и съёмки подводной среды.",
                 'edu.title': '<i class="fas fa-graduation-cap" style="color: #3C6CE7;"></i> Образовательная и R&amp;D-игросреда: 9 принципов «Мира знаний Сириуса»',
                 'edu.text': 'Архитектура цифрового двойника МАС «Снежинка» проектировалась с опорой на 9 базовых принципов образовательной игросреды — от доступности на любых устройствах до доказательной научной валидации через <strong>Scientific MCP</strong>.',
                 'edu.p1.num': '01 · ДОСТУПНОСТЬ',
@@ -1823,6 +1859,19 @@
                 'tab.news': 'News',
                 'tab.disc': 'Discussions',
                 'tab.support': 'Support',
+                'platform.title': "Foldnite: from spatial world to validated scientific mission",
+                'platform.summary': "<strong>Foldnite is a platform for creating scientific game worlds in which spatial assembly, structured scientific objects, computation and result verification are connected in one system of interactive missions.</strong>",
+                'platform.example': "MAS «Snowflake» is one concrete world: the Arctic station provides the real spatial and engineering context.",
+                'platform.vbma': "<strong>VBMA</strong> supplies the reusable spatial grammar: voxel/block environments plus molecular and other typed node-link structures.",
+                'platform.sos': "<strong>SOS / SKG / SEM</strong> define scientific objects and states, knowledge relationships, operations, agents, experiments and workflows.",
+                'platform.uag': "<strong>UAG</strong> packages the engine-neutral assembly, object references, constraints, interactions and provenance for runtime adapters.",
+                'platform.factory': "<strong>Mission Factory</strong> turns an approved scientific or engineering brief into a governed mission contract, scenario and materialisation plan.",
+                'platform.engine': "<strong>UNIGINE 2</strong> supplies the visual and physics-simulation runtime for the Arctic world; other runtimes require their own adapters and qualification.",
+                'platform.mcp': "<strong>Scientific MCP and QSIS</strong> connect approved scientific tools and typed interoperable service contracts.",
+                'platform.validation': "<strong>Validation Fabric</strong> separates raw computation and simulation from independent, claim-specific validation.",
+                'platform.evidence': "<strong>Evidence</strong> binds accepted results to exact inputs, versions, sources and validation records and can return them to the scientific graph.",
+                'platform.bricks': "Construction-brick / LEGO-like modular composition is a long-standing part of Foldnite's world-building language, not a new third-party dependency. Any LEGO-owned or other protected assets remain subject to separate rights and permissions.",
+                'platform.boundary': "A generated scene, particle effect, game score, AI suggestion or successful MCP response is not scientific evidence by itself. Only the governed validation path can assign the appropriate evidence status.",
                 'card.title': '<i class="fas fa-snowflake" style="color: #3C6CE7;"></i> Digital twin of MAS «Snowflake» — reality accurate to a centimetre',
                 'card.intro': '<strong>A game built on the digital twin of the International Scientific Station «Snowflake».</strong> A virtual copy constructed from photogrammetry and geodetic scanning data lets you experience the real operation of the scientific equipment of the member countries of the project. Every detail — from ice structure to module layout — is recreated with an accuracy of 1 to 3 centimetres.',
                 'card.p1': 'The project is implemented as an import-independent digital twin for the VK Play platform. We combined industrial UAVs with 8K sensors, professional-grade panoramic cameras and satellite imagery from the «Kanopus-V» constellation. Geodetic referencing via GNSS receivers (GLONASS) in RTK mode provided sub-decimetre terrain accuracy. The result is a complete copy of the area, where every micro-relief feature affects the physics of all-terrain vehicles and snowbikes and the calculation of signal coverage zones.',
@@ -1885,10 +1934,12 @@
                 'loop.p2': 'Every action requires an understanding of how real equipment works and affects the overall success of the mission.',
                 'tech.title': '📡 Creation technologies',
                 'tech.p': 'We used a combination of advanced methods:',
-                'tech.li1': '<strong>Industrial UAVs</strong> with 8K sensors for detailed surveying.',
-                'tech.li2': '<strong>Panoramic cameras</strong> of professional grade.',
-                'tech.li3': '<strong>Satellite imagery</strong> from the «Kanopus-V» constellation for orthophoto maps.',
-                'tech.li4': '<strong>GNSS receivers (GLONASS) in RTK mode</strong> — geodetic referencing accurate to the centimetre.',
+                'tech.li1': "<strong>Medium- and high-resolution mapping UAVs</strong>, including 8K-sensor platforms, for terrain capture.",
+                'tech.li2': "<strong>Professional panoramic and 3D/VR cameras</strong> for spatial capture of the environment.",
+                'tech.li3': "<strong>«Kanopus-V» satellite imagery and satellite-derived elevation products</strong> for mapping and terrain context.",
+                'tech.li4': "<strong>GNSS receivers (GLONASS) in RTK mode</strong> for geodetic control and source alignment.",
+                'tech.li6': "<strong>Photogrammetry and geodetic processing</strong> to align source captures and build the scene-level spatial reconstruction.",
+                'tech.li5': "<strong>Underwater ROV</strong> for visual inspection and capture of submerged environments.",
                 'edu.title': '<i class="fas fa-graduation-cap" style="color: #3C6CE7;"></i> Educational and R&amp;D game environment: 9 principles of the Sirius «World of Knowledge»',
                 'edu.text': 'The architecture of the MAS «Snowflake» digital twin was designed around 9 foundational principles of an educational game environment — from accessibility on any device to evidence-based scientific validation via <strong>Scientific MCP</strong>.',
                 'edu.p1.num': '01 · ACCESSIBILITY',
