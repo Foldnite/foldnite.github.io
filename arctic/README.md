@@ -1,6 +1,6 @@
 # Foldnite Arctic — MAS “Snezhinka”
 
-**A scientific game world based on the Arctic research station MAS “Snezhinka”.** Available at VK Play.
+**A scientific game-world concept based on the Arctic research station MAS “Snezhinka”.** The public page is a VK Play-oriented product presentation; this README does not assert that a live VK Play listing or downloadable release is available.
 
 ![](https://foldnite.github.io/arctic/assets/img/mas-sn2.jpg)
 
@@ -78,6 +78,56 @@ The project owner reports that the Arctic world’s source workflow used medium-
 
 The current VBMA/SOS/UAG integration is a governed design/standardisation path; the existence of a document or schema does not by itself mean the world compiler, runtime adapters or scientific validation path are fully deployed.
 
+
+### Educational alignment with SiriusPlay: MAS “Snezhinka” as a complementary Arctic science world
+
+The public [World of Knowledge of Sirius](https://siriusplay.ru/) page describes it as a joint project of the Federal Territory of Sirius and Lesta Games. It says that a child develops through play, meaning, choice and experience rather than grades and templates. The page sets out four main principles and five elements of the participant experience. The mapping below uses the wording published on that page.
+
+**Compatibility assessment:** the Foldnite / MAS “Snezhinka” concept has no inherent conflict with these principles. It can serve as a specialised Arctic science-and-engineering world within a broader SiriusPlay learning journey, provided learner agency, accessibility, mentor involvement and the distinction between game progress and scientific evidence are preserved. This is a Foldnite design proposal, not a SiriusPlay approval, accreditation, partnership announcement or proof of a live integration.
+
+| SiriusPlay principle | Proposed application in MAS “Snezhinka” | Required guardrail |
+|---|---|---|
+| **Accessibility** | Offer beginner and advanced mission paths, clear onboarding, non-VR participation and a route suitable for supervised classroom use. | The current Arctic page lists Windows 11, Core i7-12700K, 32 GB RAM and RTX 3080 as minimum PC specifications. A high-spec PC-only route would not satisfy an “accessible to everyone” objective. Browser, cloud or institution-provided access remains a target until it is tested and deployed; VR must remain optional. |
+| **Thinking from first causes** | Make cause-and-effect relationships visible across station energy, weather, transport, communications, biology and life-support systems. Ask learners why a system behaves as it does, not only which button to press. | Show assumptions, units and simplifications. A game model must not be presented as a measured property of the real station unless source data supports that claim. |
+| **Social learning** | Use cooperative roles such as researcher, engineer, analyst and coordinator; make teams compare hypotheses, share findings and explain decisions. | Avoid making individual leaderboards or speed the main definition of success. Support mentor-led and small-group modes where live multiplayer is not available or qualified. |
+| **Engagement through play** | Use exploration, meaningful objectives, discovery, feedback and visible consequences to sustain effort. | Rewards and game scores measure game progression only. They must not override scientific correctness, learner wellbeing or the mission’s declared acceptance criteria. |
+| **Belonging to something larger** | Place missions in the context of Arctic research, autonomous stations, climate, energy, robotics and international scientific work. | Distinguish real-world context from fictionalised or simulated events. Do not claim that player actions contribute to live station operations or real research unless a specific authorised workflow proves it. |
+| **Responsibility through consequences** | Let learners observe how decisions affect simulated energy reserves, logistics, communications, environmental conditions and life-support margins. | Consequences must be clearly labelled as simulated where appropriate. The educational client must not control real station equipment or be mistaken for an operational decision-support system. |
+| **Independent choice of path** | Let each learner choose a role, task order, difficulty and permitted problem-solving route within a mission. Offer alternative approaches to the same learning objective. | Mission Inception and Mission Contracts define scientific scope, safe actions, permitted tools and evidence requirements; they should not prescribe one compulsory learner journey when several safe routes are possible. |
+| **Living, adaptive environment** | Let learner ideas, annotations, world-building proposals and mission variants become candidates for future content. Provide visible ways to suggest and discuss improvements. | Community suggestions enter a review pipeline. Mentor, moderation, rights, privacy, safety and scientific review are required before publication; user-generated content is not silently promoted into the canonical scientific world. |
+| **Experience rather than memorisation** | Make learning experiential: explore, build, manipulate, simulate, compare, discuss and finish with a structured debrief. Ask learners to explain what they changed and why. | Do not reduce the experience to quizzes or recall tests. A scientific Evidence record is not a learner grade and must not be used as a proxy for a child’s talent or overall educational progress. |
+
+#### Keep learner progress and scientific Evidence separate
+
+Foldnite’s governance can reinforce SiriusPlay’s learner-centred approach if two different kinds of status remain distinct:
+
+- **Learning experience:** the learner’s chosen path, role, collaboration, reflection, mentor feedback and personal progress.
+- **Scientific result:** whether a specific claim or candidate satisfies a mission-bound protocol and an appropriate claim-specific validation process.
+
+A Mission Contract may constrain scientific inputs, tools, safety and claim scope without forcing a single pedagogical route. Likewise, ACCEPTED, REJECTED or INDETERMINATE scientific outcomes describe the submitted result under its protocol; they are not grades for the learner. The mission should reward curiosity, explanation, teamwork and responsible experimentation, not merely a high score or a favourable scientific outcome.
+
+#### Proposed SiriusPlay integration boundary
+
+The most compatible model is **SiriusPlay as the broader educational entry point and learning journey; Foldnite / MAS “Snezhinka” as a specialised interactive Arctic science world**. This is a product-integration proposal, not a proposal to replace SiriusPlay’s world, merge its game engine with UNIGINE, or require SiriusPlay to adopt qFoldIT’s internal schemas.
+
+1. **Discover and prepare in SiriusPlay:** an educator or learner selects an approved Arctic science experience, age/skill level and learning objective.
+2. **Launch the Foldnite world through an authorised hand-off:** a link, launch integration or other mechanism agreed with the SiriusPlay technical owner opens the appropriate Snezhinka experience. The exact mechanism (including any SSO, embedding or SDK) must be confirmed; no public SiriusPlay API or authentication contract is assumed here.
+3. **Explore and solve in Foldnite:** UNIGINE 2 presents the Arctic environment; VBMA organises spatial and node-link views; SOS/SKG/SEM and the approved Mission Contract preserve scientific meaning and action boundaries.
+4. **Return a minimal learning summary:** with the required permissions, Foldnite may return a mission identifier/version, completion state, learner reflection and mentor-facing summary. A scientific validation status or Evidence reference is included only when that result actually exists and is authorised for sharing. Avoid exporting raw behavioural telemetry or unnecessary personal data.
+5. **Continue the learner journey in SiriusPlay:** the result can inform the next optional activity, discussion or mentor review without turning scientific acceptance into a student ranking.
+
+Before implementation, the parties would need to agree the content catalogue and launch interface, identity and age/consent model, permitted data exchange, mentor/moderation responsibilities, accessibility targets, service support, content ownership and acceptance process. Public SiriusPlay materials describe its educational principles and product positioning, but do not establish that these integration interfaces are available to Foldnite.
+
+#### Conditions to close before calling this an integration
+
+- **Accessibility:** prove at least one non-VR, lower-friction access route on the devices actually used by the target learners. Cloud/WebStream is a proposed option, not a verified deployed substitute for the current high PC requirements.
+- **Pedagogy:** co-design age-appropriate mission variants with educators and mentors. Keep learner choice and reflection visible; do not make opaque AI profiling or automated difficulty assignment the sole determinant of a learner’s path.
+- **Child safety and data:** agree age-appropriate supervision, consent, data minimisation, retention, moderation and escalation rules before any student pilot.
+- **Scientific and operational safety:** label simulations, AI proposals and computed outputs accurately; keep the educational world isolated from real station controls and operational systems.
+- **Rights and licensing:** obtain written permission for the relevant SiriusPlay/Lesta names, logos, materials and any platform integration. The Foldnite repository now carries a Restricted Proprietary License dated 15 November 2026; external use, hosting, modification or distribution of Foldnite-owned material requires the specific written authorisation or agreement. Third-party assets and datasets retain their own licence requirements.
+- **Partner status:** until a written agreement and technical acceptance exist, describe the relationship as “proposed SiriusPlay integration” or “designed for potential compatibility”, not as an official SiriusPlay product, approved curriculum or existing partnership.
+
+Primary reference: [World of Knowledge of Sirius — official principles](https://siriusplay.ru/). Related public project context: [Sirius innovation and technology centre resident directory](https://intc.sirius.ru/residents/).
 
 ## 3. Cloud-first gaming
 
