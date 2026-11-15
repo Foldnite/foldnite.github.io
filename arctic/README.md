@@ -10,12 +10,14 @@ Foldnite combines **STEM + Foldit-inspired scientific problem-solving + Fortnite
 
 ## 1. Product scope
 
-The world is planned around seven station domains: energy; climate and environment;
-1. biology and medicine;
-2. robotics and transport; 
-3. materials and engineering; 
-4. connectivity and control; 
-5. living and life support.
+The world is planned around seven station domains: 
+1. energy; 
+2. climate and environment;
+3. biology and medicine;
+4. robotics and transport; 
+5. materials and engineering; 
+6. connectivity and control; 
+7. living and life support.
 
 ![](https://foldnite.github.io/arctic/assets/img/mas-sn1.jpg)
 
