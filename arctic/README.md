@@ -1,8 +1,8 @@
 # Foldnite Arctic — MAS “Snezhinka”
 
-![](https://foldnite.github.io/arctic/assets/img/mas-sn2.jpg)
-
 **A scientific game world based on the Arctic research station MAS “Snezhinka”.**
+
+![](https://foldnite.github.io/arctic/assets/img/mas-sn2.jpg)
 
 Foldnite combines **STEM + Foldit-inspired scientific problem-solving + Fortnite-inspired worlds (UEFN) + quantum computing**. Players explore the station, operate virtual equipment, travel across the Arctic, and solve team missions.
 
@@ -10,9 +10,14 @@ Foldnite combines **STEM + Foldit-inspired scientific problem-solving + Fortnite
 
 ## 1. Product scope
 
-![](https://foldnite.github.io/arctic/assets/img/mas-sn1.jpg)
+The world is planned around seven station domains: energy; climate and environment;
+1. biology and medicine;
+2. robotics and transport; 
+3. materials and engineering; 
+4. connectivity and control; 
+5. living and life support.
 
-The world is planned around seven station domains: energy; climate and environment; biology and medicine; robotics and transport; materials and engineering; connectivity and control; living and life support.
+![](https://foldnite.github.io/arctic/assets/img/mas-sn1.jpg)
 
 Initial budgeting assumptions:
 
