@@ -1,6 +1,6 @@
 # Foldnite Arctic — MAS “Snezhinka”
 
-**A scientific game world based on the Arctic research station MAS “Snezhinka”.**
+**A scientific game world based on the Arctic research station MAS “Snezhinka”.** Available at VK Play.
 
 ![](https://foldnite.github.io/arctic/assets/img/mas-sn2.jpg)
 
