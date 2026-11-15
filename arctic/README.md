@@ -55,6 +55,30 @@ References:
 - [UEFN documentation](https://dev.epicgames.com/documentation/fortnite/unreal-editor-for-fortnite)
 - [Epic Pixel Streaming](https://dev.epicgames.com/documentation/unreal-engine/pixel-streaming-in-unreal-engine)
 
+### Foldnite mission architecture: VBMA + SOS/UAG
+
+**Foldnite is a platform for creating scientific game worlds in which spatial assembly, structured scientific objects, computation and result verification are connected in one system of interactive missions.** MAS “Snezhinka” is a concrete Arctic example, not the only target world.
+
+The layers have distinct responsibilities:
+
+- **VBMA (Voxel–Block–Molecular Architecture):** reusable block-based spaces and terrain, plus typed node-link representations for molecular structures, equipment, mechanisms and scientific relationships.
+- **SOS / SKG / SEM:** canonical scientific object types and states, knowledge relationships, operations, agents, experiments, workflows, measurements and provenance.
+- **UAG:** the engine-neutral assembly package that references semantic objects, world nodes, interactions, constraints, source hashes and runtime requirements.
+- **Mission Factory / Mission Production Compiler:** transform an approved scientific or engineering brief into a Mission Contract, Gameplay IR and bounded materialisation plan. Raw prompts do not directly become unrestricted editor operations.
+- **UNIGINE 2:** the Arctic world’s visual and physics-simulation runtime. UEFN/Fortnite, Unity, Web, VR and standalone builds remain separate runtime targets requiring explicit adapters and qualification.
+- **Scientific MCP / QSIS:** route authorised computation through typed, versioned capabilities and reproducible job records.
+- **Validation Fabric:** keeps simulation, AI proposals and raw computation separate from independent claim-specific validation.
+- **Evidence:** binds accepted results to exact inputs, revisions, tool/model versions, sources and validator records, and can return validated knowledge to the scientific graph.
+
+**Construction-brick / LEGO-like modular composition is a long-standing part of Foldnite’s architecture and visual language.** It is not a claim of official LEGO affiliation or permission to use LEGO-owned assets; asset-level rights remain separately governed.
+
+### Spatial capture and geospatial provenance
+
+The project owner reports that the Arctic world’s source workflow used medium- and high-resolution mapping UAVs, satellite-derived elevation products and satellite imagery, GNSS/GLONASS RTK georeferencing, professional panoramic/3D-VR capture, an underwater ROV, and photogrammetric/geodetic processing. The owner reports that the combined material enabled photorealistic, centimetre-scale scene detail. The capture modalities and submitted reference photographs are recorded in the partnership evidence register. For engineering use, any quantitative accuracy claim must be tied to source datasets, coordinate and vertical datums, calibration/ground-control residuals, processing versions and exact dataset/build hashes.
+
+The current VBMA/SOS/UAG integration is a governed design/standardisation path; the existence of a document or schema does not by itself mean the world compiler, runtime adapters or scientific validation path are fully deployed.
+
+
 ## 3. Cloud-first gaming
 
 A remote GPU session renders the world and streams video/audio to a browser or lightweight client. The device still decodes the stream and sends input, so latency, packet loss, codec support, and network quality matter.
